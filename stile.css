@@ -1,0 +1,115 @@
+/* Stile CSS per il sito a tema crittografia */
+
+/* Imposta uno sfondo scuro con un motivo ispirato alla crittografia */
+body {
+    background-color: #1b1b2f;
+    color: #e4e4e4;
+    font-family: 'Courier New', Courier, monospace; /* Font stile macchina da scrivere */
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background-image: radial-gradient(circle, #1b1b2f, #162447);
+}
+
+/* Stile per il titolo principale */
+h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #66fcf1; /* Colore verde neon */
+    text-shadow: 0 0 10px #66fcf1, 0 0 20px #45a29e;
+    margin-top: 20px;
+}
+
+/* Stile per il menu di navigazione */
+nav {
+    background-color: #0f3460; /* Blu scuro */
+    padding: 10px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav a {
+    color: #e4e4e4;
+    text-decoration: none;
+    font-weight: bold;
+    margin-right: 15px;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+nav a:hover {
+    color: #66fcf1;
+    text-shadow: 0 0 5px #66fcf1;
+}
+
+/* Stile per il breadcrumb */
+p > a {
+    color: #45a29e;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+p > a:hover {
+    color: #66fcf1;
+    text-shadow: 0 0 5px #66fcf1;
+}
+
+/* Stile per i link nel testo */
+a {
+    color: #66fcf1;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+a:hover {
+    color: #45a29e;
+    text-shadow: 0 0 5px #45a29e;
+}
+
+/* Stile per i paragrafi */
+p {
+    text-align: center;
+    margin: 20px 0;
+}
+
+/* Effetto crittografia per sfondo del corpo */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://www.transparenttextures.com/patterns/cubes.png'); /* Motivo ispirato alla crittografia */
+    opacity: 0.05;
+    z-index: -1;
+}
+
+/* Stile per i contenuti centrati */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgba(15, 52, 96, 0.8);
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Aggiunge un'animazione al caricamento della pagina */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+body, h1, nav, p {
+    animation: fadeIn 1s ease-in-out;
+}
