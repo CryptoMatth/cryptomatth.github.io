@@ -35,12 +35,29 @@ nav ul li a:hover {
     text-shadow: 0 0 5px #45a29e;
 }
 
-/* Stile per le voci espandibili */
+/* Freccia accanto alla voce "Cartella" */
+nav ul li .expandable .arrow {
+    display: inline-block; /* Per assicurarsi che la freccia sia accanto al testo */
+    margin-left: 5px; /* Spazio tra il testo e la freccia */
+    transition: transform 0.3s ease; /* Animazione per la rotazione */
+}
+
+/* Ruota la freccia verso il basso quando il menu è aperto */
+nav ul li.open .arrow {
+    transform: rotate(90deg); /* Ruota la freccia di 90° */
+}
+
+/* Nascondi il sottomenu inizialmente */
 nav ul li .submenu {
     list-style: none;
     padding-left: 20px;
     margin-top: 5px;
-    display: none; /* Nascondi il sottomenu inizialmente */
+    display: none; /* Nasconde il sottomenu */
+}
+
+/* Mostra il sottomenu quando l'elemento ha la classe "open" */
+nav ul li.open .submenu {
+    display: block; /* Mostra il sottomenu */
 }
 
 nav ul li .submenu li a {
@@ -50,11 +67,6 @@ nav ul li .submenu li a {
 
 nav ul li .submenu li a:hover {
     color: #66fcf1;
-}
-
-/* Stile per le voci espandibili quando sono visibili */
-nav ul li.open .submenu {
-    display: block; /* Mostra il sottomenu */
 }
 
 /* Contenuto principale */
