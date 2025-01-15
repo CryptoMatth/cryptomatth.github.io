@@ -5,6 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Latex con MathJax</title>
+    <!-- Configurazione di MathJax -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+        };
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
@@ -16,7 +24,6 @@
                 <li><a href="/pagina2.html">Seconda Pagina</a></li>
                 <li><a href="/pages/pagina3.html">Pagina in Sottocartella</a></li>
                 <li><a href="#">Latex con MathJax</a></li>
-                <!-- Aggiungi qui altri link alle sezioni -->
             </ul>
         </nav>
     </div>
