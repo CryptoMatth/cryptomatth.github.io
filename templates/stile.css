@@ -9,55 +9,43 @@ body {
     padding: 0;
     line-height: 1.6;
     background-image: radial-gradient(circle, #1b1b2f, #162447);
-    display: flex;
+    display: flex; /* Flexbox per gestire layout barra laterale + contenuto */
 }
 
-/* Stile per la barra laterale */
-nav ul {
+/* Barra laterale */
+#sidebar-container {
+    width: 250px;
+    background-color: #0f3460; /* Blu scuro */
+    color: #e4e4e4;
+    height: 100vh; /* Altezza della barra laterale pari all'intera finestra */
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+    position: fixed; /* Fissa la barra laterale */
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+#sidebar-container nav ul {
     list-style: none;
     padding: 0;
-    margin: 0;
 }
 
-nav ul li {
-    margin-bottom: 10px;
+#sidebar-container nav ul li {
+    margin: 15px 0;
 }
 
-nav ul li a {
+#sidebar-container nav ul li a {
+    color: #e4e4e4;
     text-decoration: none;
-    color: #66fcf1;
     font-weight: bold;
     transition: color 0.3s ease, text-shadow 0.3s ease;
+    display: block;
 }
 
-nav ul li a:hover {
-    color: #45a29e;
-    text-shadow: 0 0 5px #45a29e;
-}
-
-/* Freccia accanto alla voce "Cartella" */
-nav ul li .expandable .arrow {
-    display: inline-block;
-    margin-left: 5px;
-    transition: transform 0.3s ease; /* Animazione per la rotazione */
-}
-
-/* Ruota la freccia verso il basso quando il menu è aperto */
-nav ul li.open .arrow {
-    transform: rotate(90deg); /* Ruota la freccia di 90° */
-}
-
-/* Nascondi il sottomenu inizialmente */
-nav ul li .submenu {
-    list-style: none;
-    padding-left: 20px;
-    margin-top: 5px;
-    display: none; /* Nasconde il sottomenu */
-}
-
-/* Mostra il sottomenu quando l'elemento ha la classe "open" */
-nav ul li.open .submenu {
-    display: block; /* Mostra il sottomenu */
+#sidebar-container nav ul li a:hover {
+    color: #66fcf1;
+    text-shadow: 0 0 5px #66fcf1;
 }
 
 /* Contenuto principale */
@@ -99,6 +87,38 @@ nav a:hover {
     text-shadow: 0 0 5px #66fcf1;
 }
 
+/* Stile per il breadcrumb */
+p > a {
+    color: #45a29e;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+p > a:hover {
+    color: #66fcf1;
+    text-shadow: 0 0 5px #66fcf1;
+}
+
+/* Stile per i link nel testo */
+a {
+    color: #66fcf1;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+a:hover {
+    color: #45a29e;
+    text-shadow: 0 0 5px #45a29e;
+}
+
+/* Stile per i paragrafi */
+p {
+    text-align: center;
+    margin: 20px 0;
+}
+
 /* Effetto crittografia per sfondo del corpo */
 body::before {
     content: "";
@@ -110,4 +130,30 @@ body::before {
     background-image: url('https://www.transparenttextures.com/patterns/cubes.png'); /* Motivo ispirato alla crittografia */
     opacity: 0.05;
     z-index: -1;
+}
+
+/* Stile per i contenuti centrati */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgba(15, 52, 96, 0.8);
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Aggiunge un'animazione al caricamento della pagina */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+body, h1, nav, p {
+    animation: fadeIn 1s ease-in-out;
 }
