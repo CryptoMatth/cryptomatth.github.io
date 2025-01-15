@@ -1,1 +1,173 @@
+/* Stile CSS per il sito a tema crittografia */
 
+/* Imposta uno sfondo scuro con un motivo ispirato alla crittografia */
+body {
+    background-color: #1b1b2f;
+    color: #e4e4e4;
+    font-family: 'Courier New', Courier, monospace; /* Font stile macchina da scrivere */
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background-image: radial-gradient(circle, #1b1b2f, #162447);
+    display: flex; /* Flexbox per gestire layout barra laterale + contenuto */
+}
+
+/* Stile per la barra laterale */
+nav {
+    width: 250px; /* Larghezza fissa della barra laterale */
+    background-color: #0f3460; /* Blu scuro */
+    padding: 10px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    position: sticky;
+    top: 0;
+    flex-shrink: 0; /* Impedisce il ridimensionamento */
+    z-index: 1000;
+    height: 100vh; /* La barra laterale occupa l'intera altezza della finestra */
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    margin-bottom: 10px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #66fcf1;
+    font-weight: bold;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #45a29e;
+    text-shadow: 0 0 5px #45a29e;
+}
+
+/* Stile per le voci espandibili */
+nav ul li .submenu {
+    list-style: none;
+    padding-left: 20px;
+    margin-top: 5px;
+    display: none; /* Nascondi il sottomenu inizialmente */
+}
+
+nav ul li .submenu li a {
+    font-weight: bold; /* Stesso stile delle altre voci */
+    color: #66fcf1;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+nav ul li .submenu li a:hover {
+    color: #45a29e;
+}
+
+/* Stile per le voci espandibili quando sono visibili */
+nav ul li.open .submenu {
+    display: block; /* Mostra il sottomenu */
+}
+
+/* Stile per la freccia accanto alle voci espandibili */
+.arrow {
+    display: inline-block;
+    transition: transform 0.3s ease;
+    margin-right: 5px;
+}
+
+.open > a .arrow {
+    transform: rotate(90deg);
+}
+
+/* Contenuto principale */
+#main-content {
+    margin: 0 auto; /* Centra il contenuto orizzontalmente */
+    padding: 20px;
+    max-width: calc(100% - 250px); /* Considera la larghezza della barra laterale */
+    flex-grow: 1; /* Fa in modo che il contenuto occupi tutto lo spazio disponibile */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra gli elementi all'interno del contenitore */
+}
+
+/* Stile per il titolo principale */
+h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #66fcf1; /* Colore verde neon */
+    text-shadow: 0 0 10px #66fcf1, 0 0 20px #45a29e;
+    margin-top: 20px;
+}
+
+/* Stile per il breadcrumb */
+p > a {
+    color: #45a29e;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+p > a:hover {
+    color: #66fcf1;
+    text-shadow: 0 0 5px #66fcf1;
+}
+
+/* Stile per i link nel testo */
+a {
+    color: #66fcf1;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+a:hover {
+    color: #45a29e;
+    text-shadow: 0 0 5px #45a29e;
+}
+
+/* Stile per i paragrafi */
+p {
+    text-align: center;
+    margin: 20px 0;
+}
+
+/* Effetto crittografia per sfondo del corpo */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://www.transparenttextures.com/patterns/cubes.png'); /* Motivo ispirato alla crittografia */
+    opacity: 0.05;
+    z-index: -1;
+}
+
+/* Stile per i contenuti centrati */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgba(15, 52, 96, 0.8);
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Aggiunge un'animazione al caricamento della pagina */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+body, h1, nav, p {
+    animation: fadeIn 1s ease-in-out;
+}
