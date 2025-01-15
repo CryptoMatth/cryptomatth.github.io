@@ -1,1 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="templates/stile.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latex con MathJax</title>
+    <!-- Configurazione di MathJax -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <!-- Contenitore per la barra laterale -->
+    <div id="sidebar-container"></div>
 
+    <!-- Contenuto principale -->
+    <div id="main-content">
+        <h1>Formule Matematiche con LaTeX</h1>
+        <p>
+            <a href="/index.html">Home</a> > 
+            <a href="/pagina2.html">Seconda pagina</a> > 
+            Latex con MathJax
+        </p>
+        <p>Questa è una formula inline: $E = mc^2$.</p>
+        <p>Questa è una formula in blocco:</p>
+        <div>
+            $$
+            \int_{a}^{b} f(x) \, dx = F(b) - F(a)
+            $$
+        </div>
+    </div>
+
+    <!-- Script per includere dinamicamente la barra laterale -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Inclusione dinamica della barra laterale
+            fetch('templates/sidebar.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('sidebar-container').innerHTML = data;
+    
+                    // Aggiungi l'evento per la funzionalità di espansione
+                    const expandableItems = document.querySelectorAll('#sidebar-container .expandable');
+                    expandableItems.forEach(item => {
+                        item.addEventListener('click', toggleSubmenu);
+                    });
+                });
+        });
+    
+        // Funzione per aprire e chiudere il sottomenu
+        function toggleSubmenu(event) {
+            event.preventDefault(); // Evita che il link si comporti come un normale link
+            const parentLi = event.target.closest('li'); // Trova il contenitore più vicino
+            parentLi.classList.toggle('open'); // Aggiunge o rimuove la classe 'open'
+        }
+    </script>
+</body>
+</html>
