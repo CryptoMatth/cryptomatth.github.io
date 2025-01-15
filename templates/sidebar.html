@@ -2,13 +2,12 @@
     <ul>
         <li><a href="/index.html">Home</a></li>
         <li><a href="/pagina2.html">Seconda Pagina</a></li>
-        <li>
-            <a href="#" class="expandable" onclick="toggleSubmenu(event)">
-                <span class="arrow">&gt;</span> Cartella
-            </a>
+        <li class="expandable">
+            <a href="javascript:void(0);" onclick="toggleSubmenu()">> Cartella</a>
+            <span class="arrow">></span> <!-- Freccia accanto a Cartella -->
             <ul class="submenu">
-                <li><a href="/pages/pagina3.html">Foglio 3</a></li>
-                <li><a href="/pages/pagina4.html">Foglio 4</a></li>
+                <li><a href="#">Pagina 3</a></li>
+                <li><a href="#">Pagina 4</a></li>
             </ul>
         </li>
         <li><a href="#">Latex con MathJax</a></li>
