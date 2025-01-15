@@ -10,7 +10,6 @@ body {
     line-height: 1.6;
     background-image: radial-gradient(circle, #1b1b2f, #162447);
     display: flex; /* Flexbox per gestire layout barra laterale + contenuto */
-    flex-direction: row;
 }
 
 /* Stile per la barra laterale */
@@ -23,6 +22,7 @@ nav {
     top: 0;
     flex-shrink: 0; /* Impedisce il ridimensionamento */
     z-index: 1000;
+    height: 100vh; /* La barra laterale occupa l'intera altezza della finestra */
 }
 
 nav ul {
@@ -84,8 +84,8 @@ nav ul li.open .submenu {
 /* Contenuto principale */
 #main-content {
     margin: 0 auto; /* Centra il contenuto orizzontalmente */
-    max-width: 800px; /* Limita la larghezza del contenuto */
     padding: 20px;
+    max-width: calc(100% - 250px); /* Considera la larghezza della barra laterale */
     flex-grow: 1; /* Fa in modo che il contenuto occupi tutto lo spazio disponibile */
     display: flex;
     flex-direction: column;
