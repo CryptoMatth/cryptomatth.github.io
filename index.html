@@ -40,10 +40,12 @@
         function toggleSubmenu(event) {
             event.preventDefault(); // Evita che il link si comporti come un normale link
             const parentLi = event.target.closest('li'); // Trova il contenitore più vicino
-            parentLi.classList.toggle('open'); // Aggiunge o rimuove la classe 'open'
-
-            // Ruota la freccia
             const arrow = parentLi.querySelector('.arrow');
+            
+            // Alterna la classe 'open' per aprire o chiudere il sottomenu
+            parentLi.classList.toggle('open');
+            
+            // Ruota la freccia
             if (parentLi.classList.contains('open')) {
                 arrow.style.transform = 'rotate(90deg)'; // Ruota la freccia
             } else {
