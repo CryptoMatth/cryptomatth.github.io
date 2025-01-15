@@ -57,6 +57,18 @@ nav ul li.open .submenu {
     display: block; /* Mostra il sottomenu */
 }
 
+/* Stile per la freccia accanto alle voci espandibili */
+.arrow {
+    display: inline-block;
+    transition: transform 0.3s ease;
+    margin-right: 5px;
+}
+
+/* Freccia ruotata verso il basso */
+.open > a .arrow {
+    transform: rotate(90deg);
+}
+
 /* Contenuto principale */
 #main-content {
     margin-left: 250px; /* Sposta il contenuto per lasciare spazio alla barra laterale */
