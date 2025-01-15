@@ -21,34 +21,14 @@
         <p>Clicca sulla parola <a href="pages/pagina3.html">questa</a> per visitare un'altra pagina in una sottocartella.</p>
     </div>
 
-    <!-- Script per la barra laterale -->
+    <!-- Script per caricare dinamicamente la barra laterale -->
     <script>
         // Inclusione dinamica della barra laterale
         fetch('templates/sidebar.html')
             .then(response => response.text())
             .then(data => {
                 document.getElementById('sidebar-container').innerHTML = data;
-
-                // Aggiungi l'evento per la funzionalità di espansione
-                const expandableItems = document.querySelectorAll('#sidebar-container .expandable');
-                expandableItems.forEach(item => {
-                    item.addEventListener('click', toggleSubmenu);
-                });
             });
-
-        // Funzione per aprire e chiudere il sottomenu
-        function toggleSubmenu(event) {
-            event.preventDefault(); // Evita che il link si comporti come un normale link
-        
-            var item = event.target.closest('.expandable'); // Seleziona il "li" contenente la classe "expandable"
-            item.classList.toggle('open'); // Aggiungi o rimuovi la classe "open"
-        
-            // Non chiudere il menu quando clicchi sui link delle pagine
-            var submenu = item.querySelector('.submenu');
-            if (submenu && submenu.contains(event.target)) {
-                window.location.href = event.target.href; // Reindirizza al link
-            }
-        }
     </script>
 </body>
 </html>
