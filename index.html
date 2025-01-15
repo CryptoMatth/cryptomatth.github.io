@@ -37,21 +37,10 @@
             });
 
         // Funzione per aprire e chiudere il sottomenu
-        function toggleSubmenu(event) {
-            event.preventDefault(); // Evita che il link si comporti come un normale link
-            const parentLi = event.target.closest('li'); // Trova il contenitore più vicino
-            const arrow = parentLi.querySelector('.arrow');
-            
-            // Alterna la classe 'open' per aprire o chiudere il sottomenu
-            parentLi.classList.toggle('open');
-            
-            // Ruota la freccia
-            if (parentLi.classList.contains('open')) {
-                arrow.style.transform = 'rotate(90deg)'; // Ruota la freccia
-            } else {
-                arrow.style.transform = ''; // Rimuove la rotazione
-            }
-        }
+        function toggleSubmenu() {
+    var item = document.querySelector('.expandable'); // Seleziona il primo elemento con la classe "expandable"
+    item.classList.toggle('open'); // Aggiungi o rimuovi la classe "open"
+}
     </script>
 </body>
 </html>
