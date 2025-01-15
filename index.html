@@ -37,10 +37,18 @@
             });
 
         // Funzione per aprire e chiudere il sottomenu
-        function toggleSubmenu() {
-    var item = document.querySelector('.expandable'); // Seleziona il primo elemento con la classe "expandable"
-    item.classList.toggle('open'); // Aggiungi o rimuovi la classe "open"
-}
+        function toggleSubmenu(event) {
+            event.preventDefault(); // Evita che il link si comporti come un normale link
+        
+            var item = event.target.closest('.expandable'); // Seleziona il "li" contenente la classe "expandable"
+            item.classList.toggle('open'); // Aggiungi o rimuovi la classe "open"
+        
+            // Non chiudere il menu quando clicchi sui link delle pagine
+            var submenu = item.querySelector('.submenu');
+            if (submenu && submenu.contains(event.target)) {
+                window.location.href = event.target.href; // Reindirizza al link
+            }
+        }
     </script>
 </body>
 </html>
