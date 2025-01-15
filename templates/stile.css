@@ -10,9 +10,21 @@ body {
     line-height: 1.6;
     background-image: radial-gradient(circle, #1b1b2f, #162447);
     display: flex; /* Flexbox per gestire layout barra laterale + contenuto */
+    flex-direction: row;
 }
 
 /* Stile per la barra laterale */
+nav {
+    width: 250px; /* Larghezza fissa della barra laterale */
+    background-color: #0f3460; /* Blu scuro */
+    padding: 10px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    position: sticky;
+    top: 0;
+    flex-shrink: 0; /* Impedisce il ridimensionamento */
+    z-index: 1000;
+}
+
 nav ul {
     list-style: none;
     padding: 0;
@@ -23,33 +35,19 @@ nav ul li {
     margin-bottom: 10px;
 }
 
-/* Stile uniforme per tutte le voci della sidebar (principali e sottomenu) */
-nav ul li a, nav ul li .submenu li a {
+nav ul li a {
     text-decoration: none;
-    color: #66fcf1; /* Colore principale */
-    font-weight: bold; /* Peso uniforme */
-    font-size: 1rem; /* Dimensione uniforme */
+    color: #66fcf1;
+    font-weight: bold;
     transition: color 0.3s ease, text-shadow 0.3s ease;
 }
 
-nav ul li a:hover, nav ul li .submenu li a:hover {
-    color: #45a29e; /* Colore uniforme per hover */
+nav ul li a:hover {
+    color: #45a29e;
     text-shadow: 0 0 5px #45a29e;
 }
 
 /* Stile per le voci espandibili */
-.arrow {
-    display: inline-block;
-    transition: transform 0.3s ease;
-    margin-right: 5px;
-}
-
-/* Freccia ruotata verso il basso */
-.open > a .arrow {
-    transform: rotate(90deg);
-}
-
-/* Sottomenu nascosto inizialmente */
 nav ul li .submenu {
     list-style: none;
     padding-left: 20px;
@@ -57,16 +55,41 @@ nav ul li .submenu {
     display: none; /* Nascondi il sottomenu inizialmente */
 }
 
-/* Sottomenu visibile quando il genitore ha la classe "open" */
+nav ul li .submenu li a {
+    font-weight: bold; /* Stesso stile delle altre voci */
+    color: #66fcf1;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+nav ul li .submenu li a:hover {
+    color: #45a29e;
+}
+
+/* Stile per le voci espandibili quando sono visibili */
 nav ul li.open .submenu {
-    display: block;
+    display: block; /* Mostra il sottomenu */
+}
+
+/* Stile per la freccia accanto alle voci espandibili */
+.arrow {
+    display: inline-block;
+    transition: transform 0.3s ease;
+    margin-right: 5px;
+}
+
+.open > a .arrow {
+    transform: rotate(90deg);
 }
 
 /* Contenuto principale */
 #main-content {
-    margin-left: 250px; /* Sposta il contenuto per lasciare spazio alla barra laterale */
+    margin: 0 auto; /* Centra il contenuto orizzontalmente */
+    max-width: 800px; /* Limita la larghezza del contenuto */
     padding: 20px;
     flex-grow: 1; /* Fa in modo che il contenuto occupi tutto lo spazio disponibile */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra gli elementi all'interno del contenitore */
 }
 
 /* Stile per il titolo principale */
@@ -76,16 +99,6 @@ h1 {
     color: #66fcf1; /* Colore verde neon */
     text-shadow: 0 0 10px #66fcf1, 0 0 20px #45a29e;
     margin-top: 20px;
-}
-
-/* Stile per il menu di navigazione */
-nav {
-    background-color: #0f3460; /* Blu scuro */
-    padding: 10px 20px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
 }
 
 /* Stile per il breadcrumb */
