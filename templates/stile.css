@@ -12,40 +12,49 @@ body {
     display: flex; /* Flexbox per gestire layout barra laterale + contenuto */
 }
 
-/* Barra laterale */
-#sidebar-container {
-    width: 250px;
-    background-color: #0f3460; /* Blu scuro */
-    color: #e4e4e4;
-    height: 100vh; /* Altezza della barra laterale pari all'intera finestra */
-    padding: 20px;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
-    position: fixed; /* Fissa la barra laterale */
-    top: 0;
-    left: 0;
-    z-index: 1000;
-}
-
-#sidebar-container nav ul {
+/* Stile per la barra laterale */
+nav ul {
     list-style: none;
     padding: 0;
+    margin: 0;
 }
 
-#sidebar-container nav ul li {
-    margin: 15px 0;
+nav ul li {
+    margin-bottom: 10px;
 }
 
-#sidebar-container nav ul li a {
-    color: #e4e4e4;
+nav ul li a {
     text-decoration: none;
+    color: #66fcf1;
     font-weight: bold;
     transition: color 0.3s ease, text-shadow 0.3s ease;
-    display: block;
 }
 
-#sidebar-container nav ul li a:hover {
+nav ul li a:hover {
+    color: #45a29e;
+    text-shadow: 0 0 5px #45a29e;
+}
+
+/* Stile per le voci espandibili */
+nav ul li .submenu {
+    list-style: none;
+    padding-left: 20px;
+    margin-top: 5px;
+    display: none; /* Nascondi il sottomenu inizialmente */
+}
+
+nav ul li .submenu li a {
+    font-weight: normal;
+    color: #e4e4e4;
+}
+
+nav ul li .submenu li a:hover {
     color: #66fcf1;
-    text-shadow: 0 0 5px #66fcf1;
+}
+
+/* Stile per le voci espandibili quando sono visibili */
+nav ul li.open .submenu {
+    display: block; /* Mostra il sottomenu */
 }
 
 /* Contenuto principale */
