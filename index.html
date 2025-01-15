@@ -42,6 +42,7 @@
         function toggleSubmenu(event) {
             event.preventDefault(); // Evita che il link si comporti come un normale link
             const parentLi = event.target.closest('li'); // Trova il contenitore più vicino
+            console.log('Toggle submenu for:', parentLi); // Debug
             parentLi.classList.toggle('open'); // Aggiunge o rimuove la classe 'open'
         }
     </script>
