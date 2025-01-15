@@ -7,17 +7,28 @@
     <title>Pagina Principale</title>
 </head>
 <body>
-    <nav>
-        <a href="/index.html">Home</a>
-        <a href="/pagina2.html">Seconda pagina</a>
-        <a href="/pages/pagina3.html">Pagina in sottocartella</a>
-    </nav>
-    <h1>Benvenuto sul mio sito!</h1>
-    <p>
-        <a href="/index.html">Home</a> > 
-        <a href="/pagina2.html">Seconda pagina</a>
-    </p>
-    <p>Clicca sulla parola <a href="pagina2.html">questa</a> per visitare un'altra pagina.</p>
-    <p>Clicca sulla parola <a href="pages/pagina3.html">questa</a> per visitare un'altra pagina in una sottocartella.</p>
+    <!-- Contenitore per la barra laterale -->
+    <div id="sidebar-container"></div>
+
+    <!-- Contenuto principale -->
+    <div id="main-content">
+        <h1>Benvenuto sul mio sito!</h1>
+        <p>
+            <a href="/index.html">Home</a> > 
+            <a href="/pagina2.html">Seconda pagina</a>
+        </p>
+        <p>Clicca sulla parola <a href="pagina2.html">questa</a> per visitare un'altra pagina.</p>
+        <p>Clicca sulla parola <a href="pages/pagina3.html">questa</a> per visitare un'altra pagina in una sottocartella.</p>
+    </div>
+
+    <!-- Script per caricare dinamicamente la barra laterale -->
+    <script>
+        // Inclusione dinamica della barra laterale
+        fetch('templates/sidebar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('sidebar-container').innerHTML = data;
+            });
+    </script>
 </body>
 </html>
