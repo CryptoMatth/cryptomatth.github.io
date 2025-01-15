@@ -1,6 +1,7 @@
-/* Stile CSS per il sito a tema crittografia */
+/* ---------------------
+   Tema Generale
+------------------------ */
 
-/* Imposta uno sfondo scuro con un motivo ispirato alla crittografia */
 body {
     background-color: #1b1b2f;
     color: #e4e4e4;
@@ -9,10 +10,35 @@ body {
     padding: 0;
     line-height: 1.6;
     background-image: radial-gradient(circle, #1b1b2f, #162447);
-    display: flex; /* Flexbox per gestire layout barra laterale + contenuto */
+    display: flex; /* Flexbox per layout barra laterale + contenuto */
 }
 
-/* Stile per la barra laterale */
+/* Effetto crittografia per lo sfondo */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://www.transparenttextures.com/patterns/cubes.png'); /* Motivo ispirato alla crittografia */
+    opacity: 0.1; /* Aumenta visibilità del motivo */
+    z-index: -1;
+}
+
+/* ---------------------
+   Barra Laterale (Sidebar)
+------------------------ */
+
+nav {
+    background-color: #0f3460; /* Blu scuro */
+    padding: 10px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
 nav ul {
     list-style: none;
     padding: 0;
@@ -35,12 +61,29 @@ nav ul li a:hover {
     text-shadow: 0 0 5px #45a29e;
 }
 
-/* Stile per le voci espandibili */
+/* Freccia accanto alle voci espandibili */
+.arrow {
+    display: inline-block;
+    transition: transform 0.3s ease;
+    margin-right: 8px; /* Margine per separare testo e freccia */
+    vertical-align: middle;
+}
+
+/* Stile per voci espandibili */
 nav ul li .submenu {
     list-style: none;
     padding-left: 20px;
     margin-top: 5px;
-    display: none; /* Nascondi il sottomenu inizialmente */
+    display: none; /* Nascondi sottomenu inizialmente */
+}
+
+nav ul li.open .submenu {
+    display: block; /* Mostra sottomenu */
+}
+
+/* Freccia ruotata verso il basso */
+nav ul li.open > a .arrow {
+    transform: rotate(90deg);
 }
 
 nav ul li .submenu li a {
@@ -52,31 +95,16 @@ nav ul li .submenu li a:hover {
     color: #66fcf1;
 }
 
-/* Stile per le voci espandibili quando sono visibili */
-nav ul li.open .submenu {
-    display: block; /* Mostra il sottomenu */
-}
+/* ---------------------
+   Contenuto Principale
+------------------------ */
 
-/* Stile per la freccia accanto alle voci espandibili */
-.arrow {
-    display: inline-block;
-    transition: transform 0.3s ease;
-    margin-right: 5px;
-}
-
-/* Freccia ruotata verso il basso */
-.open > a .arrow {
-    transform: rotate(90deg);
-}
-
-/* Contenuto principale */
 #main-content {
     margin-left: 250px; /* Sposta il contenuto per lasciare spazio alla barra laterale */
     padding: 20px;
     flex-grow: 1; /* Fa in modo che il contenuto occupi tutto lo spazio disponibile */
 }
 
-/* Stile per il titolo principale */
 h1 {
     text-align: center;
     font-size: 2.5rem;
@@ -85,75 +113,28 @@ h1 {
     margin-top: 20px;
 }
 
-/* Stile per il menu di navigazione */
-nav {
-    background-color: #0f3460; /* Blu scuro */
-    padding: 10px 20px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
-nav a {
-    color: #e4e4e4;
-    text-decoration: none;
-    font-weight: bold;
-    margin-right: 15px;
-    transition: color 0.3s ease, text-shadow 0.3s ease;
-}
-
-nav a:hover {
-    color: #66fcf1;
-    text-shadow: 0 0 5px #66fcf1;
-}
-
-/* Stile per il breadcrumb */
-p > a {
-    color: #45a29e;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s ease, text-shadow 0.3s ease;
-}
-
-p > a:hover {
-    color: #66fcf1;
-    text-shadow: 0 0 5px #66fcf1;
-}
-
-/* Stile per i link nel testo */
-a {
-    color: #66fcf1;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s ease, text-shadow 0.3s ease;
-}
-
-a:hover {
-    color: #45a29e;
-    text-shadow: 0 0 5px #45a29e;
-}
-
-/* Stile per i paragrafi */
 p {
     text-align: center;
     margin: 20px 0;
 }
 
-/* Effetto crittografia per sfondo del corpo */
-body::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('https://www.transparenttextures.com/patterns/cubes.png'); /* Motivo ispirato alla crittografia */
-    opacity: 0.05;
-    z-index: -1;
+p > a, a {
+    color: #66fcf1;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
 }
 
-/* Stile per i contenuti centrati */
+p > a:hover, a:hover {
+    color: #45a29e;
+    text-shadow: 0 0 5px #45a29e;
+}
+
+/* ---------------------
+   Effetti Grafici
+------------------------ */
+
+/* Contenitore centrale */
 .container {
     max-width: 800px;
     margin: 0 auto;
@@ -163,7 +144,7 @@ body::before {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
-/* Aggiunge un'animazione al caricamento della pagina */
+/* Animazione al caricamento */
 @keyframes fadeIn {
     from {
         opacity: 0;
