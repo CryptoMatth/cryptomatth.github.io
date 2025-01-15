@@ -23,18 +23,20 @@
 
     <!-- Script per includere dinamicamente la barra laterale -->
     <script>
-        // Inclusione dinamica della barra laterale
-        fetch('templates/sidebar.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('sidebar-container').innerHTML = data;
+        document.addEventListener("DOMContentLoaded", () => {
+            // Inclusione dinamica della barra laterale
+            fetch('templates/sidebar.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('sidebar-container').innerHTML = data;
     
-                // Aggiungi l'evento per la funzionalità di espansione
-                const expandableItems = document.querySelectorAll('#sidebar-container .expandable');
-                expandableItems.forEach(item => {
-                    item.addEventListener('click', toggleSubmenu);
+                    // Aggiungi l'evento per la funzionalità di espansione
+                    const expandableItems = document.querySelectorAll('#sidebar-container .expandable');
+                    expandableItems.forEach(item => {
+                        item.addEventListener('click', toggleSubmenu);
+                    });
                 });
-            });
+        });
     
         // Funzione per aprire e chiudere il sottomenu
         function toggleSubmenu(event) {
