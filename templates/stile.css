@@ -9,6 +9,50 @@ body {
     padding: 0;
     line-height: 1.6;
     background-image: radial-gradient(circle, #1b1b2f, #162447);
+    display: flex; /* Flexbox per gestire layout barra laterale + contenuto */
+}
+
+/* Barra laterale */
+#sidebar-container {
+    width: 250px;
+    background-color: #0f3460; /* Blu scuro */
+    color: #e4e4e4;
+    height: 100vh; /* Altezza della barra laterale pari all'intera finestra */
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+    position: fixed; /* Fissa la barra laterale */
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+#sidebar-container nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+#sidebar-container nav ul li {
+    margin: 15px 0;
+}
+
+#sidebar-container nav ul li a {
+    color: #e4e4e4;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+    display: block;
+}
+
+#sidebar-container nav ul li a:hover {
+    color: #66fcf1;
+    text-shadow: 0 0 5px #66fcf1;
+}
+
+/* Contenuto principale */
+#main-content {
+    margin-left: 250px; /* Sposta il contenuto per lasciare spazio alla barra laterale */
+    padding: 20px;
+    flex-grow: 1; /* Fa in modo che il contenuto occupi tutto lo spazio disponibile */
 }
 
 /* Stile per il titolo principale */
