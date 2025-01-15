@@ -1,15 +1,24 @@
-<nav>
-    <ul>
-        <li><a href="/index.html">Home</a></li>
-        <li><a href="/pagina2.html">Seconda Pagina</a></li>
-        <li class="expandable">
-            <a href="javascript:void(0);" onclick="toggleSubmenu()">> Cartella</a>
-            <span class="arrow">></span> <!-- Freccia accanto a Cartella -->
-            <ul class="submenu">
-                <li><a href="#">Pagina 3</a></li>
-                <li><a href="#">Pagina 4</a></li>
-            </ul>
-        </li>
-        <li><a href="#">Latex con MathJax</a></li>
-    </ul>
-</nav>
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Navigazione</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li class="expandable">
+                <a href="javascript:void(0);" onclick="toggleSubmenu(event)">Cartella <span class="arrow">></span></a>
+                <ul class="submenu">
+                    <li><a href="/pages/pagina3.html">Pagina 3</a></li>
+                    <li><a href="/pages/pagina4.html">Pagina 4</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+
+    <script src="script.js"></script>
+</body>
+</html>
