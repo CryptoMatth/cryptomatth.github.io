@@ -37,8 +37,8 @@ nav ul li a:hover {
 
 /* Freccia accanto alla voce "Cartella" */
 nav ul li .expandable .arrow {
-    display: inline-block; /* Per assicurarsi che la freccia sia accanto al testo */
-    margin-right: 5px; /* Spazio tra la freccia e il testo */
+    display: inline-block;
+    margin-left: 5px;
     transition: transform 0.3s ease; /* Animazione per la rotazione */
 }
 
