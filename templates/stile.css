@@ -9,7 +9,7 @@ body {
     padding: 0;
     line-height: 1.6;
     background-image: radial-gradient(circle, #1b1b2f, #162447);
-    display: flex; /* Flexbox per gestire layout barra laterale + contenuto */
+    display: flex;
 }
 
 /* Stile per la barra laterale */
@@ -58,15 +58,6 @@ nav ul li .submenu {
 /* Mostra il sottomenu quando l'elemento ha la classe "open" */
 nav ul li.open .submenu {
     display: block; /* Mostra il sottomenu */
-}
-
-nav ul li .submenu li a {
-    font-weight: normal;
-    color: #e4e4e4;
-}
-
-nav ul li .submenu li a:hover {
-    color: #66fcf1;
 }
 
 /* Contenuto principale */
