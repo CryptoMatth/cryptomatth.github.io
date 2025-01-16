@@ -7,14 +7,8 @@
     <title>Pagina Principale</title>
 </head>
 <body>
-    <!-- Barra in alto -->
-    <header id="top-bar">
-        <h1>CryptoMatth</h1>
-        <form id="search-form" action="/search" method="get">
-            <input type="text" name="query" placeholder="Cerca nel sito...">
-            <button type="submit">Cerca</button>
-        </form>
-    </header>
+    <!-- Contenitore per la barra in alto -->
+    <div id="topbar-container"></div>
 
     <!-- Contenitore per la barra laterale -->
     <div id="sidebar-container"></div>
@@ -30,9 +24,16 @@
         <p>Clicca sulla parola <a href="pages/pagina3.html">questa</a> per visitare un'altra pagina in una sottocartella.</p>
     </div>
 
-    <!-- Script per includere dinamicamente la barra laterale -->
+    <!-- Script per includere dinamicamente la barra in alto e quella laterale -->
     <script>
         document.addEventListener("DOMContentLoaded", () => {
+            // Inclusione dinamica della barra in alto
+            fetch('templates/topbar.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('topbar-container').innerHTML = data;
+                });
+
             // Inclusione dinamica della barra laterale
             fetch('templates/sidebar.html')
                 .then(response => response.text())
