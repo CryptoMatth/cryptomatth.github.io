@@ -2,8 +2,8 @@
 
 /* Impostazione dello sfondo, font e layout */
 body {
-    background-color: #0d1117; /* Grigio scuro per un look professionale */
-    color: #c9d1d9; /* Colore del testo chiaro per contrasto */
+    background-color: #ffffff; /* Sfondo bianco */
+    color: #0d1117; /* Testo scuro per contrasto */
     font-family: 'Courier New', Courier, monospace; /* Font stile terminale */
     margin: 0;
     padding: 0;
@@ -17,13 +17,13 @@ body {
     position: fixed;
     top: 0;
     left: 0;
-    background-color: #161b22;
-    color: #c9d1d9;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    background-color: #d1f2eb; /* Verde menta chiaro */
+    color: #0d1117; /* Testo scuro */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     z-index: 1000;
     display: flex;
     justify-content: center; /* Centra il contenuto orizzontalmente */
-    align-items: center; /* Allinea verticalmente */
+    align-items: center;
 }
 
 .header {
@@ -38,7 +38,7 @@ body {
 .header h1 {
     margin: 0;
     font-size: 1.5rem;
-    color: #58a6ff;
+    color: #1abc9c; /* Verde acceso */
     text-align: center;
     flex-grow: 1; /* Permette di centrare il titolo */
 }
@@ -53,13 +53,14 @@ body {
     font-size: 1rem;
     border: none;
     border-radius: 5px;
-    background-color: #0d1117;
-    color: #c9d1d9;
+    background-color: #ffffff;
+    color: #0d1117;
+    border: 1px solid #b2bec3;
 }
 
 #search-form button {
-    background-color: #58a6ff;
-    color: #0d1117;
+    background-color: #1abc9c; /* Verde acceso */
+    color: #ffffff;
     border: none;
     padding: 5px 10px;
     margin-left: 5px;
@@ -69,15 +70,15 @@ body {
 }
 
 #search-form button:hover {
-    background-color: #c9d1d9;
+    background-color: #16a085;
 }
 
 /* Contenitore per la barra laterale */
 #sidebar-container {
     width: 250px;
-    background-color: #161b22; /* Colore di sfondo della barra laterale */
+    background-color: #d1f2eb; /* Verde menta chiaro */
     padding: 20px;
-    box-shadow: 3px 0 5px rgba(0, 0, 0, 0.5);
+    box-shadow: 3px 0 5px rgba(0, 0, 0, 0.3);
     position: fixed;
     top: 60px; /* Compensa la barra orizzontale */
     left: 0;
@@ -97,7 +98,7 @@ nav ul li {
 }
 
 nav ul li a {
-    color: #58a6ff; /* Colore blu chiaro per i link */
+    color: #16a085; /* Verde scuro */
     font-weight: normal;
     font-size: 1rem;
     text-decoration: none;
@@ -105,8 +106,8 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    color: #c9d1d9; /* Colore bianco chiaro al passaggio del mouse */
-    text-shadow: 0 0 5px #c9d1d9;
+    color: #0d1117; /* Testo scuro al passaggio del mouse */
+    text-shadow: 0 0 5px #0d1117;
 }
 
 /* Contenuto principale */
@@ -115,7 +116,7 @@ nav ul li a:hover {
     padding: 40px;
     max-width: 900px;
     margin: 0 auto;
-    background-color: rgba(22, 27, 34, 0.8); /* Fondo semi-trasparente */
+    background-color: #ffffff; /* Sfondo bianco */
     border-radius: 10px;
     margin-top: 20px; /* Aggiunge spazio sotto la barra orizzontale */
 }
@@ -123,7 +124,7 @@ nav ul li a:hover {
 /* Titolo principale */
 h1 {
     font-size: 2.5rem;
-    color: #58a6ff; /* Colore blu chiaro */
+    color: #16a085; /* Verde scuro */
     text-align: center;
     margin-bottom: 30px;
     margin-top: 40px; /* Spazio extra sotto la barra */
@@ -131,21 +132,21 @@ h1 {
 
 /* Link di navigazione e breadcrumb */
 a {
-    color: #58a6ff;
+    color: #16a085;
     text-decoration: none;
     font-weight: normal;
     transition: color 0.3s ease, text-shadow 0.3s ease;
 }
 
 a:hover {
-    color: #c9d1d9;
-    text-shadow: 0 0 5px #c9d1d9;
+    color: #0d1117;
+    text-shadow: 0 0 5px #0d1117;
 }
 
 /* Stile per i paragrafi */
 p {
     font-size: 1rem;
-    color: #c9d1d9;
+    color: #0d1117;
     margin-bottom: 20px;
 }
 
@@ -171,7 +172,7 @@ nav ul li.open .submenu {
     transform: rotate(90deg);
 }
 
-/* Aggiungi un effetto di sfondo a tema crittografia */
+/* Aggiungi un effetto di sfondo */
 body::before {
     content: "";
     position: fixed;
@@ -179,8 +180,8 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('https://www.transparenttextures.com/patterns/cubes.png'); /* Pattern stilizzato per un look criptato */
-    opacity: 0.1; /* Bassa opacità per non sovrapporsi troppo */
+    background-image: url('https://www.transparenttextures.com/patterns/cubes.png'); /* Pattern stilizzato */
+    opacity: 0.05; /* Opacità bassa per sfondo delicato */
     z-index: -1;
 }
 
