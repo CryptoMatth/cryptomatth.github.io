@@ -55,6 +55,25 @@
             console.log('Toggle submenu for:', parentLi); // Debug
             parentLi.classList.toggle('open'); // Aggiunge o rimuove la classe 'open'
         }
+
+        // Funzione di ricerca
+        function searchPages() {
+            const query = document.getElementById("search-input").value.toLowerCase();
+            const resultsContainer = document.getElementById("search-results");
+            resultsContainer.innerHTML = ''; // Pulisce i risultati precedenti
+
+            const results = pages.filter(page => page.content.toLowerCase().includes(query));
+
+            if (results.length === 0) {
+                resultsContainer.innerHTML = '<p>Nessun risultato trovato</p>';
+            } else {
+                results.forEach(page => {
+                    const resultItem = document.createElement("div");
+                    resultItem.innerHTML = `<a href="${page.url}">${page.title}</a><p>${page.content}</p>`;
+                    resultsContainer.appendChild(resultItem);
+                });
+            }
+        }
     </script>
 </body>
 </html>
