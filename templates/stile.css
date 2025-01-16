@@ -8,7 +8,8 @@ body {
     margin: 0;
     padding: 0;
     line-height: 1.5;
-    padding-top: 60px; /* Spazio per la barra orizzontale */
+    display: flex; /* Layout flessibile per contenere la barra laterale e il contenuto */
+    padding-top: 60px; /* Spazio per la barra superiore */
 }
 
 /* Stile per la barra orizzontale superiore */
@@ -21,16 +22,11 @@ body {
     color: #c9d1d9;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
     z-index: 1000;
-    display: flex;
-    justify-content: center; /* Centra il contenuto orizzontalmente */
-    align-items: center; /* Allinea verticalmente */
 }
 
 .header {
-    width: 100%;
-    max-width: 1200px;
     display: flex;
-    justify-content: space-between; /* Sposta ricerca e titolo ai lati */
+    justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
 }
@@ -39,8 +35,6 @@ body {
     margin: 0;
     font-size: 1.5rem;
     color: #58a6ff;
-    text-align: center;
-    flex-grow: 1; /* Permette di centrare il titolo */
 }
 
 #search-form {
@@ -117,7 +111,6 @@ nav ul li a:hover {
     margin: 0 auto;
     background-color: rgba(22, 27, 34, 0.8); /* Fondo semi-trasparente */
     border-radius: 10px;
-    margin-top: 20px; /* Aggiunge spazio sotto la barra orizzontale */
 }
 
 /* Titolo principale */
@@ -126,7 +119,6 @@ h1 {
     color: #58a6ff; /* Colore blu chiaro */
     text-align: center;
     margin-bottom: 30px;
-    margin-top: 40px; /* Spazio extra sotto la barra */
 }
 
 /* Link di navigazione e breadcrumb */
@@ -147,6 +139,15 @@ p {
     font-size: 1rem;
     color: #c9d1d9;
     margin-bottom: 20px;
+}
+
+/* Stile per la formula MathJax in blocco */
+div {
+    background-color: #1f2328; /* Sfondo scuro per evidenziare il blocco di formula */
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    color: #c9d1d9;
 }
 
 /* Barra laterale - sottomenu */
@@ -182,6 +183,15 @@ body::before {
     background-image: url('https://www.transparenttextures.com/patterns/cubes.png'); /* Pattern stilizzato per un look criptato */
     opacity: 0.1; /* Bassa opacità per non sovrapporsi troppo */
     z-index: -1;
+}
+
+/* Formattazione per il contenuto centrato */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgba(22, 27, 34, 0.8);
+    border-radius: 8px;
 }
 
 /* Animazione di transizione al caricamento della pagina */
