@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="templates/stile.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagina Principale</title>
+</head>
+<body>
+    <!-- Contenitore per la barra laterale -->
+    <div id="sidebar-container"></div>
+
+    <!-- Contenuto principale -->
+    <div id="main-content">
+        <h1>Benvenuto sul mio sito!</h1>
+        <p>
+            <a href="/index.html">Home</a> > 
+            <a href="/pagina2.html">Seconda pagina</a>
+        </p>
+        <p>Clicca sulla parola <a href="pagina2.html">questa</a> per visitare un'altra pagina.</p>
+        <p>Clicca sulla parola <a href="pages/pagina3.html">questa</a> per visitare un'altra pagina in una sottocartella.</p>
+    </div>
+
+    <!-- Script per includere dinamicamente la barra laterale -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Inclusione dinamica della barra laterale
+            fetch('templates/sidebar.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('sidebar-container').innerHTML = data;
+    
+                    // Aggiungi l'evento per la funzionalità di espansione
+                    const expandableItems = document.querySelectorAll('#sidebar-container .expandable');
+                    expandableItems.forEach(item => {
+                        item.addEventListener('click', toggleSubmenu);
+                    });
+                });
+        });
+    
+        // Funzione per aprire e chiudere il sottomenu
+        function toggleSubmenu(event) {
+            event.preventDefault(); // Evita che il link si comporti come un normale link
+            const parentLi = event.target.closest('li'); // Trova il contenitore più vicino
+            console.log('Toggle submenu for:', parentLi); // Debug
+            parentLi.classList.toggle('open'); // Aggiunge o rimuove la classe 'open'
+        }
+    </script>
+</body>
+</html>
