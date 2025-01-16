@@ -1,33 +1,40 @@
-/* Generale */
+/* Stile CSS per un tema sobrio e maturo ispirato alla crittografia */
+
+/* Impostazione dello sfondo, font e layout */
 body {
-    background-color: #ffffff; /* Sfondo bianco */
-    color: #0d1117; /* Testo scuro per leggibilità */
-    font-family: 'Courier New', Courier, monospace;
+    background-color: #0d1117; /* Grigio scuro per un look professionale */
+    color: #c9d1d9; /* Colore del testo chiaro per contrasto */
+    font-family: 'Courier New', Courier, monospace; /* Font stile terminale */
     margin: 0;
     padding: 0;
     line-height: 1.5;
+    display: flex; /* Layout flessibile per contenere la barra laterale e il contenuto */
+    padding-top: 60px; /* Spazio per la barra superiore */
 }
 
-/* Barra in alto */
-#top-bar {
-    background-color: #005f73; /* Azzurro/blu ispirato alla crittografia */
-    color: #ffffff;
+/* Stile per la barra orizzontale superiore */
+#header-container {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #161b22;
+    color: #c9d1d9;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+.header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-#top-bar h1 {
-    font-size: 1.8rem;
+.header h1 {
     margin: 0;
-    color: #ffffff;
+    font-size: 1.5rem;
+    color: #58a6ff;
 }
 
 #search-form {
@@ -38,71 +45,167 @@ body {
 #search-form input[type="text"] {
     padding: 5px 10px;
     font-size: 1rem;
-    border: 2px solid #005f73;
+    border: none;
     border-radius: 5px;
-    margin-right: 10px;
+    background-color: #0d1117;
+    color: #c9d1d9;
 }
 
 #search-form button {
-    background-color: #0a9396;
-    color: #ffffff;
+    background-color: #58a6ff;
+    color: #0d1117;
     border: none;
-    padding: 5px 15px;
-    font-size: 1rem;
+    padding: 5px 10px;
+    margin-left: 5px;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
 #search-form button:hover {
-    background-color: #94d2bd;
+    background-color: #c9d1d9;
 }
 
-/* Layout */
+/* Contenitore per la barra laterale */
 #sidebar-container {
     width: 250px;
-    background-color: #005f73; /* Colore azzurro/blu per la barra laterale */
+    background-color: #161b22; /* Colore di sfondo della barra laterale */
     padding: 20px;
+    box-shadow: 3px 0 5px rgba(0, 0, 0, 0.5);
     position: fixed;
-    top: 50px; /* Sposta sotto la barra in alto */
+    top: 60px; /* Compensa la barra orizzontale */
     left: 0;
-    height: calc(100% - 50px); /* Calcola l'altezza sottraendo la barra in alto */
+    height: calc(100% - 60px); /* Altezza dinamica */
     z-index: 1000;
-    color: #ffffff;
+}
+
+/* Stile della barra laterale */
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    margin-bottom: 15px;
+}
+
+nav ul li a {
+    color: #58a6ff; /* Colore blu chiaro per i link */
+    font-weight: normal;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #c9d1d9; /* Colore bianco chiaro al passaggio del mouse */
+    text-shadow: 0 0 5px #c9d1d9;
 }
 
 /* Contenuto principale */
 #main-content {
-    margin-left: 270px; /* Spazio per la barra laterale */
+    margin-left: 250px; /* Lascia spazio per la barra laterale */
     padding: 40px;
-    margin-top: 80px; /* Spazio per la barra in alto */
-    background-color: #ffffff;
+    max-width: 900px;
+    margin: 0 auto;
+    background-color: rgba(22, 27, 34, 0.8); /* Fondo semi-trasparente */
     border-radius: 10px;
 }
 
-/* Titoli */
+/* Titolo principale */
 h1 {
     font-size: 2.5rem;
-    color: #005f73;
+    color: #58a6ff; /* Colore blu chiaro */
     text-align: center;
+    margin-bottom: 30px;
 }
 
-/* Sottomenu */
+/* Link di navigazione e breadcrumb */
+a {
+    color: #58a6ff;
+    text-decoration: none;
+    font-weight: normal;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+a:hover {
+    color: #c9d1d9;
+    text-shadow: 0 0 5px #c9d1d9;
+}
+
+/* Stile per i paragrafi */
+p {
+    font-size: 1rem;
+    color: #c9d1d9;
+    margin-bottom: 20px;
+}
+
+/* Stile per la formula MathJax in blocco */
+div {
+    background-color: #1f2328; /* Sfondo scuro per evidenziare il blocco di formula */
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    color: #c9d1d9;
+}
+
+/* Barra laterale - sottomenu */
 nav ul li .submenu {
     display: none;
+    padding-left: 20px;
+    list-style-type: none;
 }
 
 nav ul li.open .submenu {
     display: block;
 }
 
-/* Effetti hover */
-a {
-    color: #0a9396;
-    text-decoration: none;
+/* Freccia accanto al sottomenu */
+.arrow {
+    margin-right: 5px;
+    transition: transform 0.3s ease;
 }
 
-a:hover {
-    text-decoration: underline;
-    color: #005f73;
+/* Freccia ruotata per sottomenu aperto */
+.open > a .arrow {
+    transform: rotate(90deg);
+}
+
+/* Aggiungi un effetto di sfondo a tema crittografia */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://www.transparenttextures.com/patterns/cubes.png'); /* Pattern stilizzato per un look criptato */
+    opacity: 0.1; /* Bassa opacità per non sovrapporsi troppo */
+    z-index: -1;
+}
+
+/* Formattazione per il contenuto centrato */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgba(22, 27, 34, 0.8);
+    border-radius: 8px;
+}
+
+/* Animazione di transizione al caricamento della pagina */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+body, h1, nav, p {
+    animation: fadeIn 1s ease-in-out;
 }
