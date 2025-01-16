@@ -7,10 +7,10 @@
     <title>Pagina Principale</title>
 </head>
 <body>
-    <!-- Contenitore per la barra in alto -->
-    <div id="topbar-container"></div>
+    <!-- Barra orizzontale superiore -->
+    <div id="header-placeholder"></div>
 
-    <!-- Contenitore per la barra laterale -->
+    <!-- Barra laterale verticale -->
     <div id="sidebar-container"></div>
 
     <!-- Contenuto principale -->
@@ -24,14 +24,14 @@
         <p>Clicca sulla parola <a href="pages/pagina3.html">questa</a> per visitare un'altra pagina in una sottocartella.</p>
     </div>
 
-    <!-- Script per includere dinamicamente la barra in alto e quella laterale -->
+    <!-- Script per includere dinamicamente header e sidebar -->
     <script>
         document.addEventListener("DOMContentLoaded", () => {
-            // Inclusione dinamica della barra in alto
-            fetch('templates/topbar.html')
+            // Inclusione dinamica della barra superiore
+            fetch('templates/header.html')
                 .then(response => response.text())
                 .then(data => {
-                    document.getElementById('topbar-container').innerHTML = data;
+                    document.getElementById('header-placeholder').innerHTML = data;
                 });
 
             // Inclusione dinamica della barra laterale
@@ -39,7 +39,7 @@
                 .then(response => response.text())
                 .then(data => {
                     document.getElementById('sidebar-container').innerHTML = data;
-    
+
                     // Aggiungi l'evento per la funzionalità di espansione
                     const expandableItems = document.querySelectorAll('#sidebar-container .expandable');
                     expandableItems.forEach(item => {
@@ -47,7 +47,7 @@
                     });
                 });
         });
-    
+
         // Funzione per aprire e chiudere il sottomenu
         function toggleSubmenu(event) {
             event.preventDefault(); // Evita che il link si comporti come un normale link
