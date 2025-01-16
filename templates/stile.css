@@ -43,6 +43,7 @@ body {
     flex-grow: 1; /* Permette di centrare il titolo */
 }
 
+/* Stile per il modulo di ricerca */
 #search-form {
     display: flex;
     align-items: center;
@@ -199,4 +200,29 @@ body::before {
 
 body, h1, nav, p {
     animation: fadeIn 1s ease-in-out;
+}
+
+/* Risultati della ricerca */
+#search-results {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+}
+
+#search-results div {
+    margin-bottom: 10px;
+    padding: 5px;
+    background-color: #ffffff;
+    border-radius: 5px;
+}
+
+#search-results a {
+    font-weight: bold;
+    color: #16a085;
+}
+
+#search-results p {
+    font-size: 0.9rem;
+    color: #333;
 }
