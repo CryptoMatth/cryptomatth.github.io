@@ -50,4 +50,8 @@ function displayResults(results) {
     });
 }
 
-
+// Aggiunge un evento per la ricerca quando il modulo viene inviato
+document.querySelector("#search-form").addEventListener("submit", function(e) {
+    e.preventDefault();
+    search();
+});
