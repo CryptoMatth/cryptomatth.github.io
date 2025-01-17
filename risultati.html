@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="templates/stile.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Risultati della ricerca</title>
+</head>
+<body>
+    <!-- Barra orizzontale superiore -->
+    <div id="header-placeholder"></div>
+
+    <!-- Contenuto principale -->
+    <div id="main-content">
+        <h1>Risultati della ricerca</h1>
+        <div id="search-results">
+            <p>Caricamento risultati...</p>
+        </div>
+    </div>
+
+    <!-- Script per includere dinamicamente header -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Carica l'header
+            fetch('templates/header.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('header-placeholder').innerHTML = data;
+                });
+
+            // Recupera la query di ricerca
+            const urlParams = new URLSearchParams(window.location.search);
+            const query = urlParams.get("query");
+
+            const pages = [
+                { title: "Pagina Principale", url: "index.html", content: "Benvenuto sul mio sito!" },
+                { title: "Seconda Pagina", url: "pagina2.html", content: "Questa è la seconda pagina." },
+                { title: "Pagina nella Sottocartella", url: "pages/pagina3.html", content: "Contenuto di una pagina nella sottocartella." }
+            ];
+
+            const resultsContainer = document.getElementById("search-results");
+
+            if (query) {
+                const results = pages.filter(page => page.content.toLowerCase().includes(query.toLowerCase()));
+
+                resultsContainer.innerHTML = "";
+
+                if (results.length > 0) {
+                    results.forEach(page => {
+                        const resultItem = document.createElement("div");
+                        resultItem.innerHTML = `
+                            <a href="${page.url}">${page.title}</a>
+                            <p>${page.content}</p>`;
+                        resultsContainer.appendChild(resultItem);
+                    });
+                } else {
+                    resultsContainer.innerHTML = "<p>Nessun risultato trovato.</p>";
+                }
+            } else {
+                resultsContainer.innerHTML = "<p>Nessun termine di ricerca specificato.</p>";
+            }
+        });
+    </script>
+</body>
+</html>
