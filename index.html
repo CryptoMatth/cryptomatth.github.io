@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="templates/stile.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pagina Principale</title>
-    <link rel="stylesheet" href="templates/stile.css">
 </head>
 <body>
     <!-- Barra orizzontale superiore -->
     <div id="header-placeholder"></div>
 
     <!-- Barra laterale verticale -->
-    <div id="sidebar-placeholder"></div>
+    <div id="sidebar-container"></div>
 
     <!-- Contenuto principale -->
     <div id="main-content">
@@ -22,52 +22,50 @@
         </p>
         <p>Clicca sulla parola <a href="pagina2.html">questa</a> per visitare un'altra pagina.</p>
         <p>Clicca sulla parola <a href="pages/pagina3.html">questa</a> per visitare un'altra pagina in una sottocartella.</p>
-        <div id="search-results"></div>
     </div>
 
-    <!-- Script per includere header e sidebar -->
+    <!-- Script per includere dinamicamente header e sidebar -->
     <script>
         document.addEventListener("DOMContentLoaded", () => {
-            // Inclusione della barra superiore
+            // Inclusione dinamica della barra superiore
             fetch('templates/header.html')
                 .then(response => response.text())
-                .then(html => {
-                    document.getElementById('header-placeholder').innerHTML = html;
-                    initSearch(); // Inizializza la funzionalità di ricerca
+                .then(data => {
+                    document.getElementById('header-placeholder').innerHTML = data;
+
+                    // Aggiungi la funzionalità di ricerca
+                    const searchForm = document.getElementById("search-form");
+                    if (searchForm) {
+                        searchForm.addEventListener("submit", (event) => {
+                            event.preventDefault(); // Evita il refresh della pagina
+                            const query = document.getElementById("search-input").value;
+                            if (query) {
+                                window.location.href = /risultati.html?query=${encodeURIComponent(query)};
+                            }
+                        });
+                    }
                 });
 
-            // Inclusione della barra laterale
+            // Inclusione dinamica della barra laterale
             fetch('templates/sidebar.html')
                 .then(response => response.text())
-                .then(html => {
-                    document.getElementById('sidebar-placeholder').innerHTML = html;
-                    initSidebar(); // Inizializza la barra laterale
+                .then(data => {
+                    document.getElementById('sidebar-container').innerHTML = data;
+
+                    // Aggiungi l'evento per la funzionalità di espansione
+                    const expandableItems = document.querySelectorAll('#sidebar-container .expandable');
+                    expandableItems.forEach(item => {
+                        item.addEventListener('click', toggleSubmenu);
+                    });
                 });
         });
 
-        // Inizializza la funzionalità di ricerca
-        function initSearch() {
-            const searchForm = document.getElementById("search-form");
-            if (searchForm) {
-                searchForm.addEventListener("submit", (event) => {
-                    event.preventDefault(); // Evita il refresh
-                    const query = document.getElementById("search-input").value.trim();
-                    if (query) {
-                        window.location.href = `/risultati.html?query=${encodeURIComponent(query)}`;
-                    }
-                });
-            }
-        }
-
-        // Inizializza la barra laterale
-        function initSidebar() {
-            const expandableItems = document.querySelectorAll('.expandable');
-            expandableItems.forEach(item => {
-                item.addEventListener('click', (event) => {
-                    const parent = event.target.closest('li');
-                    if (parent) parent.classList.toggle('open');
-                });
-            });
+        // Funzione per aprire e chiudere il sottomenu
+        function toggleSubmenu(event) {
+            event.preventDefault(); // Evita che il link si comporti come un normale link
+            const parentLi = event.target.closest('li'); // Trova il contenitore più vicino
+            console.log('Toggle submenu for:', parentLi); // Debug
+            parentLi.classList.toggle('open'); // Aggiunge o rimuove la classe 'open'
         }
     </script>
 </body>
