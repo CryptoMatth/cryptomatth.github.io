@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,18 +33,6 @@
                 .then(response => response.text())
                 .then(data => {
                     document.getElementById('header-placeholder').innerHTML = data;
-
-                    // Aggiungi la funzionalità di ricerca
-                    const searchForm = document.getElementById("search-form");
-                    if (searchForm) {
-                        searchForm.addEventListener("submit", (event) => {
-                            event.preventDefault(); // Evita il refresh della pagina
-                            const query = document.getElementById("search-input").value;
-                            if (query) {
-                                window.location.href = /risultati.html?query=${encodeURIComponent(query)};
-                            }
-                        });
-                    }
                 });
 
             // Inclusione dinamica della barra laterale
@@ -66,6 +55,25 @@
             const parentLi = event.target.closest('li'); // Trova il contenitore più vicino
             console.log('Toggle submenu for:', parentLi); // Debug
             parentLi.classList.toggle('open'); // Aggiunge o rimuove la classe 'open'
+        }
+
+        // Funzione di ricerca
+        function searchPages() {
+            const query = document.getElementById("search-input").value.toLowerCase();
+            const resultsContainer = document.getElementById("search-results");
+            resultsContainer.innerHTML = ''; // Pulisce i risultati precedenti
+
+            const results = pages.filter(page => page.content.toLowerCase().includes(query));
+
+            if (results.length === 0) {
+                resultsContainer.innerHTML = '<p>Nessun risultato trovato</p>';
+            } else {
+                results.forEach(page => {
+                    const resultItem = document.createElement("div");
+                    resultItem.innerHTML = `<a href="${page.url}">${page.title}</a><p>${page.content}</p>`;
+                    resultsContainer.appendChild(resultItem);
+                });
+            }
         }
     </script>
 </body>
