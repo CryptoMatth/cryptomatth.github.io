@@ -8,30 +8,18 @@ const pages = [
 
 // Funzione per gestire la ricerca
 function search() {
-    const query = document.getElementById("search-input").value.toLowerCase().trim();
-    const resultsContainer = document.getElementById("search-results");
-
-    // Pulisce i risultati precedenti
-    resultsContainer.innerHTML = "";
-
-    // Controlla se la query è vuota
-    if (!query) {
-        resultsContainer.innerHTML = "<p>Inserisci un termine per la ricerca</p>";
-        return;
-    }
-
-    // Cerca corrispondenze nelle pagine
+    const query = document.getElementById("search-input").value.toLowerCase();
     const results = pages.filter(page => 
         page.title.toLowerCase().includes(query) || page.content.toLowerCase().includes(query)
     );
-
-    // Visualizza i risultati
+    
     displayResults(results);
 }
 
 // Funzione per visualizzare i risultati della ricerca
 function displayResults(results) {
     const resultsContainer = document.getElementById("search-results");
+    resultsContainer.innerHTML = "";  // Pulisce i risultati precedenti
 
     if (results.length === 0) {
         resultsContainer.innerHTML = "<p>Nessun risultato trovato</p>";
@@ -41,11 +29,7 @@ function displayResults(results) {
     // Aggiungi i risultati alla pagina
     results.forEach(result => {
         const resultItem = document.createElement("div");
-        resultItem.className = "search-result"; // Classe CSS per lo stile
-        resultItem.innerHTML = 
-            <a href="${result.url}">${result.title}</a>
-            <p>${result.content}</p>
-        ;
+        resultItem.innerHTML = `<a href="${result.url}">${result.title}</a>`;
         resultsContainer.appendChild(resultItem);
     });
 }
