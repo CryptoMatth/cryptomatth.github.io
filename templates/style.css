@@ -44,6 +44,18 @@ header nav ul li a {
     text-decoration: none;
 }
 
+/* Stili per il titolo della pagina */
+.page-title {
+    background: #f4f4f4;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.page-title h1 {
+    margin: 0;
+    font-size: 2rem;
+}
+
 /* Stili per il contenuto principale */
 main {
     padding: 20px;
