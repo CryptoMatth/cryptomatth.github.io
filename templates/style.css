@@ -4,14 +4,14 @@ body {
     line-height: 1.6;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    background-color: #f0f0f0;
     color: #333;
 }
 
 /* Stili per la barra del titolo */
 .title-bar {
-    background: #444;
-    color: #fff;
+    background: #2c3e50; /* Blu scuro */
+    color: #ecf0f1; /* Bianco chiaro */
     padding: 20px 0;
     text-align: center;
 }
@@ -23,8 +23,8 @@ body {
 
 /* Stili per l'intestazione */
 header {
-    background: #333;
-    color: #fff;
+    background: #34495e; /* Blu medio */
+    color: #ecf0f1; /* Bianco chiaro */
     padding: 1rem 0;
     text-align: center;
 }
@@ -40,13 +40,14 @@ header nav ul li {
 }
 
 header nav ul li a {
-    color: #fff;
+    color: #ecf0f1; /* Bianco chiaro */
     text-decoration: none;
 }
 
 /* Stili per il titolo della pagina */
 .page-title {
-    background: #f4f4f4;
+    background: #2980b9; /* Blu brillante */
+    color: #fff; /* Bianco */
     padding: 20px 0;
     text-align: center;
 }
@@ -67,7 +68,7 @@ section {
 }
 
 section h2 {
-    border-bottom: 2px solid #333;
+    border-bottom: 2px solid #2980b9; /* Blu brillante */
     padding-bottom: 10px;
 }
 
@@ -87,7 +88,7 @@ article h3 {
 article a {
     display: inline-block;
     margin-top: 10px;
-    color: #333;
+    color: #2980b9; /* Blu brillante */
     text-decoration: none;
     font-weight: bold;
 }
