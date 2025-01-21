@@ -7,8 +7,7 @@
     <link rel="stylesheet" href="../templates/style.css">
 </head>
 <body>
-    <!-- Include della barra laterale -->
-    <?php include '../templates/sidebar.html'; ?>
+    <div id="sidebar-container"></div> <!-- Div per la barra laterale -->
     
     <header>
         <div class="title-bar"><h1>CryptoMatths</h1>
@@ -43,5 +42,15 @@
             </article>
         </section>
     </main>
+    
+    <!-- Script per caricare dinamicamente la barra laterale -->
+    <script>
+        fetch('../templates/sidebar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('sidebar-container').innerHTML = data;
+            })
+            .catch(error => console.error('Errore nel caricamento della sidebar:', error));
+    </script>
 </body>
 </html>
