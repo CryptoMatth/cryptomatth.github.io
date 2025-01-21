@@ -15,10 +15,10 @@ body {
     color: #ecf0f1; /* Bianco chiaro */
     padding: 20px;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-    margin-top: 80px; /* Posiziona la barra laterale sotto la barra del titolo */
-    position: relative; /* Usa il posizionamento relativo per il flusso normale */
+    position: fixed; /* Rendi la barra laterale fissa */
+    top: 80px; /* Posiziona la barra laterale sotto la barra del titolo */
     left: 0;
-    height: auto; /* La barra laterale si espande in base al contenuto */
+    height: 100vh; /* Imposta altezza della barra laterale per coprire tutta la pagina */
     overflow-y: auto; /* Scorrimento verticale interno, se necessario */
     z-index: 5; /* Assicurati che la barra laterale sia sotto la barra del titolo */
 }
