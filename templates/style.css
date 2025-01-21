@@ -15,8 +15,8 @@ body {
     color: #ecf0f1; /* Bianco chiaro */
     padding: 20px;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-    margin-top: 80px; /* Altezza della barra del titolo */
-    position: relative; /* Permette lo scorrimento insieme alla pagina */
+    margin-top: calc(20px + 2.5rem); /* Altezza dinamica della barra del titolo (20px di padding + 2.5rem per la dimensione del font) */
+    position: relative;
     height: auto;
     overflow-y: auto; /* Scorrimento verticale interno, se necessario */
 }
