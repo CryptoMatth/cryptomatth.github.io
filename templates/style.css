@@ -15,10 +15,12 @@ body {
     color: #ecf0f1; /* Bianco chiaro */
     padding: 20px;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-    margin-top: 80px; /* Imposta l'altezza della barra del titolo */
-    position: relative;
-    height: auto;
+    position: fixed; /* Rendi la barra laterale fissa */
+    top: 80px; /* Posiziona la barra laterale sotto la barra del titolo */
+    left: 0;
+    height: 100vh; /* Imposta altezza della barra laterale per coprire tutta la pagina */
     overflow-y: auto; /* Scorrimento verticale interno, se necessario */
+    z-index: 5; /* Assicurati che la barra laterale sia sotto la barra del titolo */
 }
 
 .sidebar nav ul {
@@ -46,6 +48,7 @@ body {
 main {
     margin-left: 220px; /* Spazio per la barra laterale */
     padding: 20px;
+    margin-top: 80px; /* Imposta margine per iniziare sotto la barra del titolo */
 }
 
 /* Stili per la barra del titolo */
@@ -54,6 +57,8 @@ main {
     color: #ecf0f1; /* Bianco chiaro */
     padding: 20px 0;
     text-align: center;
+    position: relative; /* Aggiungi un contesto di posizionamento per altre posizioni */
+    z-index: 10; /* Assicurati che sia sopra la barra laterale */
 }
 
 .title-bar h1 {
