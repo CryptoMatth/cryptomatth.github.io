@@ -11,16 +11,14 @@ body {
 /* Barra laterale */
 .sidebar {
     width: 200px;
-    margin-top: calc(1rem + 40px); /* Combina padding e altezza */
     background-color: #2c3e50; /* Blu scuro */
     color: #ecf0f1; /* Bianco chiaro */
-    height: 100vh;
     padding: 20px;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-    position: fixed;
-    top: 0;
-    left: 0;
-    overflow-y: auto;
+    margin-top: 80px; /* Altezza della barra del titolo */
+    position: relative; /* Permette lo scorrimento insieme alla pagina */
+    height: auto;
+    overflow-y: auto; /* Scorrimento verticale interno, se necessario */
 }
 
 .sidebar nav ul {
