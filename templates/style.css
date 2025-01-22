@@ -24,6 +24,17 @@ body {
     overflow-y: auto; /* Abilita lo scroll interno */
 }
 
+.sidebar nav ul li a {
+    text-decoration: none;
+    color: #ecf0f1; /* Colore del testo a bianco chiaro */
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.sidebar nav ul li a:hover {
+    color: #2980b9; /* Colore blu brillante quando il link viene passato con il mouse */
+}
+
 /* Barra del titolo */
 .title-bar {
     background: #2c3e50; /* Blu scuro */
