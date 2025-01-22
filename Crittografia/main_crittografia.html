@@ -7,41 +7,44 @@
     <link rel="stylesheet" href="../templates/style.css">
 </head>
 <body>
-    <div id="sidebar-container"></div> <!-- Div per la barra laterale -->
-    
-    <header>
-        <div class="title-bar"><h1>CryptoMatths</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">Chi Siamo</a></li>
-                <li><a href="articles.html">Articoli</a></li>
-                <li><a href="contact.html">Contatti</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <section class="page-title">
-            <h1>Benvenuti nel mondo della Crittografia</h1>
-        </section>
-        <section>
-            <h2>Cos'è la Crittografia?</h2>
-            <p>La crittografia è la pratica e lo studio delle tecniche per comunicare in modo sicuro in presenza di terzi. È una componente fondamentale della sicurezza informatica.</p>
-        </section>
-        <section>
-            <h2>Ultimi Articoli</h2>
-            <article>
-                <h3>Introduzione alla Crittografia</h3>
-                <p>Scopri i concetti base della crittografia e come viene utilizzata per proteggere le informazioni.</p>
-                <a href="article1.html">Leggi di più</a>
-            </article>
-            <article>
-                <h3>Algoritmi di Crittografia Moderni</h3>
-                <p>Un'analisi degli algoritmi di crittografia più utilizzati oggi, come AES e RSA.</p>
-                <a href="article2.html">Leggi di più</a>
-            </article>
-        </section>
-    </main>
+    <div class="container">
+        <div class="title-bar">
+            <h1>CryptoMatths</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">Chi Siamo</a></li>
+                    <li><a href="articles.html">Articoli</a></li>
+                    <li><a href="contact.html">Contatti</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="content">
+            <div id="sidebar-container"></div> <!-- Div per la barra laterale -->
+            <main>
+                <section class="page-title">
+                    <h1>Benvenuti nel mondo della Crittografia</h1>
+                </section>
+                <section>
+                    <h2>Cos'è la Crittografia?</h2>
+                    <p>La crittografia è la pratica e lo studio delle tecniche per comunicare in modo sicuro in presenza di terzi. È una componente fondamentale della sicurezza informatica.</p>
+                </section>
+                <section>
+                    <h2>Ultimi Articoli</h2>
+                    <article>
+                        <h3>Introduzione alla Crittografia</h3>
+                        <p>Scopri i concetti base della crittografia e come viene utilizzata per proteggere le informazioni.</p>
+                        <a href="article1.html">Leggi di più</a>
+                    </article>
+                    <article>
+                        <h3>Algoritmi di Crittografia Moderni</h3>
+                        <p>Un'analisi degli algoritmi di crittografia più utilizzati oggi, come AES e RSA.</p>
+                        <a href="article2.html">Leggi di più</a>
+                    </article>
+                </section>
+            </main>
+        </div>
+    </div>
     
     <!-- Script per caricare dinamicamente la barra laterale -->
     <script>
