@@ -6,6 +6,7 @@ body {
     padding: 0;
     background-color: #f0f0f0;
     color: #333;
+    overflow: hidden; /* Impedisce lo scroll di tutta la pagina */
 }
 
 /* Barra laterale */
@@ -17,31 +18,38 @@ body {
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
     position: fixed; /* Rendi la barra laterale fissa */
     left: 0;
-    height: calc(100vh - 100px); /* Imposta l'altezza della barra laterale per coprire tutta la pagina meno la barra del titolo */
-    overflow-y: auto; /* Scorrimento verticale interno, se necessario */
-    z-index: 5; /* Assicurati che la barra laterale sia sotto la barra del titolo */
+    top: 0; /* Barra laterale inizia dalla parte superiore */
+    height: 100vh; /* Occupiamo tutta l'altezza della finestra */
+    z-index: 5; /* Assicurati che sia sopra il contenuto */
+    overflow-y: auto; /* Abilita lo scroll interno */
 }
 
-/* Layout con barra laterale */
-main {
-    margin-left: 220px; /* Spazio per la barra laterale */
-    padding: 20px;
-    margin-top: 80px; /* Imposta margine per iniziare sotto la barra del titolo */
-}
-
-/* Stili per la barra del titolo */
+/* Barra del titolo */
 .title-bar {
     background: #2c3e50; /* Blu scuro */
     color: #ecf0f1; /* Bianco chiaro */
     padding: 20px 0;
     text-align: center;
-    position: relative; /* Aggiungi un contesto di posizionamento per altre posizioni */
+    position: fixed; /* Rendi la barra del titolo fissa */
+    top: 0; /* Barra del titolo inizia dalla parte superiore */
+    left: 0;
+    width: 100%; /* La barra del titolo occupa tutta la larghezza */
     z-index: 10; /* Assicurati che sia sopra la barra laterale */
 }
 
+/* Spazio per il titolo */
 .title-bar h1 {
     margin: 0;
     font-size: 2.5rem;
+}
+
+/* Layout con barra laterale e barra del titolo fisse */
+main {
+    margin-left: 220px; /* Spazio per la barra laterale */
+    margin-top: 80px; /* Spazio sotto la barra del titolo */
+    padding: 20px;
+    height: calc(100vh - 80px); /* Imposta l'altezza a 100vh meno l'altezza della barra del titolo */
+    overflow-y: scroll; /* Abilita lo scroll solo nel contenuto centrale */
 }
 
 /* Stili per l'intestazione */
@@ -72,11 +80,6 @@ header nav ul li a {
     color: #2980b9; /* Blu brillante */
     font-size: 2rem;
     text-align: center;
-}
-
-/* Stili per il contenuto principale */
-main {
-    padding: 20px;
 }
 
 /* Stili per le sezioni */
