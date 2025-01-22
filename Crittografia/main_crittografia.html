@@ -7,8 +7,6 @@
     <link rel="stylesheet" href="../templates/style.css">
 </head>
 <body>
-    <div id="sidebar-container"></div> <!-- Div per la barra laterale -->
-    
     <header>
         <div class="title-bar"><h1>CryptoMatths</h1>
         <nav>
@@ -20,6 +18,7 @@
             </ul>
         </nav>
     </header>
+    
     <main>
         <section class="page-title">
             <h1>Benvenuti nel mondo della Crittografia</h1>
@@ -43,19 +42,29 @@
         </section>
     </main>
     
+    <!-- Div per la barra laterale -->
+    <div id="sidebar-container"></div>
+
     <!-- Script per caricare dinamicamente la barra laterale -->
     <script>
-        fetch('../templates/sidebar.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('sidebar-container').innerHTML = data;
-                
-                // Calcola e imposta dinamicamente il margine superiore della barra laterale
-                var titleBarHeight = document.querySelector('.title-bar').offsetHeight;
-                var sidebar = document.querySelector('.sidebar');
-                sidebar.style.top = titleBarHeight + 'px';
-            })
-            .catch(error => console.error('Errore nel caricamento della sidebar:', error));
+        // Funzione che carica la barra laterale e calcola il margine dinamico
+        document.addEventListener('DOMContentLoaded', function() {
+            // Carica la sidebar dal file HTML
+            fetch('../templates/sidebar.html')
+                .then(response => response.text())
+                .then(data => {
+                    // Inserisce il contenuto della sidebar
+                    document.getElementById('sidebar-container').innerHTML = data;
+                    
+                    // Calcola l'altezza della barra del titolo
+                    var titleBarHeight = document.querySelector('.title-bar').offsetHeight;
+                    var sidebar = document.querySelector('.sidebar');
+                    
+                    // Imposta il margine superiore della sidebar in base all'altezza della title-bar
+                    sidebar.style.top = titleBarHeight + 'px';
+                })
+                .catch(error => console.error('Errore nel caricamento della sidebar:', error));
+        });
     </script>
 </body>
 </html>
