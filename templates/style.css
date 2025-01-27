@@ -12,7 +12,7 @@ body {
 /* Barra laterale */
 .sidebar {
     width: 200px;
-    background-color: #34495e; /* Blu medio (più chiaro rispetto al precedente) */
+    background-color: #3c6e91; /* Grigio-blu chiaro per distinguersi dalla barra laterale */
     color: #ecf0f1; /* Bianco chiaro */
     padding: 20px;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
@@ -36,8 +36,8 @@ body {
 }
 
 /* Barra del titolo */
-.title-bar {
-    background: #3c6e91; /* Grigio-blu chiaro per distinguersi dalla barra laterale */
+.title-bar { 
+    background: #34495e; /* Blu medio (più chiaro rispetto al precedente) */
     color: #f5f5f5; /* Bianco più tenue per contrasto */
     padding: 20px 0;
     text-align: center;
