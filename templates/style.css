@@ -37,8 +37,8 @@ body {
 
 /* Barra del titolo */
 .title-bar { 
-    background: #34495e; /* Blu medio (più chiaro rispetto al precedente) */
-    color: #f5f5f5; /* Bianco più tenue per contrasto */
+    background: #4a90d9; /* Azzurro chiaro per maggiore luminosità */
+    color: #ffffff; /* Testo bianco per contrasto */
     padding: 20px 0;
     text-align: center;
     position: fixed; /* Rendi la barra del titolo fissa */
