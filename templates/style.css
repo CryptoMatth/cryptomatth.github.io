@@ -56,7 +56,7 @@ body {
 
 /* Layout con barra laterale e barra del titolo fisse */
 main {
-    margin-left: 220px; /* Spazio per la barra laterale */
+    margin-left: 300px; /* Spazio per la barra laterale */
     margin-top: 80px; /* Spazio sotto la barra del titolo */
     padding: 20px;
     height: calc(100vh - 80px); /* Imposta l'altezza a 100vh meno l'altezza della barra del titolo */
