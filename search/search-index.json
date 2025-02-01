@@ -1,0 +1,17 @@
+[
+    {
+        "url": "main_crittografia.html",
+        "title": "CryptoMatth - Home",
+        "content": "Benvenuti nel mondo della Crittografia. La crittografia è la pratica e lo studio delle tecniche per comunicare in modo sicuro in presenza di terzi. È una componente fondamentale della sicurezza informatica. Ultimi Articoli: Introduzione alla Crittografia, Algoritmi di Crittografia Moderni."
+    },
+    {
+        "url": "article1.html",
+        "title": "Introduzione alla Crittografia",
+        "content": "Scopri i concetti base della crittografia e come viene utilizzata per proteggere le informazioni."
+    },
+    {
+        "url": "article2.html",
+        "title": "Algoritmi di Crittografia Moderni",
+        "content": "Un'analisi degli algoritmi di crittografia più utilizzati oggi, come AES e RSA."
+    }
+]
