@@ -17,7 +17,16 @@
                 <li><a href="contact.html">Contatti</a></li>
             </ul>
         </nav>
+            
+        <div class="search-bar">
+            <input type="text" id="search-input" placeholder="Cerca...">
+            <button id="search-button">Cerca</button>
+        </div>
+
+            
     </header>
+
+    <div id="results-container"></div>
     
     <main>
         <section class="page-title">
@@ -66,5 +75,7 @@
                 .catch(error => console.error('Errore nel caricamento della sidebar:', error));
         });
     </script>
+
+    <script src="search.js"></script>
 </body>
 </html>
