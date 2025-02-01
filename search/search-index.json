@@ -12,6 +12,11 @@
     {
         "url": "article2.html",
         "title": "Algoritmi di Crittografia Moderni",
-        "content": "Un'analisi degli algoritmi di crittografia più utilizzati oggi, come AES e RSA."
+        "content": "Un'analisi degli algoritmi di crittografia più utilizzati oggi, come AES e RSA citiamo Cesare ed ElGamal."
+    },
+    {
+        "url": "article3.html",
+        "title": "Storia della Crittografia",
+        "content": "Citiamo il Cifrario di Cesare ed ElGamal."
     }
 ]
