@@ -72,7 +72,7 @@
             const resultsContainer = document.getElementById('results-container');
 
             if (query) {
-                fetch('../search-index.json')
+                fetch('search-index.json')
                     .then(response => response.json())
                     .then(data => {
                         const results = data.filter(page => page.content.toLowerCase().includes(query));
