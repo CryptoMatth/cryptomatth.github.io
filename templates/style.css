@@ -1,5 +1,7 @@
 /* Stili generali */
-body {
+html, body {
+    overflow: hidden; /* Impedisce lo scroll di tutta la pagina */
+    height: 100%; /* Assicura che il body occupi tutta l'altezza della finestra */
     font-family: Arial, sans-serif;
     line-height: 1.6;
     margin: 0;
