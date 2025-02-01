@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
     searchButton.addEventListener('click', function() {
         const query = searchInput.value.toLowerCase();
         if (query) {
-            window.location.href = `search_results.html?query=${encodeURIComponent(query)}`;
+            window.location.href = `search/search_results.html?query=${encodeURIComponent(query)}`;
         }
     });
 });
