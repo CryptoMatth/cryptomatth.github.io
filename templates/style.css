@@ -89,10 +89,8 @@ main {
     margin-left: 300px; /* Spazio per la barra laterale */
     margin-top: 80px; /* Spazio sotto la barra del titolo */
     padding: 20px;
-    height: auto; /* Imposta l'altezza automatica */
-    min-height: calc(100vh - 80px); /* Imposta l'altezza minima a 100vh meno l'altezza della barra del titolo */
-    overflow-y: auto; /* Abilita lo scroll solo nel contenuto centrale */
-    padding-bottom: 100px; /* Aumenta il padding inferiore per evitare che l'ultimo articolo venga tranciato */
+    height: calc(100vh - 80px); /* Imposta l'altezza a 100vh meno l'altezza della barra del titolo */
+    overflow-y: scroll; /* Abilita lo scroll solo nel contenuto centrale */
 }
 
 /* Stili per l'intestazione */
