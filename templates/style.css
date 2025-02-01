@@ -45,9 +45,6 @@ body {
     left: 0;
     width: 100%; /* La barra del titolo occupa tutta la larghezza */
     z-index: 10; /* Assicurati che sia sopra la barra laterale */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
 }
 
 /* Stili per la barra di ricerca */
