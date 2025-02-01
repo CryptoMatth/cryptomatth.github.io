@@ -12,10 +12,10 @@
             <h1>CryptoMatth</h1>
             <nav>
                 <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">Chi Siamo</a></li>
-                    <li><a href="articles.html">Articoli</a></li>
-                    <li><a href="contact.html">Contatti</a></li>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../about.html">Chi Siamo</a></li>
+                    <li><a href="../articles.html">Articoli</a></li>
+                    <li><a href="../contact.html">Contatti</a></li>
                 </ul>
             </nav>
         </div>
@@ -72,7 +72,7 @@
             const resultsContainer = document.getElementById('results-container');
 
             if (query) {
-                fetch('search-index.json')
+                fetch('../search-index.json')
                     .then(response => response.json())
                     .then(data => {
                         const results = data.filter(page => page.content.toLowerCase().includes(query));
@@ -80,9 +80,9 @@
                             results.forEach(result => {
                                 const resultItem = document.createElement('article');
                                 resultItem.innerHTML = `
-                                    <h3><a href="${result.url}">${result.title}</a></h3>
+                                    <h3><a href="../${result.url}">${result.title}</a></h3>
                                     <p>${result.content.substring(0, 150)}...</p>
-                                    <a href="${result.url}">Leggi di più</a>
+                                    <a href="../${result.url}">Leggi di più</a>
                                 `;
                                 resultsContainer.appendChild(resultItem);
                             });
