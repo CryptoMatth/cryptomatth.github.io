@@ -49,12 +49,12 @@ body {
     justify-content: space-between;
     align-items: center;
 }
-}
 
 /* Stili per la barra di ricerca */
 .search-bar {
     display: flex;
     align-items: center;
+    margin-right: 20px; /* Aggiungi un margine destro per staccare la barra di ricerca dal margine di destra */
 }
 
 .search-bar input {
