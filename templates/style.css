@@ -1,13 +1,17 @@
 /* Stili generali */
-html, body {
+html {
     overflow: hidden; /* Impedisce lo scroll di tutta la pagina */
     height: 100%; /* Assicura che il body occupi tutta l'altezza della finestra */
+}
+
+body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
     margin: 0;
     padding: 0;
     background-color: #f0f0f0;
     color: #333;
+    height: 100%; /* Assicura che il body occupi tutta l'altezza della finestra */
 }
 
 /* Barra laterale */
