@@ -1,9 +1,4 @@
 /* Stili generali */
-html {
-    overflow: hidden; /* Impedisce lo scroll di tutta la pagina */
-    height: 100%; /* Assicura che il body occupi tutta l'altezza della finestra */
-}
-
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
@@ -11,7 +6,7 @@ body {
     padding: 0;
     background-color: #f0f0f0;
     color: #333;
-    height: 100%; /* Assicura che il body occupi tutta l'altezza della finestra */
+    overflow: auto; /* Rimuove il "hidden" per permettere lo scroll */
 }
 
 /* Barra laterale */
@@ -94,8 +89,8 @@ main {
     margin-left: 300px; /* Spazio per la barra laterale */
     margin-top: 80px; /* Spazio sotto la barra del titolo */
     padding: 20px;
-    height: calc(100vh - 80px); /* Imposta l'altezza a 100vh meno l'altezza della barra del titolo */
-    overflow-y: scroll; /* Abilita lo scroll solo nel contenuto centrale */
+    min-height: calc(100vh - 80px); /* Imposta l'altezza minima per occupare tutta la finestra */
+    overflow-y: auto; /* Abilita lo scroll solo nel contenuto centrale */
 }
 
 /* Stili per l'intestazione */
