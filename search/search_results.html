@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CryptoMatth - Risultati della Ricerca</title>
+    <link rel="stylesheet" href="../templates/style.css">
+</head>
+<body>
+    <header>
+        <div class="title-bar">
+            <h1>CryptoMatth</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">Chi Siamo</a></li>
+                    <li><a href="articles.html">Articoli</a></li>
+                    <li><a href="contact.html">Contatti</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-title">
+            <h1>Risultati della Ricerca</h1>
+        </section>
+        <section id="results-container">
+            <!-- I risultati della ricerca verranno inseriti qui -->
+        </section>
+    </main>
+    
+    <!-- Div per la barra laterale -->
+    <div id="sidebar-container"></div>
+
+    <!-- Script per caricare dinamicamente la barra laterale -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Carica la sidebar dal file HTML
+            fetch('../templates/sidebar.html')
+                .then(response => response.text())
+                .then(data => {
+                    // Inserisce il contenuto della sidebar
+                    document.getElementById('sidebar-container').innerHTML = data;
+                    
+                    // Calcola l'altezza della barra del titolo
+                    var titleBarHeight = document.querySelector('.title-bar').offsetHeight;
+                    var sidebar = document.querySelector('.sidebar');
+                    
+                    // Imposta il margine superiore della sidebar in base all'altezza della title-bar
+                    sidebar.style.top = titleBarHeight + 'px';
+                })
+                .catch(error => console.error('Errore nel caricamento della sidebar:', error));
+        });
+
+        // Funzione per ottenere i parametri dell'URL
+        function getQueryParams() {
+            const params = {};
+            const queryString = window.location.search.substring(1);
+            const regex = /([^&=]+)=([^&]*)/g;
+            let m;
+            while (m = regex.exec(queryString)) {
+                params[decodeURIComponent(m[1])] = decodeURIComponent(m[2]);
+            }
+            return params;
+        }
+
+        // Funzione per caricare i risultati della ricerca
+        document.addEventListener('DOMContentLoaded', function() {
+            const params = getQueryParams();
+            const query = params['query'] ? params['query'].toLowerCase() : '';
+            const resultsContainer = document.getElementById('results-container');
+
+            if (query) {
+                fetch('search-index.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const results = data.filter(page => page.content.toLowerCase().includes(query));
+                        if (results.length > 0) {
+                            results.forEach(result => {
+                                const resultItem = document.createElement('article');
+                                resultItem.innerHTML = `
+                                    <h3><a href="${result.url}">${result.title}</a></h3>
+                                    <p>${result.content.substring(0, 150)}...</p>
+                                    <a href="${result.url}">Leggi di più</a>
+                                `;
+                                resultsContainer.appendChild(resultItem);
+                            });
+                        } else {
+                            resultsContainer.innerHTML = '<p>Nessun risultato trovato.</p>';
+                        }
+                    })
+                    .catch(error => console.error('Errore nella ricerca:', error));
+            } else {
+                resultsContainer.innerHTML = '<p>Nessun risultato trovato.</p>';
+            }
+        });
+    </script>
+</body>
+</html>
