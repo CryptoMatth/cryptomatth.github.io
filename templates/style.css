@@ -45,6 +45,36 @@ body {
     left: 0;
     width: 100%; /* La barra del titolo occupa tutta la larghezza */
     z-index: 10; /* Assicurati che sia sopra la barra laterale */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Stili per la barra di ricerca */
+.search-bar {
+    display: flex;
+    align-items: center;
+}
+
+.search-bar input {
+    padding: 10px;
+    width: 200px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.search-bar button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #2980b9;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.search-bar button:hover {
+    background-color: #1abc9c;
 }
 
 /* Spazio per il titolo */
