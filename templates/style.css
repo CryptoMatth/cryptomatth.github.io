@@ -9,16 +9,12 @@
     left: 0;
     width: 100%; /* La barra del titolo occupa tutta la larghezza */
     z-index: 10; /* Assicurati che sia sopra la barra laterale */
-    display: flex;
-    flex-direction: column; /* Disporre gli elementi in colonna */
-    align-items: center; /* Centrare gli elementi orizzontalmente */
 }
 
 /* Stili per la barra di ricerca */
 .search-bar {
     display: flex;
     align-items: center;
-    margin-top: 10px; /* Aggiungi un margine superiore per separare la barra di ricerca dal titolo */
 }
 
 .search-bar input {
@@ -40,11 +36,6 @@
 
 .search-bar button:hover {
     background-color: #1abc9c;
-}
-
-/* Stili per il menu di navigazione */
-.title-bar nav {
-    margin-top: 10px; /* Aggiungi un margine superiore per separare il menu di navigazione dal titolo */
 }
 
 /* Spazio per il titolo */
