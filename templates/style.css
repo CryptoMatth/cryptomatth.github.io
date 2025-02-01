@@ -91,6 +91,7 @@ main {
     padding: 20px;
     height: calc(100vh - 80px); /* Imposta l'altezza a 100vh meno l'altezza della barra del titolo */
     overflow-y: scroll; /* Abilita lo scroll solo nel contenuto centrale */
+    margin-bottom: 20px; /* Aggiungi un margine inferiore per evitare che l'ultimo articolo venga tranciato */
 }
 
 /* Stili per l'intestazione */
