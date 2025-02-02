@@ -4,22 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CryptoMatth - Risultati della Ricerca</title>
-    <link rel="stylesheet" href="../templates/style.css">
+    <link rel="stylesheet" href="../templates/style.css"> <!-- Mantieni questo link al file CSS -->
 </head>
 <body>
-    <header>
-        <div class="title-bar">
-            <h1>CryptoMatth</h1>
-            <nav>
-                <ul>
-                    <li><a href="../index.html">Home</a></li>
-                    <li><a href="../about.html">Chi Siamo</a></li>
-                    <li><a href="../articles.html">Articoli</a></li>
-                    <li><a href="../contact.html">Contatti</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+    <!-- Div per la barra del titolo -->
+    <div id="titlebar-container"></div> <!-- Mantieni questo div per caricare la titlebar -->
+
+    <!-- Div per la barra laterale -->
+    <div id="sidebar-container"></div> <!-- Mantieni questo div per caricare la sidebar -->
 
     <main>
         <section class="page-title">
@@ -29,18 +21,22 @@
             <!-- I risultati della ricerca verranno inseriti qui -->
         </section>
     </main>
-    
-    <!-- Div per la barra laterale -->
-    <div id="sidebar-container"></div>
 
-    <!-- Script per caricare dinamicamente la barra laterale -->
+    <!-- Script per caricare dinamicamente la barra del titolo e la barra laterale -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // Carica la titlebar dal file HTML
+            fetch('../templates/titlebar.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('titlebar-container').innerHTML = data;
+                })
+                .catch(error => console.error('Errore nel caricamento della titlebar:', error));
+
             // Carica la sidebar dal file HTML
             fetch('../templates/sidebar.html')
                 .then(response => response.text())
                 .then(data => {
-                    // Inserisce il contenuto della sidebar
                     document.getElementById('sidebar-container').innerHTML = data;
                     
                     // Calcola l'altezza della barra del titolo
