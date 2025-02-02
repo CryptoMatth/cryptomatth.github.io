@@ -12,6 +12,9 @@
         <input type="text" id="search-input" placeholder="Cerca...">
         <button id="search-button">Cerca</button>
     </div>
+    <div class="language-selector">
+        <a id="lang-it" href="#">IT</a> | <a id="lang-eng" href="#">ENG</a>
+    </div>
 </div>
 
 <script>
@@ -26,5 +29,21 @@
         document.getElementById('about-link').setAttribute('href', '/' + lang + '/about.html');
         document.getElementById('articles-link').setAttribute('href', '/' + lang + '/articles.html');
         document.getElementById('contact-link').setAttribute('href', '/' + lang + '/contact.html');
+
+        // Funzione per cambiare lingua
+        function changeLanguage(newLang) {
+            var newPathArray = pathArray.slice(); // Copia l'array del percorso
+            newPathArray[1] = newLang; // Cambia la lingua
+            var newPath = newPathArray.join('/');
+            window.location.pathname = newPath; // Reindirizza alla nuova URL
+        }
+
+        // Aggiungi event listener per il selettore di lingua
+        document.getElementById('lang-it').addEventListener('click', function() {
+            changeLanguage('it');
+        });
+        document.getElementById('lang-eng').addEventListener('click', function() {
+            changeLanguage('eng');
+        });
     });
 </script>
