@@ -1,0 +1,168 @@
+/* Stili generali */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+    color: #333;
+    overflow: auto;
+}
+
+/* Barra laterale */
+.sidebar {
+    background-color: #3c6e91;
+    color: #ecf0f1;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    z-index: 5;
+    overflow-y: auto;
+    width: 250px; /* Ridotto leggermente per centrare il contenuto */
+}
+
+.sidebar nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar nav ul li {
+    margin-bottom: 10px;
+}
+
+.sidebar nav ul li a {
+    text-decoration: none;
+    color: #ecf0f1;
+    font-weight: bold;
+    transition: color 0.3s;
+    display: block;
+}
+
+.sidebar nav ul li a:hover {
+    color: #1abc9c;
+}
+
+/* Barra del titolo */
+.title-bar {
+    background: #4a90d9;
+    color: #ffffff;
+    padding: 15px 0;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.title-bar nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 15px;
+}
+
+.title-bar nav ul li {
+    display: inline-block;
+}
+
+.title-bar nav ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px;
+}
+
+.title-bar nav ul li a:hover {
+    background-color: #1a73e8;
+    border-radius: 5px;
+}
+
+/* Barra di ricerca */
+.search-bar {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.search-bar input {
+    padding: 10px;
+    width: 200px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.search-bar button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #2980b9;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.search-bar button:hover {
+    background-color: #1abc9c;
+}
+
+/* Spazio per il titolo */
+.title-bar h1 {
+    margin: 0;
+    font-size: 2rem;
+    padding-left: 20px;
+}
+
+/* Layout con barra laterale e barra del titolo fisse */
+main {
+    margin-left: 300px;
+    margin-top: 80px;
+    padding: 20px;
+    min-height: calc(100vh - 80px);
+    overflow-y: auto;
+}
+
+/* Stili per gli articoli */
+article {
+    background: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+article h3 {
+    margin-top: 0;
+}
+
+article a {
+    display: inline-block;
+    margin-top: 10px;
+    color: #2980b9;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+article a:hover {
+    text-decoration: underline;
+}
+
+/* Ripristino dello stile del titolo principale */
+.page-title h1 {
+    color: #2980b9; /* Azzurro */
+    text-align: center;
+    font-size: 2rem; /* Aumentata la dimensione del titolo principale */
+}
+
+/* Ripristino della linea azzurra sotto i sottotitoli */
+h2 {
+    border-bottom: 2px solid #2980b9;
+    padding-bottom: 5px;
+    font-size: 1.5rem; /* Impostata una dimensione inferiore rispetto al titolo principale */
+}
