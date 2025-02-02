@@ -6,55 +6,88 @@ body {
     padding: 0;
     background-color: #f0f0f0;
     color: #333;
-    overflow: auto; /* Rimuove il "hidden" per permettere lo scroll */
+    overflow: auto;
 }
 
 /* Barra laterale */
 .sidebar {
-    background-color: #3c6e91; /* Grigio-blu chiaro per distinguersi dalla barra laterale */
-    color: #ecf0f1; /* Bianco chiaro */
+    background-color: #3c6e91;
+    color: #ecf0f1;
     padding: 20px;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-    position: fixed; /* Rendi la barra laterale fissa */
+    position: fixed;
     left: 0;
-    top: 0; /* Barra laterale inizia dalla parte superiore */
-    height: 100vh; /* Occupiamo tutta l'altezza della finestra */
-    z-index: 5; /* Assicurati che sia sopra il contenuto */
-    overflow-y: auto; /* Abilita lo scroll interno */
+    top: 0;
+    height: 100vh;
+    z-index: 5;
+    overflow-y: auto;
+}
+
+.sidebar nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar nav ul li {
+    margin-bottom: 10px;
 }
 
 .sidebar nav ul li a {
     text-decoration: none;
-    color: #ecf0f1; /* Colore del testo a bianco chiaro */
+    color: #ecf0f1;
     font-weight: bold;
     transition: color 0.3s;
+    display: block;
 }
 
 .sidebar nav ul li a:hover {
-    color: #1abc9c; /* Verde acqua brillante per il passaggio del mouse */
+    color: #1abc9c;
 }
 
 /* Barra del titolo */
 .title-bar {
-    background: #4a90d9; /* Azzurro chiaro per maggiore luminosità */
-    color: #ffffff; /* Testo bianco per contrasto */
-    padding: 20px 0;
+    background: #4a90d9;
+    color: #ffffff;
+    padding: 15px 0;
     text-align: center;
-    position: fixed; /* Rendi la barra del titolo fissa */
-    top: 0; /* Barra del titolo inizia dalla parte superiore */
+    position: fixed;
+    top: 0;
     left: 0;
-    width: 100%; /* La barra del titolo occupa tutta la larghezza */
-    z-index: 10; /* Assicurati che sia sopra la barra laterale */
+    width: 100%;
+    z-index: 10;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-/* Stili per la barra di ricerca */
+.title-bar nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 15px;
+}
+
+.title-bar nav ul li {
+    display: inline-block;
+}
+
+.title-bar nav ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px;
+}
+
+.title-bar nav ul li a:hover {
+    background-color: #1a73e8;
+    border-radius: 5px;
+}
+
+/* Barra di ricerca */
 .search-bar {
     display: flex;
     align-items: center;
-    margin-right: 20px; /* Aggiungi un margine destro per staccare la barra di ricerca dal margine di destra */
+    margin-right: 20px;
 }
 
 .search-bar input {
@@ -81,56 +114,16 @@ body {
 /* Spazio per il titolo */
 .title-bar h1 {
     margin: 0;
-    font-size: 2.5rem;
+    font-size: 2rem;
 }
 
 /* Layout con barra laterale e barra del titolo fisse */
 main {
-    margin-left: 300px; /* Spazio per la barra laterale */
-    margin-top: 80px; /* Spazio sotto la barra del titolo */
+    margin-left: 300px;
+    margin-top: 80px;
     padding: 20px;
-    min-height: calc(100vh - 80px); /* Imposta l'altezza minima per occupare tutta la finestra */
-    overflow-y: auto; /* Abilita lo scroll solo nel contenuto centrale */
-}
-
-/* Stili per l'intestazione */
-header {
-    background: #34495e; /* Blu medio */
-    color: #ecf0f1; /* Bianco chiaro */
-    padding: 1rem 0;
-    text-align: center;
-}
-
-header nav ul {
-    list-style: none;
-    padding: 0;
-}
-
-header nav ul li {
-    display: inline;
-    margin: 0 10px;
-}
-
-header nav ul li a {
-    color: #ecf0f1; /* Bianco chiaro */
-    text-decoration: none;
-}
-
-/* Stili per il titolo della pagina */
-.page-title h1 {
-    color: #2980b9; /* Blu brillante */
-    font-size: 2rem;
-    text-align: center;
-}
-
-/* Stili per le sezioni */
-section {
-    margin-bottom: 20px;
-}
-
-section h2 {
-    border-bottom: 2px solid #2980b9; /* Blu brillante */
-    padding-bottom: 10px;
+    min-height: calc(100vh - 80px);
+    overflow-y: auto;
 }
 
 /* Stili per gli articoli */
@@ -149,7 +142,7 @@ article h3 {
 article a {
     display: inline-block;
     margin-top: 10px;
-    color: #2980b9; /* Blu brillante */
+    color: #2980b9;
     text-decoration: none;
     font-weight: bold;
 }
