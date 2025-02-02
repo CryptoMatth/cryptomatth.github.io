@@ -39,10 +39,12 @@
         }
 
         // Aggiungi event listener per il selettore di lingua
-        document.getElementById('lang-it').addEventListener('click', function() {
+        document.getElementById('lang-it').addEventListener('click', function(event) {
+            event.preventDefault(); // Previene il comportamento predefinito del link
             changeLanguage('it');
         });
-        document.getElementById('lang-eng').addEventListener('click', function() {
+        document.getElementById('lang-eng').addEventListener('click', function(event) {
+            event.preventDefault(); // Previene il comportamento predefinito del link
             changeLanguage('eng');
         });
     });
