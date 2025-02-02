@@ -86,12 +86,15 @@
                                 resultsContainer.appendChild(resultItem);
                             });
                         } else {
-                            resultsContainer.innerHTML = '<p>Nessun risultato trovato.</p>';
+                            resultsContainer.innerHTML = '<p>Nessun risultato trovato per la tua ricerca.</p>';
                         }
                     })
-                    .catch(error => console.error('Errore nella ricerca:', error));
+                    .catch(error => {
+                        console.error('Errore nella ricerca:', error);
+                        resultsContainer.innerHTML = '<p>Si è verificato un errore durante la ricerca. Per favore, riprova più tardi.</p>';
+                    });
             } else {
-                resultsContainer.innerHTML = '<p>Nessun risultato trovato.</p>';
+                resultsContainer.innerHTML = '<p>Nessun risultato trovato per la tua ricerca.</p>';
             }
         });
     </script>
