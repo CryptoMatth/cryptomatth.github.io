@@ -23,12 +23,17 @@
         var pathArray = window.location.pathname.split('/');
         var lang = pathArray[1]; // Supponendo che la lingua sia la prima parte del percorso
 
-        // Aggiorna i link di navigazione in base alla lingua corrente
-        document.getElementById('title-link').setAttribute('href', '/' + lang + '/index.html');
-        document.getElementById('home-link').setAttribute('href', '/' + lang + '/index.html');
-        document.getElementById('about-link').setAttribute('href', '/' + lang + '/about.html');
-        document.getElementById('articles-link').setAttribute('href', '/' + lang + '/articles.html');
-        document.getElementById('contact-link').setAttribute('href', '/' + lang + '/contact.html');
+        // Funzione per aggiornare i link di navigazione in base alla lingua corrente
+        function updateLinks() {
+            document.getElementById('title-link').setAttribute('href', '/' + lang + '/index.html');
+            document.getElementById('home-link').setAttribute('href', '/' + lang + '/index.html');
+            document.getElementById('about-link').setAttribute('href', '/' + lang + '/about.html');
+            document.getElementById('articles-link').setAttribute('href', '/' + lang + '/articles.html');
+            document.getElementById('contact-link').setAttribute('href', '/' + lang + '/contact.html');
+        }
+
+        // Aggiorna i link di navigazione inizialmente
+        updateLinks();
 
         // Funzione per cambiare lingua
         function changeLanguage(newLang) {
@@ -46,6 +51,28 @@
         document.getElementById('lang-eng').addEventListener('click', function(event) {
             event.preventDefault(); // Previene il comportamento predefinito del link
             changeLanguage('eng');
+        });
+
+        // Aggiungi event listener per i link di navigazione per prevenire il comportamento predefinito
+        document.getElementById('title-link').addEventListener('click', function(event) {
+            event.preventDefault();
+            window.location.href = this.getAttribute('href');
+        });
+        document.getElementById('home-link').addEventListener('click', function(event) {
+            event.preventDefault();
+            window.location.href = this.getAttribute('href');
+        });
+        document.getElementById('about-link').addEventListener('click', function(event) {
+            event.preventDefault();
+            window.location.href = this.getAttribute('href');
+        });
+        document.getElementById('articles-link').addEventListener('click', function(event) {
+            event.preventDefault();
+            window.location.href = this.getAttribute('href');
+        });
+        document.getElementById('contact-link').addEventListener('click', function(event) {
+            event.preventDefault();
+            window.location.href = this.getAttribute('href');
         });
     });
 </script>
