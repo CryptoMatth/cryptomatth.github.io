@@ -72,10 +72,13 @@
             const resultsContainer = document.getElementById('results-container');
 
             if (query) {
-                fetch('search-index.json')
+                fetch('../search/search-index.json')
                     .then(response => response.json())
                     .then(data => {
-                        const results = data.filter(page => page.content.toLowerCase().includes(query));
+                        const results = data.filter(page => 
+                            page.content.toLowerCase().includes(query) || 
+                            page.keywords.some(keyword => keyword.toLowerCase().includes(query))
+                        );
                         if (results.length > 0) {
                             results.forEach(result => {
                                 const resultItem = document.createElement('article');
