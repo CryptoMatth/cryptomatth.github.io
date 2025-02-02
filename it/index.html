@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CryptoMatth - Home</title>
-    <link rel="stylesheet" href="/templates/style.css"> <!-- Mantieni questo link al file CSS -->
+    <link rel="stylesheet" href="templates/style.css"> <!-- Mantieni questo link al file CSS -->
 </head>
 <body>
     <!-- Div per la barra del titolo -->
@@ -38,7 +38,7 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Carica la titlebar dal file HTML
-            fetch('/templates/titlebar.html')
+            fetch('templates/titlebar.html')
                 .then(response => response.text())
                 .then(data => {
                     document.getElementById('titlebar-container').innerHTML = data;
@@ -46,7 +46,7 @@
                 .catch(error => console.error('Errore nel caricamento della titlebar:', error));
 
             // Carica la sidebar dal file HTML
-            fetch('/templates/sidebar.html')
+            fetch('templates/sidebar.html')
                 .then(response => response.text())
                 .then(data => {
                     document.getElementById('sidebar-container').innerHTML = data;
