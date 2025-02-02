@@ -116,6 +116,7 @@ body {
 .title-bar h1 {
     margin: 0;
     font-size: 2rem;
+    padding-left: 20px;
 }
 
 /* Layout con barra laterale e barra del titolo fisse */
