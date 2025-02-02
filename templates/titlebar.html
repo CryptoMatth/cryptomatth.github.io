@@ -1,11 +1,11 @@
 <div class="title-bar">
-    <h1><a href="https://cryptomatth.github.io/index.html" style="color: inherit; text-decoration: none;">CryptoMatth</a></h1>
+    <h1><a id="title-link" href="#" style="color: inherit; text-decoration: none;">CryptoMatth</a></h1>
     <nav>
         <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">Chi Siamo</a></li>
-            <li><a href="articles.html">Articoli</a></li>
-            <li><a href="contact.html">Contatti</a></li>
+            <li><a id="home-link" href="#">Home</a></li>
+            <li><a id="about-link" href="#">Chi Siamo</a></li>
+            <li><a id="articles-link" href="#">Articoli</a></li>
+            <li><a id="contact-link" href="#">Contatti</a></li>
         </ul>
     </nav>
     <div class="search-bar">
@@ -13,3 +13,18 @@
         <button id="search-button">Cerca</button>
     </div>
 </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Ottieni la lingua corrente dall'URL
+        var pathArray = window.location.pathname.split('/');
+        var lang = pathArray[1]; // Supponendo che la lingua sia la prima parte del percorso
+
+        // Aggiorna i link di navigazione in base alla lingua corrente
+        document.getElementById('title-link').setAttribute('href', '/' + lang + '/index.html');
+        document.getElementById('home-link').setAttribute('href', '/' + lang + '/index.html');
+        document.getElementById('about-link').setAttribute('href', '/' + lang + '/about.html');
+        document.getElementById('articles-link').setAttribute('href', '/' + lang + '/articles.html');
+        document.getElementById('contact-link').setAttribute('href', '/' + lang + '/contact.html');
+    });
+</script>
