@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CryptoMatth - Home</title>
-    <link rel="stylesheet" href="../templates/style.css"> <!-- Mantieni questo link al file CSS -->
+    <link rel="stylesheet" href="templates/style.css"> <!-- Mantieni questo link al file CSS -->
 </head>
 <body>
     <!-- Div per la barra del titolo -->
@@ -25,11 +25,11 @@
             <h2>Ultimi Articoli</h2>
             <article>
                 <h3>Matematica</h3>
-                <p>Per gli appunti di matematica, <a href="https://cryptomatth.github.io/matematica/main_matematica.html">clicca qui</a>.</p>
+                <p>Per gli appunti di matematica, <a href="/matematica/main_matematica.html">clicca qui</a>.</p>
             </article>
             <article>
                 <h3>Crittografia</h3>
-                <p>Per gli appunti di crittografia, <a href="https://cryptomatth.github.io/crittografia/main_crittografia.html">clicca qui</a>.</p>
+                <p>Per gli appunti di crittografia, <a href="/crittografia/main_crittografia.html">clicca qui</a>.</p>
             </article>
         </section>
     </main>
@@ -38,7 +38,7 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Carica la titlebar dal file HTML
-            fetch('../templates/titlebar.html')
+            fetch('/templates/titlebar.html')
                 .then(response => response.text())
                 .then(data => {
                     document.getElementById('titlebar-container').innerHTML = data;
@@ -46,7 +46,7 @@
                 .catch(error => console.error('Errore nel caricamento della titlebar:', error));
 
             // Carica la sidebar dal file HTML
-            fetch('../templates/sidebar.html')
+            fetch('/templates/sidebar.html')
                 .then(response => response.text())
                 .then(data => {
                     document.getElementById('sidebar-container').innerHTML = data;
@@ -62,6 +62,6 @@
         });
     </script>
 
-    <script src="../search/search.js"></script> <!-- Mantieni questo script per la funzionalità di ricerca -->
+    <script src="/search/search.js"></script> <!-- Mantieni questo script per la funzionalità di ricerca -->
 </body>
 </html>
