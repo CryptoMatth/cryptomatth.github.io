@@ -1,78 +1,15 @@
 <div class="title-bar">
-    <h1><a id="title-link" href="#" style="color: inherit; text-decoration: none;">CryptoMatth</a></h1>
+    <h1><a href="https://cryptomatth.github.io/index.html" style="color: inherit; text-decoration: none;">CryptoMatth</a></h1>
     <nav>
         <ul>
-            <li><a id="home-link" href="#">Home</a></li>
-            <li><a id="about-link" href="#">Chi Siamo</a></li>
-            <li><a id="articles-link" href="#">Articoli</a></li>
-            <li><a id="contact-link" href="#">Contatti</a></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">Chi Siamo</a></li>
+            <li><a href="articles.html">Articoli</a></li>
+            <li><a href="contact.html">Contatti</a></li>
         </ul>
     </nav>
     <div class="search-bar">
         <input type="text" id="search-input" placeholder="Cerca...">
         <button id="search-button">Cerca</button>
     </div>
-    <div class="language-selector">
-        <a id="lang-it" href="#">IT</a> | <a id="lang-eng" href="#">ENG</a>
-    </div>
 </div>
-
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // Ottieni la lingua corrente dall'URL
-        var pathArray = window.location.pathname.split('/');
-        var lang = pathArray[1]; // Supponendo che la lingua sia la prima parte del percorso
-
-        // Funzione per aggiornare i link di navigazione in base alla lingua corrente
-        function updateLinks() {
-            document.getElementById('title-link').setAttribute('href', '/' + lang + '/index.html');
-            document.getElementById('home-link').setAttribute('href', '/' + lang + '/index.html');
-            document.getElementById('about-link').setAttribute('href', '/' + lang + '/about.html');
-            document.getElementById('articles-link').setAttribute('href', '/' + lang + '/articles.html');
-            document.getElementById('contact-link').setAttribute('href', '/' + lang + '/contact.html');
-        }
-
-        // Aggiorna i link di navigazione inizialmente
-        updateLinks();
-
-        // Funzione per cambiare lingua
-        function changeLanguage(newLang) {
-            var newPathArray = pathArray.slice(); // Copia l'array del percorso
-            newPathArray[1] = newLang; // Cambia la lingua
-            var newPath = newPathArray.join('/');
-            window.location.pathname = newPath; // Reindirizza alla nuova URL
-        }
-
-        // Aggiungi event listener per il selettore di lingua
-        document.getElementById('lang-it').addEventListener('click', function(event) {
-            event.preventDefault(); // Previene il comportamento predefinito del link
-            changeLanguage('it');
-        });
-        document.getElementById('lang-eng').addEventListener('click', function(event) {
-            event.preventDefault(); // Previene il comportamento predefinito del link
-            changeLanguage('eng');
-        });
-
-        // Aggiungi event listener per i link di navigazione per prevenire il comportamento predefinito
-        document.getElementById('title-link').addEventListener('click', function(event) {
-            event.preventDefault();
-            window.location.href = this.getAttribute('href');
-        });
-        document.getElementById('home-link').addEventListener('click', function(event) {
-            event.preventDefault();
-            window.location.href = this.getAttribute('href');
-        });
-        document.getElementById('about-link').addEventListener('click', function(event) {
-            event.preventDefault();
-            window.location.href = this.getAttribute('href');
-        });
-        document.getElementById('articles-link').addEventListener('click', function(event) {
-            event.preventDefault();
-            window.location.href = this.getAttribute('href');
-        });
-        document.getElementById('contact-link').addEventListener('click', function(event) {
-            event.preventDefault();
-            window.location.href = this.getAttribute('href');
-        });
-    });
-</script>
