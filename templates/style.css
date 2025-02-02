@@ -21,6 +21,7 @@ body {
     height: 100vh;
     z-index: 5;
     overflow-y: auto;
+    width: 250px; /* Ridotto leggermente per centrare il contenuto */
 }
 
 .sidebar nav ul {
