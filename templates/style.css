@@ -156,12 +156,12 @@ article a:hover {
 .page-title h1 {
     color: #2980b9; /* Azzurro */
     text-align: center;
-    font-size: 2.5rem; /* Aumentata la dimensione del titolo principale */
+    font-size: 2rem; /* Aumentata la dimensione del titolo principale */
 }
 
 /* Ripristino della linea azzurra sotto i sottotitoli */
 h2 {
     border-bottom: 2px solid #2980b9;
     padding-bottom: 5px;
-    font-size: 2rem; /* Impostata una dimensione inferiore rispetto al titolo principale */
+    font-size: 1.5rem; /* Impostata una dimensione inferiore rispetto al titolo principale */
 }
