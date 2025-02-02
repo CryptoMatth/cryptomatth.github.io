@@ -8,8 +8,25 @@
             <li><a href="contact.html">Contatti</a></li>
         </ul>
     </nav>
+    <div class="language-switcher">
+        <a href="#" id="switch-to-it">IT</a> | <a href="#" id="switch-to-en">EN</a>
+    </div>
     <div class="search-bar">
         <input type="text" id="search-input" placeholder="Cerca...">
         <button id="search-button">Cerca</button>
     </div>
 </div>
+
+<script>
+    document.getElementById('switch-to-it').addEventListener('click', function() {
+        var currentPath = window.location.pathname;
+        var newPath = currentPath.replace('/en/', '/it/');
+        window.location.href = newPath;
+    });
+
+    document.getElementById('switch-to-en').addEventListener('click', function() {
+        var currentPath = window.location.pathname;
+        var newPath = currentPath.replace('/it/', '/en/');
+        window.location.href = newPath;
+    });
+</script>
