@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
         searchButton.addEventListener('click', function() {
             const query = searchInput.value.trim().toLowerCase();
             if (query) {
-                window.location.href = `../search/search_results.html?query=${encodeURIComponent(query)}`;
+                window.location.href = `https://cryptomatth.github.io/it/search/search_results.html?query=${encodeURIComponent(query)}`;
             }
         });
 
