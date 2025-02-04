@@ -25,11 +25,6 @@
                         .catch(error => console.error('Errore nel caricamento della sidebar:', error));
                 })
                 .catch(error => console.error('Errore nel caricamento della titlebar:', error));
-
-            // Aggiungi qui il codice per la funzionalità di ricerca
-            var searchScript = document.createElement('script');
-            searchScript.src = 'search/search.js';
-            document.head.appendChild(searchScript);
         };
     </script>
 </head>
@@ -57,5 +52,7 @@
             </article>
         </section>
     </main>
+
+    <script src="search/search.js"></script>
 </body>
 </html>
