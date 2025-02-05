@@ -2,26 +2,23 @@ document.addEventListener("DOMContentLoaded", function () {
     let host = window.location.host; // Es. cryptomatth.github.io
     let path = window.location.pathname; // Es. /it/crittografia/main_crittografia.html
 
-    // Verifica se l'host contiene ".github.io" e il path termina con ".html"
-    if (host.includes(".github.io") && path.endsWith(".html")) {
-        // Pulizia dell'URL: rimuove ".github.io" e ".html"
-        let cleanHost = host.replace(".github.io", "");
-        let cleanPath = path.replace(/\.html$/, "");
+    console.log("Host: ", host);
+    console.log("Path: ", path);
 
-        // Se l'URL è già pulito, non facciamo nulla
-        if (host === cleanHost && path === cleanPath) {
-            return; // Non fare nulla, l'URL è già "pulito"
-        }
+    // Se il path non è pulito (ossia non contiene .html), lo correggiamo
+    if (!path.endsWith(".html")) {
+        let newPath = path + ".html"; // Aggiungiamo .html se non presente
+        console.log("Redirecting to: ", "https://" + host + newPath);
 
-        // Modifica l'URL senza ricaricare la pagina
-        history.replaceState({}, "", "https://" + cleanHost + cleanPath);
-    } else if (!host.includes(".github.io") && !path.endsWith(".html")) {
-        // Se siamo su un URL già "pulito", nessun reindirizzamento necessario
+        // Cambia solo il pathname senza toccare l'host
+        history.replaceState({}, "", "https://" + host + newPath);
         return;
-    } else {
-        // Se l'URL non è pulito, fai un reindirizzamento automatico (aggiungi ".github.io" e ".html")
-        let newHost = host.includes(".github.io") ? host : "cryptomatth.github.io"; // Riaggiungi .github.io se manca
-        let newPath = path.endsWith(".html") ? path : path + ".html"; // Riaggiungi .html se manca
-        window.location.replace("https://" + newHost + newPath);
     }
+
+    // Se il percorso ha già .html, lo puliamo per rendere l'URL più bello
+    let cleanPath = path.replace(/\.html$/, ""); // Rimuoviamo .html dal percorso
+    console.log("Cleaned URL: ", "https://" + host + cleanPath);
+
+    // Cambia il pathname senza toccare l'host
+    history.replaceState({}, "", "https://" + host + cleanPath);
 });
