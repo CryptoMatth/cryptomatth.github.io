@@ -62,7 +62,7 @@ body {
 }
 
 .title-bar nav {
-    margin-left: 20px; /* Aggiungi questa linea per spostare i link di navigazione più al centro */
+    margin-left: 50px; /* Aumenta il margine sinistro per spostare i link di navigazione più al centro */
 }
 
 .title-bar nav ul {
@@ -93,7 +93,7 @@ body {
     display: flex;
     align-items: center;
     margin-right: 20px;
-    margin-left: auto; /* Aggiungi questa linea per spostare la barra di ricerca a sinistra */
+    margin-left: auto; /* Sposta la barra di ricerca a sinistra */
 }
 
 .search-bar input {
@@ -119,8 +119,8 @@ body {
 
 /*  Cambia lingua */
 .language-switcher {
-    margin-left: 10px; /* Aggiungi questa linea per dare un po' di spazio tra la barra di ricerca e il selettore di lingua */
-    margin-right: 20px; /* Aggiungi questa linea per distanziare il selettore di lingua dal margine destro */
+    margin-left: 10px; /* Spazio tra la barra di ricerca e il selettore di lingua */
+    margin-right: 50px; /* Aumenta il margine destro per distanziare il selettore di lingua dal margine destro */
 }
 .language-switcher a {
     color: white;
