@@ -12,13 +12,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Cambia solo il pathname senza toccare l'host
         history.replaceState({}, "", "https://" + host + newPath);
-        return;
+    } else {
+        // Se il percorso ha già .html, lo puliamo per rendere l'URL più bello
+        let cleanPath = path.replace(/\.html$/, ""); // Rimuoviamo .html dal percorso
+        console.log("Cleaned URL: ", "https://" + host + cleanPath);
+
+        // Cambia il pathname senza toccare l'host
+        history.replaceState({}, "", "https://" + host + cleanPath);
     }
-
-    // Se il percorso ha già .html, lo puliamo per rendere l'URL più bello
-    let cleanPath = path.replace(/\.html$/, ""); // Rimuoviamo .html dal percorso
-    console.log("Cleaned URL: ", "https://" + host + cleanPath);
-
-    // Cambia il pathname senza toccare l'host
-    history.replaceState({}, "", "https://" + host + cleanPath);
 });
