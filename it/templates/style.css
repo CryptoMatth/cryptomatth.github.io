@@ -61,6 +61,10 @@ body {
     align-items: center;
 }
 
+.title-bar nav {
+    margin-left: 20px; /* Aggiungi questa linea per spostare i link di navigazione più al centro */
+}
+
 .title-bar nav ul {
     list-style: none;
     padding: 0;
@@ -116,6 +120,7 @@ body {
 /*  Cambia lingua */
 .language-switcher {
     margin-left: 10px; /* Aggiungi questa linea per dare un po' di spazio tra la barra di ricerca e il selettore di lingua */
+    margin-right: 20px; /* Aggiungi questa linea per distanziare il selettore di lingua dal margine destro */
 }
 .language-switcher a {
     color: white;
