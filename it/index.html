@@ -5,30 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CryptoMatth - Home</title>
     <link rel="stylesheet" href="templates/style.css">
-    <script>
-        window.onload = function() {
-            fetch('templates/titlebar.html')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('titlebar-container').innerHTML = data;
-
-                    fetch('templates/sidebar.html')
-                        .then(response => response.text())
-                        .then(data => {
-                            document.getElementById('sidebar-container').innerHTML = data;
-
-                            var titleBarHeight = document.querySelector('.title-bar').offsetHeight;
-                            var sidebar = document.querySelector('.sidebar');
-
-                            sidebar.style.top = titleBarHeight + 'px';
-                        })
-                        .catch(error => console.error('Errore nel caricamento della sidebar:', error));
-                })
-                .catch(error => console.error('Errore nel caricamento della titlebar:', error));
-        };
-    </script>
 </head>
 <body>
+    <script src="templates/url-handler.js"></script>
     <div id="titlebar-container"></div>
     <div id="sidebar-container"></div>
 
@@ -53,7 +32,28 @@
         </section>
     </main>
 
-    <script src="templates/url-handler.js"></script>
+    <script>
+        window.onload = function() {
+            fetch('templates/titlebar.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('titlebar-container').innerHTML = data;
+    
+                    fetch('templates/sidebar.html')
+                        .then(response => response.text())
+                        .then(data => {
+                            document.getElementById('sidebar-container').innerHTML = data;
+    
+                            var titleBarHeight = document.querySelector('.title-bar').offsetHeight;
+                            var sidebar = document.querySelector('.sidebar');
+    
+                            sidebar.style.top = titleBarHeight + 'px';
+                        })
+                        .catch(error => console.error('Errore nel caricamento della sidebar:', error));
+                })
+                .catch(error => console.error('Errore nel caricamento della titlebar:', error));
+        };
+    </script>
 
     <script src="search/search.js"></script>
 </body>
