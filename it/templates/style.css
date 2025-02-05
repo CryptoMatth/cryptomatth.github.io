@@ -33,15 +33,18 @@ body {
     margin-bottom: 10px;
 }
 
-.sidebar nav ul li a {
+.sidebar nav ul li a,
+.sidebar nav ul li span.dropdown-toggle {
     text-decoration: none;
     color: #ecf0f1;
     font-weight: bold;
     transition: color 0.3s;
     display: block;
+    cursor: pointer; /* Aggiungi il cursore pointer per il span */
 }
 
-.sidebar nav ul li a:hover {
+.sidebar nav ul li a:hover,
+.sidebar nav ul li span.dropdown-toggle:hover {
     color: #1abc9c;
 }
 
@@ -57,7 +60,7 @@ body {
 }
 
 .arrow {
-    margin-left: 5px;
+    margin-right: 5px; /* Sposta il simbolo a sinistra della scritta */
 }
 
 .open .dropdown-menu {
