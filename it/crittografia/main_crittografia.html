@@ -7,10 +7,8 @@
     <link rel="stylesheet" href="../templates/style.css"> <!-- Mantieni questo link al file CSS -->
 </head>
 <body>
-    <!-- Div per la barra del titolo -->
+    <script src="../templates/url-handler.js"></script>
     <div id="titlebar-container"></div> <!-- Mantieni questo div per caricare la titlebar -->
-
-    <!-- Div per la barra laterale -->
     <div id="sidebar-container"></div> <!-- Mantieni questo div per caricare la sidebar -->
 
     <main>
@@ -41,34 +39,29 @@
         </section>
     </main>
 
-    <!-- Script per caricare dinamicamente la barra del titolo e la barra laterale -->
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Carica la titlebar dal file HTML
+        window.onload = function() {
             fetch('../templates/titlebar.html')
                 .then(response => response.text())
                 .then(data => {
                     document.getElementById('titlebar-container').innerHTML = data;
+    
+                    fetch('../templates/sidebar.html')
+                        .then(response => response.text())
+                        .then(data => {
+                            document.getElementById('sidebar-container').innerHTML = data;
+    
+                            var titleBarHeight = document.querySelector('.title-bar').offsetHeight;
+                            var sidebar = document.querySelector('.sidebar');
+    
+                            sidebar.style.top = titleBarHeight + 'px';
+                        })
+                        .catch(error => console.error('Errore nel caricamento della sidebar:', error));
                 })
                 .catch(error => console.error('Errore nel caricamento della titlebar:', error));
-
-            // Carica la sidebar dal file HTML
-            fetch('../templates/sidebar.html')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('sidebar-container').innerHTML = data;
-                    
-                    // Calcola l'altezza della barra del titolo
-                    var titleBarHeight = document.querySelector('.title-bar').offsetHeight;
-                    var sidebar = document.querySelector('.sidebar');
-                    
-                    // Imposta il margine superiore della sidebar in base all'altezza della title-bar
-                    sidebar.style.top = titleBarHeight + 'px';
-                })
-                .catch(error => console.error('Errore nel caricamento della sidebar:', error));
-        });
+        };
     </script>
 
-    <script src="../search/search.js"></script> <!-- Mantieni questo script per la funzionalità di ricerca -->
+    <script src="../search/search.js"></script>
 </body>
 </html>
