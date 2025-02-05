@@ -89,6 +89,7 @@ body {
     display: flex;
     align-items: center;
     margin-right: 20px;
+    margin-left: auto; /* Aggiungi questa linea per spostare la barra di ricerca a sinistra */
 }
 
 .search-bar input {
@@ -114,9 +115,7 @@ body {
 
 /*  Cambia lingua */
 .language-switcher {
-    position: absolute;
-    top: 10px;
-    right: 20px;
+    margin-left: 10px; /* Aggiungi questa linea per dare un po' di spazio tra la barra di ricerca e il selettore di lingua */
 }
 .language-switcher a {
     color: white;
@@ -128,7 +127,6 @@ body {
 .language-switcher a:hover {
     text-decoration: underline;
 }
-    
 
 /* Spazio per il titolo */
 .title-bar h1 {
