@@ -45,6 +45,29 @@ body {
     color: #1abc9c;
 }
 
+/* Stili per il menu a tendina */
+.dropdown-menu {
+    display: none;
+    list-style: none;
+    padding-left: 20px;
+}
+
+.dropdown-toggle {
+    cursor: pointer;
+}
+
+.arrow {
+    margin-left: 5px;
+}
+
+.open .dropdown-menu {
+    display: block;
+}
+
+.open .arrow {
+    transform: rotate(90deg);
+}
+
 /* Barra del titolo */
 .title-bar {
     background: #4a90d9;
