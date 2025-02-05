@@ -18,19 +18,7 @@
     </div>
 </div>
 
-<script>
-    document.getElementById('switch-to-it').addEventListener('click', function() {
-        var currentPath = window.location.pathname;
-        var newPath = currentPath.replace('/en/', '/it/');
-        window.location.href = newPath;
-    });
-
-    document.getElementById('switch-to-en').addEventListener('click', function() {
-        var currentPath = window.location.pathname;
-        var newPath = currentPath.replace('/it/', '/en/');
-        window.location.href = newPath;
-    });
-</script>
+<script src="path/to/language-switcher.js"></script>
 
 <style>
     .language-switcher {
