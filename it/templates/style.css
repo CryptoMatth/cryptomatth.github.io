@@ -52,7 +52,16 @@ body {
 .dropdown-menu {
     display: none;
     list-style: none;
-    padding-left: 20px;
+    padding-left: 20px; /* Aggiunge un rientro per far capire la gerarchia */
+}
+
+.open .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu li a {
+    padding-left: 15px; /* Ulteriore rientro per le voci figlie */
+    display: block;
 }
 
 .dropdown-toggle {
@@ -60,14 +69,7 @@ body {
 }
 
 .arrow {
-    display: inline-block;
     margin-right: 5px;
-    transition: transform 0.3s ease-in-out;
-    transform-origin: center;
-}
-
-.open .dropdown-menu {
-    display: block;
 }
 
 .open .arrow {
@@ -151,7 +153,6 @@ body {
     margin-left: 10px;
     margin-right: 50px;
 }
-
 .language-switcher a {
     color: white;
     text-decoration: none;
@@ -159,7 +160,6 @@ body {
     font-weight: bold;
     cursor: pointer;
 }
-
 .language-switcher a:hover {
     text-decoration: underline;
 }
