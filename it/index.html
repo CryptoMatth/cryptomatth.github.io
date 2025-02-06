@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CryptoMatth - Home</title>
     <link rel="stylesheet" href="templates/style.css">
-    <script src="templates/dropdown.js"></script>
 </head>
 <body>
     <div id="titlebar-container"></div>
@@ -38,8 +37,7 @@
                 .then(response => response.text())
                 .then(data => {
                     document.getElementById('titlebar-container').innerHTML = data;
-                    
-                    // Aggiungere il selettore di lingua accanto alla barra di ricerca
+
                     const searchBar = document.querySelector('.search-bar');
                     if (searchBar) {
                         const langSwitcher = document.createElement('div');
@@ -56,9 +54,24 @@
                     var titleBarHeight = document.querySelector('.title-bar').offsetHeight;
                     var sidebar = document.querySelector('.sidebar');
                     sidebar.style.top = titleBarHeight + 'px';
+                    
+                    // Inizializza il menu a tendina
+                    initializeDropdowns();
                 })
                 .catch(error => console.error('Errore nel caricamento della titlebar o sidebar:', error));
         };
+
+        function initializeDropdowns() {
+            const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+            
+            dropdownToggles.forEach(toggle => {
+                toggle.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    const parentLi = this.parentElement;
+                    parentLi.classList.toggle('open');
+                });
+            });
+        }
     </script>
 
     <script src="templates/url-handler.js"></script>
