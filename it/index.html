@@ -56,22 +56,10 @@
                     sidebar.style.top = titleBarHeight + 'px';
                     
                     // Inizializza il menu a tendina
-                    initializeDropdowns();
+                    // La funzione initializeDropdowns è ora gestita esclusivamente in dropdown.js
                 })
                 .catch(error => console.error('Errore nel caricamento della titlebar o sidebar:', error));
         };
-
-        function initializeDropdowns() {
-            const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
-            
-            dropdownToggles.forEach(toggle => {
-                toggle.addEventListener('click', function(event) {
-                    event.preventDefault();
-                    const parentLi = this.parentElement;
-                    parentLi.classList.toggle('open');
-                });
-            });
-        }
     </script>
 
     <script src="templates/url-handler.js"></script>
