@@ -32,6 +32,7 @@
     </main>
 
     <script>
+        console.log("Script dropdown.js caricato correttamente!");
         window.onload = function() {
             fetch('templates/titlebar.html')
                 .then(response => response.text())
@@ -56,12 +57,25 @@
                     sidebar.style.top = titleBarHeight + 'px';
                     
                     // Inizializza il menu a tendina
-                    // La funzione initializeDropdowns è ora gestita esclusivamente in dropdown.js
+                    initializeDropdowns();
                 })
                 .catch(error => console.error('Errore nel caricamento della titlebar o sidebar:', error));
         };
+
+        function initializeDropdowns() {
+            const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+            
+            dropdownToggles.forEach(toggle => {
+                toggle.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    const parentLi = this.parentElement;
+                    parentLi.classList.toggle('open');
+                });
+            });
+        }
     </script>
 
+    <script src="templates/dropdown.js"></script>
     <script src="templates/url-handler.js"></script>
     <script src="search/search.js"></script>
 </body>
