@@ -52,7 +52,7 @@ body {
 .dropdown-menu {
     display: none;
     list-style: none;
-    padding-left: 20px; /* Aggiunge un rientro per far capire la gerarchia */
+    padding-left: 30px; /* Maggiore rientro per far capire la gerarchia */
 }
 
 .open .dropdown-menu {
@@ -60,7 +60,7 @@ body {
 }
 
 .dropdown-menu li a {
-    padding-left: 15px; /* Ulteriore rientro per le voci figlie */
+    padding-left: 25px; /* Ulteriore rientro per le voci figlie */
     display: block;
 }
 
