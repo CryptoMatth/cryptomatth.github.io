@@ -6,7 +6,15 @@ document.addEventListener('DOMContentLoaded', function() {
             toggle.addEventListener('click', function(event) {
                 event.preventDefault();
                 const parentLi = this.parentElement;
+                const arrow = parentLi.querySelector('.arrow'); // Aggiungi questa riga per selezionare la freccia
                 parentLi.classList.toggle('open');
+
+                // Ruota la freccia
+                if (parentLi.classList.contains('open')) {
+                    arrow.style.transform = 'rotate(90deg)';
+                } else {
+                    arrow.style.transform = 'rotate(0deg)';
+                }
             });
         });
     }
