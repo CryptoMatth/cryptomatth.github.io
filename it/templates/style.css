@@ -21,7 +21,7 @@ body {
     height: 100vh;
     z-index: 5;
     overflow-y: auto;
-    width: 250px; /* Ridotto leggermente per centrare il contenuto */
+    width: 250px;
 }
 
 .sidebar nav ul {
@@ -40,7 +40,7 @@ body {
     font-weight: bold;
     transition: color 0.3s;
     display: block;
-    cursor: pointer; /* Aggiungi il cursore pointer per il span */
+    cursor: pointer;
 }
 
 .sidebar nav ul li a:hover,
@@ -60,7 +60,10 @@ body {
 }
 
 .arrow {
-    margin-right: 5px; /* Sposta il simbolo a sinistra della scritta */
+    display: inline-block;
+    margin-right: 5px;
+    transition: transform 0.3s ease-in-out;
+    transform-origin: center;
 }
 
 .open .dropdown-menu {
@@ -88,7 +91,7 @@ body {
 }
 
 .title-bar nav {
-    margin-left: 50px; /* Aumenta il margine sinistro per spostare i link di navigazione più al centro */
+    margin-left: 50px;
 }
 
 .title-bar nav ul {
@@ -119,7 +122,7 @@ body {
     display: flex;
     align-items: center;
     margin-right: 20px;
-    margin-left: auto; /* Sposta la barra di ricerca a sinistra */
+    margin-left: auto;
 }
 
 .search-bar input {
@@ -143,11 +146,12 @@ body {
     background-color: #1abc9c;
 }
 
-/*  Cambia lingua */
+/* Cambia lingua */
 .language-switcher {
-    margin-left: 10px; /* Spazio tra la barra di ricerca e il selettore di lingua */
-    margin-right: 50px; /* Aumenta il margine destro per distanziare il selettore di lingua dal margine destro */
+    margin-left: 10px;
+    margin-right: 50px;
 }
+
 .language-switcher a {
     color: white;
     text-decoration: none;
@@ -155,6 +159,7 @@ body {
     font-weight: bold;
     cursor: pointer;
 }
+
 .language-switcher a:hover {
     text-decoration: underline;
 }
@@ -202,14 +207,14 @@ article a:hover {
 
 /* Ripristino dello stile del titolo principale */
 .page-title h1 {
-    color: #2980b9; /* Azzurro */
+    color: #2980b9;
     text-align: center;
-    font-size: 2rem; /* Aumentata la dimensione del titolo principale */
+    font-size: 2rem;
 }
 
 /* Ripristino della linea azzurra sotto i sottotitoli */
 h2 {
     border-bottom: 2px solid #2980b9;
     padding-bottom: 5px;
-    font-size: 1.5rem; /* Impostata una dimensione inferiore rispetto al titolo principale */
+    font-size: 1.5rem;
 }
