@@ -74,6 +74,7 @@ body {
 
 .open .arrow {
     transform: rotate(90deg);
+    transition: transform 0.3s ease;
 }
 
 /* Barra del titolo */
