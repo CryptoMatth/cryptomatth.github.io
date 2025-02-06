@@ -6,14 +6,12 @@ document.addEventListener('DOMContentLoaded', function() {
             toggle.addEventListener('click', function(event) {
                 event.preventDefault();
                 const parentLi = this.parentElement;
-                const arrow = parentLi.querySelector('.arrow'); // Aggiungi questa riga per selezionare la freccia
                 parentLi.classList.toggle('open');
 
-                // Ruota la freccia
-                if (parentLi.classList.contains('open')) {
-                    arrow.style.transform = 'rotate(90deg)';
-                } else {
-                    arrow.style.transform = 'rotate(0deg)';
+                // Trova la freccia dentro il toggle e ruotala
+                const arrow = this.querySelector('.arrow');
+                if (arrow) {
+                    arrow.style.transform = parentLi.classList.contains('open') ? 'rotate(90deg)' : 'rotate(0deg)';
                 }
             });
         });
