@@ -11,6 +11,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Trova la freccia dentro il toggle e ruotala
                 const arrow = this.querySelector('.arrow');
                 if (arrow) {
+                    // Usa la proprietà 'rotate' per la trasformazione
+                    arrow.style.transition = 'transform 0.3s ease'; // Aggiungi una transizione per la rotazione
                     arrow.style.transform = parentLi.classList.contains('open') ? 'rotate(90deg)' : 'rotate(0deg)';
                 }
             });
