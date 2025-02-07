@@ -1,39 +1,39 @@
 document.addEventListener('DOMContentLoaded', function() {
     function initializeDropdowns() {
         const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
-        
+
+        console.log("Dropdown trovati:", dropdownToggles.length); // Debug
+
         dropdownToggles.forEach(toggle => {
             toggle.addEventListener('click', function(event) {
                 event.preventDefault();
                 const parentLi = this.parentElement;
-                
-                // Log per verificare il cambiamento della classe
-                console.log("Classe 'open' prima:", parentLi.classList.contains('open'));
-                
+
+                console.log("Cliccato su:", this.textContent); // Debug
+
                 parentLi.classList.toggle('open');
-                
-                // Log per vedere se la classe è cambiata
-                console.log("Classe 'open' dopo:", parentLi.classList.contains('open'));
 
                 // Trova la freccia dentro il toggle e ruotala
                 const arrow = this.querySelector('.arrow');
                 if (arrow) {
-                    arrow.style.transition = 'transform 0.3s ease';  // Transizione per la rotazione
+                    arrow.style.transition = 'transform 0.3s ease';
                     arrow.style.transform = parentLi.classList.contains('open') ? 'rotate(90deg)' : 'rotate(0deg)';
                 }
             });
         });
     }
 
-    // Attendi il caricamento della sidebar prima di inizializzare i dropdown
+    // Aspettiamo che la sidebar venga caricata completamente
     const sidebarContainer = document.getElementById('sidebar-container');
     if (sidebarContainer) {
         const observer = new MutationObserver(() => {
+            console.log("Sidebar caricata, inizializzo dropdown");
             initializeDropdowns();
-            observer.disconnect();  // Evita di ripetere l'inizializzazione
+            observer.disconnect();
         });
-        observer.observe(sidebarContainer, { childList: true });
+        observer.observe(sidebarContainer, { childList: true, subtree: true });
     } else {
+        console.log("Sidebar non trovata immediatamente, inizializzo subito");
         initializeDropdowns();
     }
 });
