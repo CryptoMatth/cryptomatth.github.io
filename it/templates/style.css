@@ -68,14 +68,16 @@ body {
     cursor: pointer;
 }
 
+/* Stili per la freccia con transizione */
 .arrow {
     margin-right: 5px;
+    transition: transform 0.3s ease;  /* Animazione fluida per la rotazione */
+    display: inline-block; /* Evita problemi di layout */
 }
 
+/* Rotazione della freccia quando il dropdown è aperto */
 .open .arrow {
-    transform: rotate(90deg) !important;
-    transition: transform 0.3s ease !important;
-    display: inline-block !important; /* Previene possibili problemi di layout */
+    transform: rotate(90deg);  /* Ruota di 90 gradi quando il menu è aperto */
 }
 
 /* Barra del titolo */
