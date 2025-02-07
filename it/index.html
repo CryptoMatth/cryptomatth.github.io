@@ -32,47 +32,24 @@
     </main>
 
     <script>
-        console.log("Script dropdown.js caricato correttamente!");
+        console.log("Script principale caricato!");
+
         window.onload = function() {
             fetch('templates/titlebar.html')
                 .then(response => response.text())
                 .then(data => {
                     document.getElementById('titlebar-container').innerHTML = data;
-
-                    const searchBar = document.querySelector('.search-bar');
-                    if (searchBar) {
-                        const langSwitcher = document.createElement('div');
-                        langSwitcher.className = 'language-switcher';
-                        langSwitcher.innerHTML = '<a href="https://cryptomatth.github.io/it/index.html">IT</a> | <a href="https://cryptomatth.github.io/en/index.html">EN</a>';
-                        searchBar.insertAdjacentElement('afterend', langSwitcher);
-                    }
-                    
                     return fetch('templates/sidebar.html');
                 })
                 .then(response => response.text())
                 .then(data => {
                     document.getElementById('sidebar-container').innerHTML = data;
-                    var titleBarHeight = document.querySelector('.title-bar').offsetHeight;
-                    var sidebar = document.querySelector('.sidebar');
-                    sidebar.style.top = titleBarHeight + 'px';
-                    
-                    // Inizializza il menu a tendina
+
+                    // Dopo che la sidebar è stata caricata, inizializziamo i dropdown
                     initializeDropdowns();
                 })
                 .catch(error => console.error('Errore nel caricamento della titlebar o sidebar:', error));
         };
-
-        function initializeDropdowns() {
-            const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
-            
-            dropdownToggles.forEach(toggle => {
-                toggle.addEventListener('click', function(event) {
-                    event.preventDefault();
-                    const parentLi = this.parentElement;
-                    parentLi.classList.toggle('open');
-                });
-            });
-        }
     </script>
 
     <script src="templates/dropdown.js"></script>
