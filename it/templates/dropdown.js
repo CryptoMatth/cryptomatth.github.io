@@ -1,4 +1,3 @@
-// Funzione globale, ora accessibile da index.html
 function initializeDropdowns() {
     const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
 
@@ -12,7 +11,16 @@ function initializeDropdowns() {
             const arrow = this.querySelector('.arrow');
             if (arrow) {
                 console.log("Classe open presente?", parentLi.classList.contains('open')); // Debug
-                arrow.style.transform = parentLi.classList.contains('open') ? 'rotate(90deg)' : 'rotate(0deg)';
+                
+                // Imposta direttamente lo stile CSS per ruotare la freccia
+                if (parentLi.classList.contains('open')) {
+                    arrow.style.transform = 'rotate(90deg)';
+                } else {
+                    arrow.style.transform = 'rotate(0deg)';
+                }
+
+                // Forza il browser ad applicare la transizione
+                arrow.style.transition = 'transform 0.3s ease';
             }
         });
     });
