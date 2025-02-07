@@ -10,13 +10,7 @@ function initializeDropdowns() {
             const arrow = this.querySelector('.arrow');
             if (arrow) {
                 console.log("Classe open presente?", parentLi.classList.contains('open')); // Debug
-                
-                // Forza il repaint
-                arrow.style.transition = "none"; // Disattiva transizione momentaneamente
-                arrow.style.transform = parentLi.classList.contains('open') ? "rotate(90deg)" : "rotate(0deg)";
-                requestAnimationFrame(() => {
-                    arrow.style.transition = "transform 0.3s ease";
-                });
+                // Non è necessario forzare la transizione tramite JS, il CSS gestisce l'animazione
             }
         });
     });
