@@ -11,14 +11,16 @@ function initializeDropdowns() {
             if (arrow) {
                 console.log("Classe open presente?", parentLi.classList.contains('open')); // Debug
                 
-                setTimeout(() => { // Ritardo per forzare il repaint
-                    arrow.style.transform = parentLi.classList.contains('open') ? 'rotate(90deg)' : 'rotate(0deg)';
-                }, 10);
+                // Forza il repaint
+                arrow.style.transition = "none"; // Disattiva transizione momentaneamente
+                arrow.style.transform = parentLi.classList.contains('open') ? "rotate(90deg)" : "rotate(0deg)";
+                requestAnimationFrame(() => {
+                    arrow.style.transition = "transform 0.3s ease";
+                });
             }
         });
     });
 }
-
 
 // Aspetta che il DOM sia pronto prima di eseguire
 document.addEventListener('DOMContentLoaded', function() {
