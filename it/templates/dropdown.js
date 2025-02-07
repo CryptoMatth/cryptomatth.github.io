@@ -8,10 +8,6 @@ function initializeDropdowns() {
             parentLi.classList.toggle('open');
 
             const arrow = this.querySelector('.arrow');
-            if (arrow) {
-                console.log("Classe open presente?", parentLi.classList.contains('open')); // Debug
-                // Non è necessario forzare la transizione tramite JS, il CSS gestisce l'animazione
-            }
         });
     });
 }
