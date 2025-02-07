@@ -75,6 +75,7 @@ body {
 .open .arrow {
     transform: rotate(90deg) !important;
     transition: transform 0.3s ease !important;
+    display: inline-block !important; /* Previene possibili problemi di layout */
 }
 
 /* Barra del titolo */
