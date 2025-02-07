@@ -13,7 +13,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 parentLi.classList.toggle('open');
 
-                // Trova la freccia dentro il toggle e ruotala
                 const arrow = this.querySelector('.arrow');
                 if (arrow) {
                     arrow.style.transition = 'transform 0.3s ease';
@@ -23,7 +22,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Aspettiamo che la sidebar venga caricata completamente
     const sidebarContainer = document.getElementById('sidebar-container');
     if (sidebarContainer) {
         const observer = new MutationObserver(() => {
