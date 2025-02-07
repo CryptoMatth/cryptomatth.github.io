@@ -14,7 +14,7 @@
         <section class="page-title">
             <h1>Benvenuti in CryptoMatth</h1>
         </section>
-        <section>
+        <section>initialize
             <h2>Cos'è?</h2>
             <p>Progetto per matematica e informatica</p>
         </section>
@@ -55,15 +55,13 @@
                     var titleBarHeight = document.querySelector('.title-bar').offsetHeight;
                     var sidebar = document.querySelector('.sidebar');
                     sidebar.style.top = titleBarHeight + 'px';
-                    
-                    // Inizializza il menu a tendina
-                    initializeDropdowns();
                 })
                 .catch(error => console.error('Errore nel caricamento della titlebar o sidebar:', error));
         };
     </script>
 
-    <script src="templates/dropdown.js"></script>
+    <script src="templates/dropdown.js" onload="initializeDropdowns();"></script>
+    console.log("dropdown.js caricato correttamente!");
     <script src="templates/url-handler.js"></script>
     <script src="search/search.js"></script>
 </body>
