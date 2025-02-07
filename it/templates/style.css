@@ -184,6 +184,51 @@ main {
     overflow-y: auto;
 }
 
+/* Contenitore per organizzare le card */
+.indirizzamenti-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+/* Stile per ogni card */
+.indirizzamento-card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    flex: 1 1 calc(45% - 20px); /* Due card per riga, con gap */
+}
+
+/* Effetto hover */
+.indirizzamento-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Stile per il titolo */
+.indirizzamento-card h3 {
+    margin-top: 0;
+    color: #2980b9;
+}
+
+/* Stile per il link */
+.indirizzamento-card a {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 15px;
+    background: #2980b9;
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background 0.3s ease;
+}
+
+.indirizzamento-card a:hover {
+    background: #1a73e8;
+}
+
 /* Stili per gli articoli */
 article {
     background: #fff;
