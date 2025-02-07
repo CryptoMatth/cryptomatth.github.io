@@ -66,17 +66,15 @@ body {
 
 .dropdown-toggle {
     cursor: pointer;
-    display: flex;
-    align-items: center;
 }
 
 .arrow {
     margin-right: 5px;
-    transition: transform 0.3s ease;
 }
 
 .open .arrow {
     transform: rotate(90deg) !important;
+    transition: transform 0.3s ease;
 }
 
 /* Barra del titolo */
