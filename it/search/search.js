@@ -11,7 +11,14 @@ document.addEventListener('DOMContentLoaded', function() {
         searchButton.addEventListener('click', function() {
             const query = searchInput.value.trim().toLowerCase();
             if (query) {
-                window.location.href = `https://cryptomatth.github.io/it/search/search_results.html?query=${encodeURIComponent(query)}`;
+                const currentUrl = window.location.href;
+                let searchUrl;
+                if (currentUrl.includes('/it/')) {
+                    searchUrl = `https://cryptomatth.github.io/it/ricerca/risultato_ricerca.html?query=${encodeURIComponent(query)}`;
+                } else if (currentUrl.includes('/en/')) {
+                    searchUrl = `https://cryptomatth.github.io/en/search/search_results.html?query=${encodeURIComponent(query)}`;
+                }
+                window.location.href = searchUrl;
             }
         });
 
