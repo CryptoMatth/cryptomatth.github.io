@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CryptoMatth - Home</title>
+    <link rel="stylesheet" href="../general_templates/style.css">
+</head>
+<body>
+    <div id="titlebar-container"></div>
+    <div id="sidebar-container"></div>
+    
+    <main>
+        <section class="page-title">
+            <h1>Benvenuti in CryptoMatth</h1>
+        </section>
+        <section>
+            <h2>Cos'è CryptoMatth?</h2>
+            <p>
+                Benvenuti su <strong>CryptoMatth</strong>, il mio spazio dedicato alla scoperta e allo studio della matematica e della crittografia. Questo sito nasce dalla passione per due mondi affascinanti e si propone di raccogliere, approfondire e condividere le conoscenze acquisite nel tempo.
+            </p>
+            <p>
+                Nella sezione <em>Matematica</em> troverai un percorso completo che copre gli argomenti affrontati negli ultimi tre anni del liceo scientifico, integrati da un approfondimento di Analisi 1. Ogni argomento è presentato con spiegazioni dettagliate e accompagnato da esercizi pratici, studiati per consolidare la teoria e stimolare il ragionamento critico.
+            </p>
+            <p>
+                La sezione <em>Crittografia</em> ti guiderà invece alla scoperta della storia e dell'evoluzione dei cifrari, trattati come in un vero e proprio corso universitario. Analizzeremo insieme i meccanismi dei sistemi di cifratura, dai metodi classici fino alle tecniche più moderne, sempre corredati da esempi e problemi da risolvere.
+            </p>
+            <p>
+                Che tu sia uno studente in cerca di approfondimenti, un appassionato di matematica o semplicemente curioso di conoscere i segreti della crittografia, CryptoMatth è il luogo ideale per stimolare la tua curiosità e ampliare le tue competenze.
+            </p>
+            <p>
+                Buon studio e buona navigazione!
+            </p>
+        </section>
+
+<section>
+    <h2>Indirizzamenti</h2>
+    <div class="indirizzamenti-container">
+        <article class="indirizzamento-card">
+            <h3>Matematica</h3>
+            <p>Scopri il percorso completo con spiegazioni dettagliate e esercizi interattivi.</p>
+            <a href="/it/matematica/main_matematica.html">Accedi a Matematica</a>
+        </article>
+        <article class="indirizzamento-card">
+            <h3>Crittografia</h3>
+            <p>Esplora la storia e i meccanismi dei cifrari, dal classico al moderno.</p>
+            <a href="/it/crittografia/main_crittografia.html">Accedi a Crittografia</a>
+        </article>
+    </div>
+</section>
+
+    </main>
+
+    <script>
+        window.onload = function() {
+            const titlebarPromise = fetch('templates/titlebar.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('titlebar-container').innerHTML = data;
+        
+                    const searchBar = document.querySelector('.search-bar');
+                    if (searchBar) {
+                        const langSwitcher = document.createElement('div');
+                        langSwitcher.className = 'language-switcher';
+                        langSwitcher.innerHTML = '<a href="https://cryptomatth.github.io/it/index.html">IT</a> | <a href="https://cryptomatth.github.io/en/index.html">EN</a>';
+                        searchBar.insertAdjacentElement('afterend', langSwitcher);
+                    }
+                });
+        
+            const sidebarPromise = fetch('templates/sidebar.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('sidebar-container').innerHTML = data;
+                    var titleBarHeight = document.querySelector('.title-bar').offsetHeight;
+                    var sidebar = document.querySelector('.sidebar');
+                    sidebar.style.top = titleBarHeight + 'px';
+                });
+        
+            Promise.all([titlebarPromise, sidebarPromise])
+                .catch(error => console.error('Errore nel caricamento della titlebar o sidebar:', error));
+        };
+    </script>
+
+    <script src="../general_templates/dropdown.js" onload="initializeDropdowns();"></script>
+    <script src="../general_templates/url-handler.js"></script>
+    <script src="../general_search/search.js"></script>
+</body>
+</html>
