@@ -4,14 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CryptoMatth - Risultati della Ricerca</title>
-    <link rel="stylesheet" href="../../general_templates/style.css"> <!-- Mantieni questo link al file CSS -->
+    <link rel="stylesheet" href="../../general_templates/style.css">
 </head>
 <body>
-    <!-- Div per la barra del titolo -->
-    <div id="titlebar-container"></div> <!-- Mantieni questo div per caricare la titlebar -->
-
-    <!-- Div per la barra laterale -->
-    <div id="sidebar-container"></div> <!-- Mantieni questo div per caricare la sidebar -->
+    <div id="titlebar-container"></div>
+    <div id="sidebar-container"></div>
 
     <main>
         <section class="page-title">
@@ -22,32 +19,34 @@
         </section>
     </main>
 
-    <!-- Script per caricare dinamicamente la barra del titolo e la barra laterale -->
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Carica la titlebar dal file HTML
-            fetch('../templates/titlebar.html')
+        window.onload = function() {
+            const titlebarPromise = fetch('templates/titlebar.html')
                 .then(response => response.text())
                 .then(data => {
                     document.getElementById('titlebar-container').innerHTML = data;
-                })
-                .catch(error => console.error('Errore nel caricamento della titlebar:', error));
-
-            // Carica la sidebar dal file HTML
-            fetch('../templates/sidebar.html')
+        
+                    const searchBar = document.querySelector('.search-bar');
+                    if (searchBar) {
+                        const langSwitcher = document.createElement('div');
+                        langSwitcher.className = 'language-switcher';
+                        langSwitcher.innerHTML = '<a href="https://cryptomatth.github.io/it/index.html">IT</a> | <a href="https://cryptomatth.github.io/en/index.html">EN</a>';
+                        searchBar.insertAdjacentElement('afterend', langSwitcher);
+                    }
+                });
+        
+            const sidebarPromise = fetch('templates/sidebar.html')
                 .then(response => response.text())
                 .then(data => {
                     document.getElementById('sidebar-container').innerHTML = data;
-                    
-                    // Calcola l'altezza della barra del titolo
                     var titleBarHeight = document.querySelector('.title-bar').offsetHeight;
                     var sidebar = document.querySelector('.sidebar');
-                    
-                    // Imposta il margine superiore della sidebar in base all'altezza della title-bar
                     sidebar.style.top = titleBarHeight + 'px';
-                })
-                .catch(error => console.error('Errore nel caricamento della sidebar:', error));
-        });
+                });
+        
+            Promise.all([titlebarPromise, sidebarPromise])
+                .catch(error => console.error('Errore nel caricamento della titlebar o sidebar:', error));
+        };
 
         // Funzione per ottenere i parametri dell'URL
         function getQueryParams() {
