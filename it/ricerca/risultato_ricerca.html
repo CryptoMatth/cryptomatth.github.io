@@ -21,7 +21,7 @@
 
     <script>
         window.onload = function() {
-            const titlebarPromise = fetch('templates/titlebar.html')
+            const titlebarPromise = fetch('../templates/titlebar.html')
                 .then(response => response.text())
                 .then(data => {
                     document.getElementById('titlebar-container').innerHTML = data;
@@ -35,7 +35,7 @@
                     }
                 });
         
-            const sidebarPromise = fetch('templates/sidebar.html')
+            const sidebarPromise = fetch('../templates/sidebar.html')
                 .then(response => response.text())
                 .then(data => {
                     document.getElementById('sidebar-container').innerHTML = data;
