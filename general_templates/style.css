@@ -84,34 +84,53 @@ body {
 .title-bar {
     background: #4a90d9;
     color: #ffffff;
-    padding: 15px 20px; /* Riduciamo il padding laterale */
+    padding: 15px 0;
+    text-align: center;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 10;
     display: flex;
-    justify-content: space-between; /* Distribuiamo gli elementi ai bordi */
+    justify-content: space-between;
     align-items: center;
 }
 
-/* Titolo */
-.title-bar h1 {
-    margin: 0;
-    font-size: 2rem;
-    padding-left: 20px;
-    flex-grow: 1; /* Fai in modo che il titolo occupi lo spazio centrale */
-    text-align: center; /* Centra il titolo */
+.title-bar nav {
+    margin-left: 50px;
+}
+
+.title-bar nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 15px;
+}
+
+.title-bar nav ul li {
+    display: inline-block;
+}
+
+.title-bar nav ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px;
+}
+
+.title-bar nav ul li a:hover {
+    background-color: #1a73e8;
+    border-radius: 5px;
 }
 
 /* Barra di ricerca */
 .search-bar {
     display: flex;
     align-items: center;
-    margin-right: 10px; /* Distanziamo leggermente dalla lingua */
+    margin-right: 20px;
+    margin-left: auto;
 }
 
-/* Barra di ricerca - Input */
 .search-bar input {
     padding: 10px;
     width: 200px;
@@ -120,7 +139,6 @@ body {
     margin-right: 10px;
 }
 
-/* Barra di ricerca - Bottone */
 .search-bar button {
     padding: 10px 20px;
     border: none;
@@ -137,9 +155,8 @@ body {
 /* Cambia lingua */
 .language-switcher {
     margin-left: 10px;
-    margin-right: 10px;
+    margin-right: 50px;
 }
-
 .language-switcher a {
     color: white;
     text-decoration: none;
@@ -147,7 +164,6 @@ body {
     font-weight: bold;
     cursor: pointer;
 }
-
 .language-switcher a:hover {
     text-decoration: underline;
 }
