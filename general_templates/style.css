@@ -9,6 +9,59 @@ body {
     overflow: auto;
 }
 
+/* Stili per il form di contatto */
+.contact-form {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+.contact-form h2 {
+    text-align: center;
+    color: #2980b9;
+}
+
+.contact-form label {
+    display: block;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.contact-form textarea {
+    height: 150px;
+    resize: vertical;
+}
+
+.contact-form button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 15px;
+    border: none;
+    background-color: #2980b9;
+    color: white;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.contact-form button:hover {
+    background: #1a73e8;
+}
+
 /* Barra laterale */
 .sidebar {
     background-color: #3c6e91;
