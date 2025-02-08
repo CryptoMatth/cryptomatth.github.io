@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CryptoMatth - Risultati della Ricerca</title>
+    <title>CryptoMatth - Search results</title>
     <link rel="stylesheet" href="../../general_templates/style.css"> <!-- Mantieni questo link al file CSS -->
 </head>
 <body>
@@ -15,7 +15,7 @@
 
     <main>
         <section class="page-title">
-            <h1>Risultati della Ricerca</h1>
+            <h1>Search results</h1>
         </section>
         <section id="results-container">
             <!-- I risultati della ricerca verranno inseriti qui -->
@@ -68,7 +68,7 @@
             const resultsContainer = document.getElementById('results-container');
 
             if (query) {
-                fetch('ricerca-index.json')
+                fetch('search-index.json')
                     .then(response => response.json())
                     .then(data => {
                         const results = data.filter(page => 
@@ -81,7 +81,7 @@
                                 resultItem.innerHTML = `
                                     <h3><a href="../${result.url}">${result.title}</a></h3>
                                     <p>${result.content.substring(0, 150)}...</p>
-                                    <a href="../${result.url}">Leggi di più</a>
+                                    <a href="../${result.url}">Read more</a>
                                 `;
                                 resultsContainer.appendChild(resultItem);
                             });
