@@ -19,34 +19,17 @@
         </section>
     </main>
 
+    <script src="../../general_templates/load-templates.js"></script>
     <script>
         window.onload = function() {
-            const titlebarPromise = fetch('../templates/titlebar.html')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('titlebar-container').innerHTML = data;
-        
-                    const searchBar = document.querySelector('.search-bar');
-                    if (searchBar) {
-                        const langSwitcher = document.createElement('div');
-                        langSwitcher.className = 'language-switcher';
-                        langSwitcher.innerHTML = '<a href="https://cryptomatth.github.io/it/ricerca/risultato_ricerca.html">IT</a> | <a href="https://cryptomatth.github.io/en/search/search_results.html">EN</a>';
-                        searchBar.insertAdjacentElement('afterend', langSwitcher);
-                    }
-                });
-        
-            const sidebarPromise = fetch('../templates/sidebar.html')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('sidebar-container').innerHTML = data;
-                    var titleBarHeight = document.querySelector('.title-bar').offsetHeight;
-                    var sidebar = document.querySelector('.sidebar');
-                    sidebar.style.top = titleBarHeight + 'px';
-                });
-        
-            Promise.all([titlebarPromise, sidebarPromise])
-                .catch(error => console.error('Error loading the titlebar or sidebar:', error));
+            loadTemplates(
+                'templates/titlebar.html',
+                'templates/sidebar.html',
+                'https://cryptomatth.github.io/it/index.html',
+                'https://cryptomatth.github.io/en/index.html'
+            );
         };
+
 
         // Funzione per ottenere i parametri dell'URL
         function getQueryParams() {
