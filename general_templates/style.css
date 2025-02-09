@@ -28,7 +28,7 @@ body {
     padding: 20px;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
     position: fixed;
-    left: -100%; /* Nasconde completamente la sidebar */
+    left: -250px; /* Sidebar inizialmente nascosta */
     top: 0;
     height: 100vh;
     z-index: 1000;
@@ -38,7 +38,7 @@ body {
 }
 
 .sidebar.open {
-    left: 0; /* Mostra completamente la sidebar */
+    left: 0; /* Mostra la sidebar */
 }
 
 .sidebar nav ul {
