@@ -12,7 +12,10 @@ function initializeDropdowns() {
 
 // Funzione per aprire e chiudere la sidebar nei dispositivi piccoli
 function toggleSidebar() {
-    document.querySelector(".sidebar").classList.toggle("open");
+    const sidebar = document.querySelector(".sidebar");
+    if (sidebar) {
+        sidebar.classList.toggle("open");
+    }
 }
 
 // Aspetta che il DOM sia pronto prima di eseguire
