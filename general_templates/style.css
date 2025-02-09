@@ -28,17 +28,12 @@ body {
     padding: 20px;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
     position: fixed;
-    left: -250px; /* Sidebar inizialmente nascosta */
+    left: 0;
     top: 0;
     height: 100vh;
-    z-index: 1000;
+    z-index: 5;
     overflow-y: auto;
     width: 250px;
-    transition: left 0.3s ease;
-}
-
-.sidebar.open {
-    left: 0; /* Mostra la sidebar */
 }
 
 .sidebar nav ul {
@@ -65,27 +60,49 @@ body {
     color: #1abc9c;
 }
 
-/* Pulsante per aprire la sidebar */
+/* Nasconde il pulsante nei dispositivi grandi */
 .sidebar-toggle {
-    display: block;
+    display: none;
     font-size: 1.8rem;
     background: none;
     border: none;
     color: white;
     cursor: pointer;
     padding: 10px;
-    margin-left: 15px;
-    position: fixed;
-    top: 15px;
-    left: 15px;
-    z-index: 1100;
+}
+
+/* Sidebar nascosta per dispositivi piccoli */
+@media screen and (max-width: 768px) {
+    .sidebar {
+        width: 0;
+        overflow: hidden;
+        position: fixed;
+        height: 100vh;
+        transition: width 0.3s ease;
+        padding: 0;
+    }
+
+    .sidebar.open {
+        width: 250px;
+        padding: 20px;
+    }
+
+    /* Mostra il pulsante per aprire la sidebar */
+    .sidebar-toggle {
+        display: block;
+    }
+
+    /* Per evitare che il contenuto venga coperto dalla sidebar */
+    main {
+        margin-left: 0;
+    }
 }
 
 /* Stili per il menu a tendina */
 .dropdown-menu {
     display: none;
     list-style: none;
-    padding-left: 30px;
+    padding-left: 30px; /* Maggiore rientro per far capire la gerarchia */
 }
 
 .open .dropdown-menu {
@@ -93,7 +110,7 @@ body {
 }
 
 .dropdown-menu li a {
-    padding-left: 25px;
+    padding-left: 25px; /* Ulteriore rientro per le voci figlie */
     display: block;
 }
 
@@ -101,15 +118,16 @@ body {
     cursor: pointer;
 }
 
-/* Animazione della freccia */
+/* Stili per la freccia con transizione */
 .arrow {
     margin-right: 5px;
-    transition: transform 0.3s ease;
-    display: inline-block;
+    transition: transform 0.3s ease;  /* Animazione fluida per la rotazione */
+    display: inline-block; /* Evita problemi di layout */
 }
 
+/* Rotazione della freccia quando il dropdown è aperto */
 .open .arrow {
-    transform: rotate(90deg);
+    transform: rotate(90deg);  /* Ruota di 90 gradi quando il menu è aperto */
 }
 
 /* Barra del titolo */
@@ -122,17 +140,37 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 1000;
+    z-index: 10;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    transition: top 0.3s ease;
 }
 
-.title-bar h1 {
-    margin: 0;
-    font-size: 2rem;
-    padding-left: 20px;
+.title-bar nav {
+    margin-left: 50px;
+}
+
+.title-bar nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 15px;
+}
+
+.title-bar nav ul li {
+    display: inline-block;
+}
+
+.title-bar nav ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px;
+}
+
+.title-bar nav ul li a:hover {
+    background-color: #1a73e8;
+    border-radius: 5px;
 }
 
 /* Barra di ricerca */
@@ -180,7 +218,14 @@ body {
     text-decoration: underline;
 }
 
-/* Layout con sidebar fissa */
+/* Spazio per il titolo */
+.title-bar h1 {
+    margin: 0;
+    font-size: 2rem;
+    padding-left: 20px;
+}
+
+/* Layout con barra laterale e barra del titolo fisse */
 main {
     margin-left: 300px;
     margin-top: 80px;
@@ -189,7 +234,7 @@ main {
     overflow-y: auto;
 }
 
-/* Contenitore per le card */
+/* Contenitore per organizzare le card */
 .indirizzamenti-container {
     display: flex;
     flex-wrap: wrap;
@@ -203,12 +248,35 @@ main {
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    flex: 1 1 calc(45% - 20px);
+    flex: 1 1 calc(45% - 20px); /* Due card per riga, con gap */
 }
 
+/* Effetto hover */
 .indirizzamento-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Stile per il titolo */
+.indirizzamento-card h3 {
+    margin-top: 0;
+    color: #2980b9;
+}
+
+/* Stile per il link */
+.indirizzamento-card a {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 15px;
+    background: #2980b9;
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background 0.3s ease;
+}
+
+.indirizzamento-card a:hover {
+    background: #1a73e8;
 }
 
 /* Stili per gli articoli */
@@ -236,27 +304,36 @@ article a:hover {
     text-decoration: underline;
 }
 
-/* Media Queries per adattabilità */
+/* Ripristino dello stile del titolo principale */
+.page-title h1 {
+    color: #2980b9;
+    text-align: center;
+    font-size: 2rem;
+}
+
+/* Ripristino della linea azzurra sotto i sottotitoli */
+h2 {
+    border-bottom: 2px solid #2980b9;
+    padding-bottom: 5px;
+    font-size: 1.5rem;
+}
+
+/* Media Queries per adattabilità su dispositivi mobili */
 @media screen and (max-width: 1024px) {
     .sidebar {
-        width: 200px;
+        width: 200px; /* Riduce la larghezza della sidebar su tablet */
     }
     
     main {
-        margin-left: 220px;
+        margin-left: 220px; /* Adatta lo spazio del contenuto */
     }
 }
 
 @media screen and (max-width: 768px) {
     .sidebar {
-        left: -250px;
-        width: 250px;
-        transition: left 0.3s ease;
-        padding: 20px;
-    }
-
-    .sidebar.open {
-        left: 0;
+        width: 100%; /* Sidebar diventa a larghezza piena */
+        height: auto;
+        position: relative;
     }
 
     .title-bar {
@@ -269,26 +346,26 @@ article a:hover {
     }
 
     main {
-        margin-left: 0;
+        margin-left: 0; /* Nessun margine laterale */
         margin-top: 100px;
     }
 
     .indirizzamenti-container {
-        flex-direction: column;
+        flex-direction: column; /* Disposizione verticale */
     }
 
     .indirizzamento-card {
-        flex: 1 1 100%;
+        flex: 1 1 100%; /* Le card occupano tutta la larghezza */
     }
 }
 
 @media screen and (max-width: 480px) {
     .title-bar h1 {
-        font-size: 1.5rem;
+        font-size: 1.5rem; /* Riduce la dimensione del titolo */
     }
 
     .search-bar input {
-        width: 150px;
+        width: 150px; /* Rende più piccolo il campo di ricerca */
     }
 
     .indirizzamento-card {
