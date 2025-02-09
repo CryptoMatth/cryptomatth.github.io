@@ -60,6 +60,44 @@ body {
     color: #1abc9c;
 }
 
+/* Nasconde il pulsante nei dispositivi grandi */
+.sidebar-toggle {
+    display: none;
+    font-size: 1.8rem;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 10px;
+}
+
+/* Sidebar nascosta per dispositivi piccoli */
+@media screen and (max-width: 768px) {
+    .sidebar {
+        width: 0;
+        overflow: hidden;
+        position: fixed;
+        height: 100vh;
+        transition: width 0.3s ease;
+        padding: 0;
+    }
+
+    .sidebar.open {
+        width: 250px;
+        padding: 20px;
+    }
+
+    /* Mostra il pulsante per aprire la sidebar */
+    .sidebar-toggle {
+        display: block;
+    }
+
+    /* Per evitare che il contenuto venga coperto dalla sidebar */
+    main {
+        margin-left: 0;
+    }
+}
+
 /* Stili per il menu a tendina */
 .dropdown-menu {
     display: none;
