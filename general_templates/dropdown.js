@@ -6,10 +6,13 @@ function initializeDropdowns() {
             event.preventDefault();
             const parentLi = this.parentElement;
             parentLi.classList.toggle('open');
-
-            const arrow = this.querySelector('.arrow');
         });
     });
+}
+
+// Funzione per aprire e chiudere la sidebar nei dispositivi piccoli
+function toggleSidebar() {
+    document.querySelector(".sidebar").classList.toggle("open");
 }
 
 // Aspetta che il DOM sia pronto prima di eseguire
