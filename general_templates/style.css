@@ -334,3 +334,40 @@ h2 {
         padding: 15px;
     }
 }
+
+/* Pulsante hamburger (solo per mobile) */
+.hamburger {
+    display: none; /* Nascondiamo il bottone su schermi grandi */
+    font-size: 2rem;
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: white;
+    padding: 10px;
+}
+
+/* Posizionamento dell'hamburger nella title-bar */
+@media screen and (max-width: 768px) {
+    .hamburger {
+        display: block; /* Lo mostriamo su schermi piccoli */
+        position: absolute;
+        left: 15px;
+        top: 15px;
+    }
+
+    .sidebar {
+        position: fixed;
+        left: -100%;
+        width: 250px;
+        height: 100vh;
+        transition: left 0.3s ease-in-out;
+    }
+
+    .sidebar.open {
+        left: 0; /* Quando aperto, la sidebar torna visibile */
+    }
+
+    main {
+        margin-left: 0; /* Evita spazi vuoti quando la sidebar è chiusa */
+    }
+}
