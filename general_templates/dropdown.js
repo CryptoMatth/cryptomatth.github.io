@@ -14,7 +14,15 @@ function initializeDropdowns() {
 function toggleSidebar() {
     const sidebar = document.querySelector(".sidebar");
     if (sidebar) {
-        sidebar.classList.toggle("open");
+        if (sidebar.classList.contains("open")) {
+            sidebar.style.width = "0"; // Nasconde completamente la sidebar
+            setTimeout(() => {
+                sidebar.classList.remove("open");
+            }, 300); // Ritardo per la transizione
+        } else {
+            sidebar.classList.add("open");
+            sidebar.style.width = "250px"; // Imposta la larghezza quando aperta
+        }
     }
 }
 
