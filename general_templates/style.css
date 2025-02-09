@@ -28,44 +28,57 @@ body {
     padding: 20px;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
     position: fixed;
-    left: 0;
+    left: -250px; /* Sidebar inizialmente nascosta */
     top: 0;
     height: 100vh;
     z-index: 1000;
     overflow-y: auto;
     width: 250px;
-    transition: transform 0.3s ease;
+    transition: left 0.3s ease;
 }
 
-/* Sidebar per dispositivi mobili */
-@media screen and (max-width: 768px) {
-    .sidebar {
-        transform: translateX(-100%);
-        width: 250px;
-        padding: 0;
-    }
-    
-    .sidebar.open {
-        transform: translateX(0);
-        padding: 20px;
-    }
+.sidebar.open {
+    left: 0; /* Mostra la sidebar */
+}
+
+.sidebar nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar nav ul li {
+    margin-bottom: 10px;
+}
+
+.sidebar nav ul li a,
+.sidebar nav ul li span.dropdown-toggle {
+    text-decoration: none;
+    color: #ecf0f1;
+    font-weight: bold;
+    transition: color 0.3s;
+    display: block;
+    cursor: pointer;
+}
+
+.sidebar nav ul li a:hover,
+.sidebar nav ul li span.dropdown-toggle:hover {
+    color: #1abc9c;
 }
 
 /* Pulsante per aprire la sidebar */
 .sidebar-toggle {
-    display: none;
+    display: block;
     font-size: 1.8rem;
     background: none;
     border: none;
     color: white;
     cursor: pointer;
     padding: 10px;
-}
-
-@media screen and (max-width: 768px) {
-    .sidebar-toggle {
-        display: block;
-    }
+    margin-left: 15px;
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    z-index: 1100;
 }
 
 /* Stili per il menu a tendina */
@@ -88,6 +101,7 @@ body {
     cursor: pointer;
 }
 
+/* Animazione della freccia */
 .arrow {
     margin-right: 5px;
     transition: transform 0.3s ease;
@@ -108,10 +122,17 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 10;
+    z-index: 1000;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    transition: top 0.3s ease;
+}
+
+.title-bar h1 {
+    margin: 0;
+    font-size: 2rem;
+    padding-left: 20px;
 }
 
 /* Barra di ricerca */
@@ -148,7 +169,6 @@ body {
     margin-left: 10px;
     margin-right: 50px;
 }
-
 .language-switcher a {
     color: white;
     text-decoration: none;
@@ -156,12 +176,11 @@ body {
     font-weight: bold;
     cursor: pointer;
 }
-
 .language-switcher a:hover {
     text-decoration: underline;
 }
 
-/* Layout con barra laterale e barra del titolo fisse */
+/* Layout con sidebar fissa */
 main {
     margin-left: 300px;
     margin-top: 80px;
@@ -170,7 +189,54 @@ main {
     overflow-y: auto;
 }
 
-/* Adattabilità su dispositivi mobili */
+/* Contenitore per le card */
+.indirizzamenti-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+/* Stile per ogni card */
+.indirizzamento-card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    flex: 1 1 calc(45% - 20px);
+}
+
+.indirizzamento-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Stili per gli articoli */
+article {
+    background: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+article h3 {
+    margin-top: 0;
+}
+
+article a {
+    display: inline-block;
+    margin-top: 10px;
+    color: #2980b9;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+article a:hover {
+    text-decoration: underline;
+}
+
+/* Media Queries per adattabilità */
 @media screen and (max-width: 1024px) {
     .sidebar {
         width: 200px;
@@ -183,23 +249,36 @@ main {
 
 @media screen and (max-width: 768px) {
     .sidebar {
-        width: 100%;
-        height: auto;
-        position: relative;
+        left: -250px;
+        width: 250px;
+        transition: left 0.3s ease;
+        padding: 20px;
     }
-    
+
+    .sidebar.open {
+        left: 0;
+    }
+
     .title-bar {
         flex-direction: column;
         text-align: center;
     }
-    
+
     .search-bar {
         margin: 10px 0;
     }
-    
+
     main {
         margin-left: 0;
         margin-top: 100px;
+    }
+
+    .indirizzamenti-container {
+        flex-direction: column;
+    }
+
+    .indirizzamento-card {
+        flex: 1 1 100%;
     }
 }
 
@@ -207,8 +286,12 @@ main {
     .title-bar h1 {
         font-size: 1.5rem;
     }
-    
+
     .search-bar input {
         width: 150px;
+    }
+
+    .indirizzamento-card {
+        padding: 15px;
     }
 }
