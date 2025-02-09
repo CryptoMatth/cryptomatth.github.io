@@ -279,3 +279,58 @@ h2 {
     padding-bottom: 5px;
     font-size: 1.5rem;
 }
+
+/* Media Queries per adattabilità su dispositivi mobili */
+@media screen and (max-width: 1024px) {
+    .sidebar {
+        width: 200px; /* Riduce la larghezza della sidebar su tablet */
+    }
+    
+    main {
+        margin-left: 220px; /* Adatta lo spazio del contenuto */
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .sidebar {
+        width: 100%; /* Sidebar diventa a larghezza piena */
+        height: auto;
+        position: relative;
+    }
+
+    .title-bar {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .search-bar {
+        margin: 10px 0;
+    }
+
+    main {
+        margin-left: 0; /* Nessun margine laterale */
+        margin-top: 100px;
+    }
+
+    .indirizzamenti-container {
+        flex-direction: column; /* Disposizione verticale */
+    }
+
+    .indirizzamento-card {
+        flex: 1 1 100%; /* Le card occupano tutta la larghezza */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .title-bar h1 {
+        font-size: 1.5rem; /* Riduce la dimensione del titolo */
+    }
+
+    .search-bar input {
+        width: 150px; /* Rende più piccolo il campo di ricerca */
+    }
+
+    .indirizzamento-card {
+        padding: 15px;
+    }
+}
