@@ -302,6 +302,10 @@ h2 {
         flex-direction: column;
         text-align: center;
     }
+    
+    .title-bar nav ul li {
+        padding: 10px 0;
+    }
 
     .search-bar {
         margin: 10px 0;
@@ -322,6 +326,9 @@ h2 {
 }
 
 @media screen and (max-width: 480px) {
+    main {
+        padding: 15px;
+    }
     .title-bar h1 {
         font-size: 1.5rem; /* Riduce la dimensione del titolo */
     }
