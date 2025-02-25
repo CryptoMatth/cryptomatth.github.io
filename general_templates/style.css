@@ -293,20 +293,24 @@ h2 {
 
 @media screen and (max-width: 768px) {
     .sidebar {
-        width: 100%; /* Sidebar diventa a larghezza piena */
+        width: 100%;
         height: auto;
-        position: relative;
+        position: relative; /* Evita sovrapposizioni */
         top: 0;
         left: 0;
         z-index: 9;
+        margin: 0; /* Rimuove lo spazio in eccesso */
+        padding: 10px 0; /* Assicura un po' di spazio interno */
     }
 
     .title-bar {
-        position: relative; /* Cambia da fixed a relative */
+        position: relative;
         top: 0;
         width: 100%;
         flex-direction: column;
         text-align: center;
+        margin: 0; /* Rimuove lo spazio sopra */
+        padding: 10px 0; /* Mantiene un po' di spazio interno */
     }
     
     .title-bar nav ul li {
