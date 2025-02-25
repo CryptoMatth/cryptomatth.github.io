@@ -293,18 +293,18 @@ h2 {
 
 @media screen and (max-width: 768px) {
     .sidebar {
-        width: 100%; /* Sidebar diventa a larghezza piena */
+        width: 100%;
         height: auto;
-        position: fixed; /* Fissata sotto la title-bar */
-        top: 60px; /* Altezza della title-bar, adattala se necessario */
+        position: relative; /* Cambia da fixed a relative */
+        top: 0; /* Rimuove l'offset fisso */
         left: 0;
-        z-index: 9; /* Assicura che resti sopra altri elementi */
-        padding-bottom: 20px; /* Per evitare che il contenuto tocchi il fondo */
+        z-index: 9;
     }
 
     .title-bar {
-        flex-direction: column;
-        text-align: center;
+        position: relative; /* Cambia da fixed a relative */
+        top: 0; /* Non resta bloccata in alto */
+        width: 100%;
     }
     
     .title-bar nav ul li {
@@ -316,9 +316,9 @@ h2 {
     }
 
     main {
-        margin-left: 0; /* Nessun margine laterale */
-        margin-top: calc(60px + 100%); /* Sposta main sotto la sidebar */
-        padding: 20px; /* Aggiunge un po' di spazio intorno al testo */
+        margin-left: 0;
+        margin-top: 0; /* Nessuna compensazione necessaria */
+        padding: 20px;
     }
 
     .indirizzamenti-container {
