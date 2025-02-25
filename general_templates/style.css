@@ -287,56 +287,15 @@ h2 {
     }
     
     main {
-        margin-left: 200px; /* Adatta lo spazio del contenuto */
+        margin-left: 220px; /* Adatta lo spazio del contenuto */
     }
-}
-
-
-/* Stili per il menu hamburger (solo su schermi piccoli) */
-.menu-hamburger {
-    display: none; /* Invisibile di default */
-    font-size: 2rem;
-    cursor: pointer;
-    color: #fff;
-    padding: 10px;
 }
 
 @media screen and (max-width: 768px) {
     .sidebar {
-        width: 250px;
-        height: 100vh;
-        position: fixed;
-        left: -250px; /* Nasconde la sidebar fuori dallo schermo */
-        top: 0;
-        background-color: #3c6e91;
-        transition: left 0.3s ease-in-out;
-        z-index: 1000;
-    }
-
-    /* Quando il menu è aperto */
-    .sidebar.open {
-        left: 0;
-    }
-
-    /* Mostra l'icona hamburger */
-    .menu-hamburger {
-        display: block;
-    }
-
-    /* Imposta un overlay per il background quando la sidebar è aperta */
-    .overlay {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.5);
-        z-index: 999;
-    }
-
-    .overlay.show {
-        display: block;
+        width: 100%; /* Sidebar diventa a larghezza piena */
+        height: auto;
+        position: relative;
     }
 
     .title-bar {
