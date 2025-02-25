@@ -299,6 +299,7 @@ h2 {
         top: 60px; /* Altezza della title-bar, adattala se necessario */
         left: 0;
         z-index: 9; /* Assicura che resti sopra altri elementi */
+        padding-bottom: 20px; /* Per evitare che il contenuto tocchi il fondo */
     }
 
     .title-bar {
@@ -316,7 +317,8 @@ h2 {
 
     main {
         margin-left: 0; /* Nessun margine laterale */
-        margin-top: 120px; /* Distanza sufficiente per sidebar + title-bar */
+        margin-top: calc(60px + 100%); /* Sposta main sotto la sidebar */
+        padding: 20px; /* Aggiunge un po' di spazio intorno al testo */
     }
 
     .indirizzamenti-container {
