@@ -292,25 +292,27 @@ h2 {
 }
 
 @media screen and (max-width: 768px) {
-    .sidebar {
-        width: 100%;
-        height: auto;
-        position: relative; /* Evita sovrapposizioni */
-        top: 0;
-        left: 0;
-        z-index: 9;
-        margin: 0; /* Rimuove lo spazio in eccesso */
-        padding: 10px 0; /* Assicura un po' di spazio interno */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box; /* Evita che padding aumenti le dimensioni */
     }
 
     .title-bar {
         position: relative;
-        top: 0;
         width: 100%;
         flex-direction: column;
         text-align: center;
-        margin: 0; /* Rimuove lo spazio sopra */
-        padding: 10px 0; /* Mantiene un po' di spazio interno */
+        margin: 0;
+        padding: 10px 0;
+    }
+
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        margin: 0;
+        padding: 10px 0;
     }
     
     .title-bar nav ul li {
