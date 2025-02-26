@@ -280,6 +280,11 @@ h2 {
     font-size: 1.5rem;
 }
 
+/* Nasconde il pulsante su tutti gli schermi di default */
+.toggle-sidebar {
+    display: none;
+}
+
 /* Schermi di larghezza massima 1024px (tablet) */
 @media (max-width: 1024px) {
     .sidebar {
