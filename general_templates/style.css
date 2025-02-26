@@ -326,32 +326,6 @@ h2 {
     }
 }
 
-/* Schermi più grandi di 480px (desktop e tablet in orizzontale) */
-@media (min-width: 481px) {
-    .sidebar {
-        position: fixed;
-        top: 0; /* Attaccata alla titlebar */
-        left: 0;
-        width: 250px;
-        height: 100vh;
-        background-color: #3c6e91;
-        color: white;
-        padding: 20px;
-        z-index: 1000;
-        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
-    }
-    
-    /* Per evitare sovrapposizioni con il contenuto */
-    main {
-        margin-left: 250px;
-    }
-
-    /* Nasconde il pulsante toggle per gli schermi grandi */
-    .toggle-sidebar {
-        display: none;
-    }
-}
-
 /* Schermi di larghezza massima 480px (smartphone piccoli) */
 @media (max-width: 480px) {
     .title-bar h1 {
