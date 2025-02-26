@@ -335,7 +335,7 @@ h2 {
     /* Sidebar nascosta di default */
     .sidebar {
         position: fixed;
-        left: -250px; /* Sidebar fuori dallo schermo */
+        left: -270px; /* Sidebar fuori dallo schermo */
         top: 0;
         width: 250px;
         height: 100vh;
