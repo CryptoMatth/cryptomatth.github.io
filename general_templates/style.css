@@ -332,18 +332,60 @@ h2 {
         font-size: 1.5rem;
     }
     .sidebar {
-        display: none; /* Nascondere la sidebar per far spazio ai contenuti */
+        display: none; /* Nasconde la sidebar di default */
+        position: fixed;
+        left: -250px;
+        top: 0;
+        width: 250px;
+        height: 100vh;
+        background-color: #3c6e91;
+        color: white;
+        padding: 20px;
+        transition: left 0.3s ease;
+        z-index: 1000;
     }
+    .sidebar.active {
+        left: 0; /* Mostra la sidebar quando il menu è attivato */
+        display: block;
+    }
+
+    .title-bar {
+        position: relative; /* Assicura che il pulsante si posizioni bene */
+    }
+
+    /* Stile del pulsante per aprire la sidebar */
+    .toggle-sidebar {
+        display: block;
+        background-color: #2980b9;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        font-size: 1.2rem;
+        cursor: pointer;
+        border-radius: 5px;
+        position: absolute;
+        left: 10px;
+        top: 10px;
+        z-index: 1100;
+    }
+
+    .toggle-sidebar:hover {
+        background-color: #1a73e8;
+    }
+
     .title-bar nav ul {
         flex-direction: column;
         padding: 0;
     }
+
     .search-bar input {
         width: 100%;
     }
+
     .indirizzamento-card {
         padding: 15px;
     }
+
     h2 {
         font-size: 1.2rem;
     }
