@@ -280,17 +280,6 @@ h2 {
     font-size: 1.5rem;
 }
 
-/* Stile per il menu hamburger */
-.menu-toggle {
-    display: none; /* Nascondi su desktop */
-    font-size: 2rem;
-    background: none;
-    border: none;
-    color: white;
-    cursor: pointer;
-    margin-left: 20px;
-}
-
 /* Schermi di larghezza massima 1024px (tablet) */
 @media (max-width: 1024px) {
     .sidebar {
@@ -306,32 +295,12 @@ h2 {
 
 /* Schermi di larghezza massima 768px (tablet in verticale e telefoni grandi) */
 @media (max-width: 768px) {
-    .menu-toggle {
-        display: block; /* Mostra il bottone del menu */
-        font-size: 2rem;
-        background: none;
-        border: none;
-        color: white;
-        cursor: pointer;
-        margin-left: 20px;
-    }
-
     .sidebar {
-        position: fixed;
-        left: -250px; /* Nasconde la sidebar fuori dallo schermo */
-        top: 0;
-        width: 250px;
-        height: 100vh;
-        background-color: #3c6e91;
-        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-        transition: left 0.3s ease;
-        z-index: 1000;
+        width: 100%;
+        height: auto;
+        position: relative;
+        padding: 10px;
     }
-
-    .sidebar.open {
-        left: 0; /* Mostra la sidebar */
-    }
-
     .title-bar {
         flex-direction: column;
         text-align: center;
@@ -364,10 +333,6 @@ h2 {
     }
     .sidebar {
         display: none; /* Nascondere la sidebar per far spazio ai contenuti */
-    }
-    .sidebar.open {
-        display: block;
-        left: 0;
     }
     .title-bar nav ul {
         flex-direction: column;
