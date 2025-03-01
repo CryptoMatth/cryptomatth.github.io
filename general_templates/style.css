@@ -338,12 +338,6 @@ h2 {
         flex-direction: column;
         gap: 10px;
     }
-    .toggle-sidebar {
-        position: absolute;
-        left: 10px;
-        top: 50%;
-        transform: translateY(-50%);
-    }
 }
 
 /* Schermi di larghezza massima 480px (smartphone piccoli) */
