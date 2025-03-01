@@ -312,6 +312,7 @@ h2 {
         padding: 10px;
         padding-bottom: 50px;
         position: relative;
+        margin-top: 0;
     }
     .title-bar nav ul {
         flex-direction: column;
