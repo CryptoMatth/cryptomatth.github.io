@@ -381,10 +381,6 @@ h2 {
         bottom: 10px;
         z-index: 1100;
     }
-
-    .toggle-sidebar::after {
-    content: "☰"; /* Mostra solo l'icona hamburger */
-    }
     
     .toggle-sidebar:hover {
         opacity: 0.7; /* Effetto visivo al passaggio */
