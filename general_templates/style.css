@@ -308,11 +308,17 @@ h2 {
     }
     .title-bar {
         flex-direction: column;
+        align-items: center;
         text-align: center;
         padding: 10px;
         padding-bottom: 50px;
         position: relative;
         margin-top: 0;
+    }
+    .title-bar h1 {
+        text-align: center;
+        width: 100%;
+        margin: 10px 0;
     }
     .title-bar nav ul {
         flex-direction: column;
@@ -331,6 +337,12 @@ h2 {
     .indirizzamenti-container {
         flex-direction: column;
         gap: 10px;
+    }
+    .toggle-sidebar {
+        position: absolute;
+        left: 10px;
+        top: 50%;
+        transform: translateY(-50%);
     }
 }
 
