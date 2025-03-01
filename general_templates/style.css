@@ -310,6 +310,7 @@ h2 {
         flex-direction: column;
         text-align: center;
         padding: 10px;
+        padding-bottom: 50px;
     }
     .title-bar nav ul {
         flex-direction: column;
