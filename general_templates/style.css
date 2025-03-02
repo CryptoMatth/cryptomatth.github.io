@@ -285,38 +285,33 @@ h2 {
     display: none;
 }
 
-/*
-@media (max-width: 1280px) and (min-width: 769px) {
-    .title-bar {
-        top: 0;
-        margin: 0;
-        padding: 15px 0;
-    }
+/* Schermi di larghezza massima 1024px (tablet) */
+@media (max-width: 1024px) {
     .sidebar {
         width: 200px;
-        top: 0;
     }
     main {
         margin-left: 220px;
     }
+    .indirizzamento-card {
+        flex: 1 1 calc(100% - 20px); /* Una sola card per riga */
+    }
 }
-*/
 
 /* Schermi di larghezza massima 768px (tablet in verticale e telefoni grandi) */
-@media (max-width: 1280px) and (min-width: 481px) {
+@media (max-width: 768px) {
     .sidebar {
         width: 100%;
         height: auto;
         position: relative;
         padding: 10px;
-        margin: 0;
     }
     .title-bar {
         flex-direction: column;
         align-items: center;
         text-align: center;
         padding: 10px;
-        margin: 0;
+        padding-bottom: 50px;
         position: relative;
         margin-top: 0;
     }
@@ -345,7 +340,7 @@ h2 {
     }
 }
 
-/* Schermi di larghezza massima 480px (smartphone) */
+/* Schermi di larghezza massima 480px (smartphone piccoli) */
 @media (max-width: 480px) {
     .title-bar h1 {
         font-size: 1.5rem;
