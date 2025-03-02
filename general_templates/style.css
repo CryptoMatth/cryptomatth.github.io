@@ -285,6 +285,15 @@ h2 {
     display: none;
 }
 
+@media (max-width: 1280px) and (min-width: 1025px) {
+    .sidebar {
+        width: 220px; /* Ridotta leggermente rispetto ai 250px */
+    }
+    main {
+        margin-left: 240px; /* Adatta la spaziatura */
+    }
+}
+
 /* Schermi di larghezza massima 1024px (tablet) */
 @media (max-width: 1024px) {
     .sidebar {
@@ -339,6 +348,7 @@ h2 {
         gap: 10px;
     }
 }
+
 
 /* Schermi di larghezza massima 480px (smartphone piccoli) */
 @media (max-width: 480px) {
