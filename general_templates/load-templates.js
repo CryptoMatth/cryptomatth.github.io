@@ -36,4 +36,8 @@ function loadTemplates(titlebarPath, sidebarPath, langIt, langEn) {
 
     const observer = new MutationObserver(adjustSidebarPosition);
     observer.observe(document.getElementById('titlebar-container'), { childList: true, subtree: true });
+    
+    window.addEventListener('resize', function() {
+        adjustSidebarPosition();
+    });
 }
