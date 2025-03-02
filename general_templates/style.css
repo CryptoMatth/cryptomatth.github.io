@@ -288,6 +288,7 @@ h2 {
 @media (max-width: 1280px) and (min-width: 769px) {
     .sidebar {
         width: 200px; /* Ridotta leggermente rispetto ai 250px */
+        top: 0;
     }
     main {
         margin-left: 220px; /* Adatta la spaziatura */
