@@ -17,5 +17,21 @@ document.addEventListener("DOMContentLoaded", function () {
                 overlay.classList.remove("active");
             });
         }
+
+        // Funzione per gestire il ridimensionamento della finestra
+        function handleResize() {
+            if (window.innerWidth > 1024) {
+                // Se la finestra è abbastanza grande, la sidebar deve essere sempre visibile
+                sidebar.classList.remove('active');
+                overlay.classList.remove('active');
+            }
+        }
+
+        // Aggiungi un ascoltatore per il ridimensionamento della finestra
+        window.addEventListener('resize', handleResize);
+
+        // Gestisce la visibilità della sidebar in base alla larghezza dello schermo
+        handleResize();  // Esegui subito al caricamento della pagina
+        
     }, 500); // Attendi che i template siano caricati
 });
