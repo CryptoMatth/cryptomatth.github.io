@@ -285,25 +285,12 @@ h2 {
     display: none;
 }
 
-@media (max-width: 1280px) and (min-width: 1025px) {
+@media (max-width: 1280px) and (min-width: 769px) {
     .sidebar {
         width: 200px; /* Ridotta leggermente rispetto ai 250px */
     }
     main {
         margin-left: 220px; /* Adatta la spaziatura */
-    }
-}
-
-/* Schermi di larghezza massima 1024px (tablet) */
-@media (max-width: 1024px) {
-    .sidebar {
-        width: 200px;
-    }
-    main {
-        margin-left: 220px;
-    }
-    .indirizzamento-card {
-        flex: 1 1 calc(100% - 20px); /* Una sola card per riga */
     }
 }
 
