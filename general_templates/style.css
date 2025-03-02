@@ -334,11 +334,11 @@ h2 {
 @media (max-width: 1024px) and (min-width: 481px) {
     /* Sidebar inizialmente nascosta su schermi di media larghezza */
     .sidebar {
-        position: fixed;
-        left: -300px; /* Sidebar fuori dallo schermo */
-        top: 0;
+        position: absolute;
+        left: 0; /* Sidebar si attacca al lato sinistro */
+        top: 80px; /* Distanza dalla parte superiore della pagina (sotto la titlebar) */
         width: 250px;
-        height: 100vh;
+        height: calc(100vh - 80px); /* Impostiamo l'altezza per essere inferiore all'altezza della titlebar */
         background-color: #3c6e91;
         color: white;
         padding: 20px;
@@ -409,7 +409,7 @@ h2 {
     }
     main {
         margin-left: 0;
-        margin-top: 0;
+        margin-top: 80px; /* Impostiamo un margine superiore per far sì che il contenuto non venga nascosto dalla titlebar */
         padding: 10px;
     }
     .indirizzamenti-container {
