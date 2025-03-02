@@ -285,17 +285,27 @@ h2 {
     display: none;
 }
 
-/* Schermi di larghezza massima 1024px (tablet) */
+/* Schermi di larghezza massima 1024px (metà schermo del PC) */
 @media (max-width: 1024px) {
-    .sidebar {
-        width: 200px;
-    }
-    main {
-        margin-left: 220px;
-    }
-    .indirizzamento-card {
-        flex: 1 1 calc(100% - 20px); /* Una sola card per riga */
-    }
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    z-index: 1000;
+  }
+
+  .title-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1100;
+  }
+
+  main {
+    margin-left: 220px; /* Adatta il margine sinistro per evitare la sovrapposizione con la sidebar */
+  }
 }
 
 /* Schermi di larghezza massima 768px (tablet in verticale e telefoni grandi) */
