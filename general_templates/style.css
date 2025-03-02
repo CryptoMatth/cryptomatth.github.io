@@ -303,7 +303,7 @@ h2 {
 */
 
 /* Schermi di larghezza massima 768px (tablet in verticale e telefoni grandi) */
-@media (max-width: 768px) {
+@media (max-width: 1280px) and (min-width: 481px) {
     .sidebar {
         width: 100%;
         height: auto;
