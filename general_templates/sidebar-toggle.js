@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
         overlay.classList.add("overlay");
         document.body.appendChild(overlay); // Aggiungi l'overlay al body
 
+        // Gestisce l'apertura e la chiusura della sidebar
         if (toggleButton && sidebar) {
             toggleButton.addEventListener("click", function () {
                 sidebar.classList.toggle("active");
@@ -24,14 +25,20 @@ document.addEventListener("DOMContentLoaded", function () {
                 // Se la finestra è abbastanza grande, la sidebar deve essere sempre visibile
                 sidebar.classList.remove('active');
                 overlay.classList.remove('active');
+            } else {
+                // Su schermi più piccoli la sidebar può essere nascosta di default
+                if (!sidebar.classList.contains('active')) {
+                    sidebar.classList.remove('active');
+                    overlay.classList.remove('active');
+                }
             }
         }
 
         // Aggiungi un ascoltatore per il ridimensionamento della finestra
         window.addEventListener('resize', handleResize);
 
-        // Gestisce la visibilità della sidebar in base alla larghezza dello schermo
-        handleResize();  // Esegui subito al caricamento della pagina
-        
+        // Esegui la funzione subito dopo il caricamento della pagina per la posizione iniziale
+        handleResize();
+
     }, 500); // Attendi che i template siano caricati
 });
