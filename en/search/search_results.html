@@ -1,84 +1,91 @@
 <!DOCTYPE html>
 <html lang="it">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CryptoMatth - Search results</title>
-    <link rel="stylesheet" href="../../general_templates/style.css">
-</head>
-<body>
-    <div id="titlebar-container"></div>
-    <div id="sidebar-container"></div>
-
-    <main>
-        <section class="page-title">
-            <h1>Search results</h1>
-        </section>
-        <section id="results-container">
-            <!-- I risultati della ricerca verranno inseriti qui -->
-        </section>
-    </main>
-
-    <script src="../../general_templates/load-templates.js"></script>
-    <script>
-        window.onload = function() {
-            loadTemplates(
-                '../templates/titlebar.html',
-                '../templates/sidebar.html',
-                'https://cryptomatth.github.io/it/index.html',
-                'https://cryptomatth.github.io/en/index.html'
-            );
-        };
-
-
-        // Funzione per ottenere i parametri dell'URL
-        function getQueryParams() {
-            const params = {};
-            const queryString = window.location.search.substring(1);
-            const regex = /([^&=]+)=([^&]*)/g;
-            let m;
-            while (m = regex.exec(queryString)) {
-                params[decodeURIComponent(m[1])] = decodeURIComponent(m[2]);
+    
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>CryptoMatth - Search results</title>
+        <link rel="stylesheet" href="../../general_templates/style.css">
+    </head>
+    
+    <body>
+        <div id="titlebar-container"></div>
+        <div id="sidebar-container"></div>
+    
+        <main>
+            <section class="page-title">
+                <h1>Search results</h1>
+            </section>
+            
+            <section id="results-container">
+                <!-- I risultati della ricerca verranno inseriti qui -->
+            </section>
+        </main>
+    
+        <script src="../../general_templates/load-templates.js"></script>
+        <script>
+            window.onload = function() {
+                loadTemplates(
+                    '../templates/titlebar.html',
+                    '../templates/sidebar.html',
+                    'https://cryptomatth.github.io/it/index.html',
+                    'https://cryptomatth.github.io/en/index.html'
+                );
+            };
+    
+            // Funzione per ottenere i parametri dell'URL
+            function getQueryParams() {
+                const params = {};
+                const queryString = window.location.search.substring(1);
+                const regex = /([^&=]+)=([^&]*)/g;
+                let m;
+                while (m = regex.exec(queryString)) {
+                    params[decodeURIComponent(m[1])] = decodeURIComponent(m[2]);
+                }
+                return params;
             }
-            return params;
-        }
-
-        // Funzione per caricare i risultati della ricerca
-        document.addEventListener('DOMContentLoaded', function() {
-            const params = getQueryParams();
-            const query = params['query'] ? params['query'].toLowerCase() : '';
-            const resultsContainer = document.getElementById('results-container');
-
-            if (query) {
-                fetch('search-index.json')
-                    .then(response => response.json())
-                    .then(data => {
-                        const results = data.filter(page => 
-                            page.content.toLowerCase().includes(query) || 
-                            page.keywords.some(keyword => keyword.toLowerCase().includes(query))
-                        );
-                        if (results.length > 0) {
-                            results.forEach(result => {
-                                const resultItem = document.createElement('article');
-                                resultItem.innerHTML = `
-                                    <h3><a href="../${result.url}">${result.title}</a></h3>
-                                    <p>${result.content.substring(0, 150)}...</p>
-                                    <a href="../${result.url}">Read more</a>
-                                `;
-                                resultsContainer.appendChild(resultItem);
-                            });
-                        } else {
-                            resultsContainer.innerHTML = '<p>No results found for your search.</p>';
-                        }
-                    })
-                    .catch(error => {
-                        console.error('Error in the search:', error);
-                        resultsContainer.innerHTML = '<p>An error occurred during the search. Please try again later.</p>';
-                    });
-            } else {
-                resultsContainer.innerHTML = '<p>No results found for your search.</p>';
-            }
-        });
-    </script>
-</body>
+    
+            // Funzione per caricare i risultati della ricerca
+            document.addEventListener('DOMContentLoaded', function() {
+                const params = getQueryParams();
+                const query = params['query'] ? params['query'].toLowerCase() : '';
+                const resultsContainer = document.getElementById('results-container');
+    
+                if (query) {
+                    fetch('search-index.json')
+                        .then(response => response.json())
+                        .then(data => {
+                            const results = data.filter(page => 
+                                page.content.toLowerCase().includes(query) || 
+                                page.keywords.some(keyword => keyword.toLowerCase().includes(query))
+                            );
+                            if (results.length > 0) {
+                                results.forEach(result => {
+                                    const resultItem = document.createElement('article');
+                                    resultItem.innerHTML = `
+                                        <h3><a href="../${result.url}">${result.title}</a></h3>
+                                        <p>${result.content.substring(0, 150)}...</p>
+                                        <a href="../${result.url}">Read more</a>
+                                    `;
+                                    resultsContainer.appendChild(resultItem);
+                                });
+                            } else {
+                                resultsContainer.innerHTML = '<p>No results found for your search.</p>';
+                            }
+                        })
+                        .catch(error => {
+                            console.error('Error in the search:', error);
+                            resultsContainer.innerHTML = '<p>An error occurred during the search. Please try again later.</p>';
+                        });
+                } else {
+                    resultsContainer.innerHTML = '<p>No results found for your search.</p>';
+                }
+            });
+        </script>
+        
+        <script src="../../general_templates/dropdown.js" onload="initializeDropdowns();"></script>
+        <script src="../../general_templates/url-handler.js"></script>
+        <script src="../../general_search/search.js"></script>
+        <script src="../../general_templates/sidebar-toggle.js"></script>
+    </body>
 </html>
