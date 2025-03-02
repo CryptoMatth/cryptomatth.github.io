@@ -307,6 +307,7 @@ h2 {
     margin-left: 220px;
   }
 }
+*/
 
 @media (max-width: 768px) {
     .sidebar {
@@ -348,7 +349,6 @@ h2 {
         gap: 10px;
     }
 }
-*/
 
 /* Schermi di larghezza massima 480px (smartphone piccoli) */
 @media (max-width: 480px) {
