@@ -1,40 +1,43 @@
 <!DOCTYPE html>
 <html lang="it">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CryptoMatth - Contatti</title>
-    <link rel="stylesheet" href="../general_templates/style.css">
-</head>
-<body>
-    <div id="titlebar-container"></div>
-    <div id="sidebar-container"></div>
     
-    <main>
-        <section class="page-title">
-            <h1>Contact Me</h1>
-        </section>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>CryptoMatth - Contatti</title>
+        <link rel="stylesheet" href="../general_templates/style.css">
+    </head>
+    
+    <body>
+        <div id="titlebar-container"></div>
+        <div id="sidebar-container"></div>
         
-        <section>
-            <h2>Send Me an Email</h2>
-            <p>If you'd like to send me an email, <a href="mailto:crypto.matth719@gmail.com?subject=Richiesta%20informazioni" class="email-link">click here.</a></p>
-        </section>
-    </main>
-
-    <script src="../general_templates/load-templates.js"></script>
-    <script>
-        window.onload = function() {
-            loadTemplates(
-                'templates/titlebar.html',
-                'templates/sidebar.html',
-                'https://cryptomatth.github.io/it/contatti.html',
-                'https://cryptomatth.github.io/en/contacts.html'
-            );
-        };
-    </script>
-
-    <script src="../general_templates/dropdown.js" onload="initializeDropdowns();"></script>
-    <script src="../general_templates/url-handler.js"></script>
-    <script src="../general_search/search.js"></script>
-</body>
+        <main>
+            <section class="page-title">
+                <h1>Contact Me</h1>
+            </section>
+            
+            <section>
+                <h2>Send Me an Email</h2>
+                <p>If you'd like to send me an email, <a href="mailto:crypto.matth719@gmail.com?subject=Richiesta%20informazioni" class="email-link">click here.</a></p>
+            </section>
+        </main>
+    
+        <script src="../general_templates/load-templates.js"></script>
+        <script>
+            window.onload = function() {
+                loadTemplates(
+                    'templates/titlebar.html',
+                    'templates/sidebar.html',
+                    'https://cryptomatth.github.io/it/contatti.html',
+                    'https://cryptomatth.github.io/en/contacts.html'
+                );
+            };
+        </script>
+    
+        <script src="../general_templates/dropdown.js" onload="initializeDropdowns();"></script>
+        <script src="../general_templates/url-handler.js"></script>
+        <script src="../general_search/search.js"></script>
+        <script src="../general_templates/sidebar-toggle.js"></script>
+    </body>
 </html>
