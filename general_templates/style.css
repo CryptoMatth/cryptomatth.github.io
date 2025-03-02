@@ -334,11 +334,11 @@ h2 {
 @media (max-width: 1024px) and (min-width: 481px) {
     /* Sidebar inizialmente nascosta su schermi di media larghezza */
     .sidebar {
-        position: absolute;
-        left: 0; /* Sidebar si attacca al lato sinistro */
+        position: fixed;
+        left: -300px; /* Sidebar fuori dallo schermo */
         top: 80px; /* Distanza dalla parte superiore della pagina (sotto la titlebar) */
         width: 250px;
-        height: calc(100vh - 80px); /* Impostiamo l'altezza per essere inferiore all'altezza della titlebar */
+        height: calc(100vh - 80px); /* Altezza per essere sotto la titlebar */
         background-color: #3c6e91;
         color: white;
         padding: 20px;
@@ -417,6 +417,7 @@ h2 {
         gap: 10px;
     }
 }
+
 
 
 
