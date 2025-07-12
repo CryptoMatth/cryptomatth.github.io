@@ -61,14 +61,6 @@ const translations = {
       audienceText: "Questo sito è pensato per chiunque sia curioso di capire come funziona la sicurezza digitale. Che tu sia uno studente di informatica o matematica, un professionista della sicurezza, o semplicemente una persona interessata a proteggere la propria privacy online, troverai contenuti utili e stimolanti. Non sono richieste conoscenze pregresse avanzate, solo una mente aperta e la voglia di imparare!",
       contactTitle: "Contattaci", // Questo titolo è per la sezione nella home, ora non più usata
       contactText: "Per domande, suggerimenti o collaborazioni, non esitate a contattarci all'indirizzo", // Questo testo è per la sezione nella home, ora non più usata
-      llmSectionTitle: "Spiegazione Semplificata con AI ✨",
-      llmInputPlaceholder: "Inserisci un termine (es. RSA, Cifra di Cesare, Funzione Hash)",
-      llmButtonText: "Spiega con AI",
-      llmLoading: "Generazione spiegazione...",
-      llmError: "Errore nella generazione della spiegazione. Riprova più tardi.",
-      llmNoInput: "Per favor, inserisci un termine da spiegare.",
-      llmApiError: "Errore API: Chiave API mancante o non valida. ", // Messaggio di errore più specifico per 403
-      llmNetworkError: "Errore di rete. Controlla la tua connessione e riprova.", // Nuovo messaggio di errore di rete
     },
     matematicaPage: { // Traduzioni specifiche per la pagina Fondamenti Matematici
       title: "Fondamenti Matematici",
@@ -185,14 +177,6 @@ const translations = {
       audienceText: "This site is designed for anyone curious about how digital security works. Whether you are a computer science or mathematics student, a security professional, or simply someone interested in protecting your online privacy, you will find useful and stimulating content. No advanced prior knowledge is required, just an open mind and a desire to learn!",
       contactTitle: "Contact Us", // This title is for the section in home, now not used
       contactText: "For questions, suggestions, or collaborations, do not hesitate to contact us at", // This text is for the section in home, now not used
-      llmSectionTitle: "AI Simplified Explanation ✨",
-      llmInputPlaceholder: "Enter a term (e.g., RSA, Caesar Cipher, Hash Function)",
-      llmButtonText: "Explain with AI",
-      llmLoading: "Generating explanation...",
-      llmError: "Error generating explanation. Please try again later.",
-      llmNoInput: "Please enter a term to explain.",
-      llmApiError: "API Error: Missing or invalid API key. ", // Specific error message for 403
-      llmNetworkError: "Network error. Check your connection and try again.", // New network error message
     },
     matematicaPage: {
       title: "Mathematical Foundations",
@@ -541,65 +525,14 @@ const HomePage = ({ language }) => {
   const tCommon = translations[language].common;
   const tHomePage = translations[language].homePage;
 
-  const [llmTerm, setLlmTerm] = useState('');
-  const [llmExplanation, setLlmExplanation] = useState('');
-  const [isLoadingLlm, setIsLoadingLlm] = useState(false);
-  const [llmError, setLlmError] = useState('');
+  // Rimossi gli stati relativi alla chiamata AI
+  // const [llmTerm, setLlmTerm] = useState('');
+  // const [llmExplanation, setLlmExplanation] = useState('');
+  // const [isLoadingLlm, setIsLoadingLlm] = useState(false);
+  // const [llmError, setLlmError] = useState('');
 
-  // Funzione per chiamare l'API Gemini e ottenere una spiegazione
-  const generateExplanation = async () => {
-    if (!llmTerm.trim()) {
-      setLlmError(tHomePage.llmNoInput); // Usa la traduzione specifica
-      setLlmExplanation('');
-      return;
-    }
-
-    setIsLoadingLlm(true);
-    setLlmError('');
-    setLlmExplanation('');
-
-    try {
-      const prompt = `Spiega il concetto di "${llmTerm}" in termini semplici e concisi, adatti a un pubblico non esperto, in ${language === 'it' ? 'italiano' : 'inglese'}. Concentrati sugli aspetti fondamentali legati alla matematica o alla crittografia, se applicabile. La risposta deve essere di massimo 100 parole.`;
-      let chatHistory = [];
-      chatHistory.push({ role: "user", parts: [{ text: prompt }] });
-
-      const payload = { contents: chatHistory };
-      const apiKey = ""; // L'API key verrà fornita dall'ambiente Canvas. Un errore 403 indica che la chiave non è stata fornita o non è valida.
-      const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
-
-      const response = await fetch(apiUrl, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
-      });
-
-      // Controlla se la risposta HTTP è ok (status 200-299)
-      if (!response.ok) {
-        const errorData = await response.json();
-        setLlmError(`${tHomePage.llmApiError} ${response.status} - ${errorData.error?.message || 'Errore sconosciuto'}`);
-        console.error("Errore API Gemini:", response.status, errorData);
-        return;
-      }
-
-      const result = await response.json();
-
-      if (result.candidates && result.candidates.length > 0 &&
-          result.candidates[0].content && result.candidates[0].content.parts &&
-          result.candidates[0].content.parts.length > 0) {
-        const text = result.candidates[0].content.parts[0].text;
-        setLlmExplanation(text);
-      } else {
-        setLlmError(tHomePage.llmError); // Usa la traduzione specifica
-        console.error("Struttura della risposta LLM inattesa:", result);
-      }
-    } catch (error) {
-      // Gestione degli errori di rete o altri errori durante il fetch
-      setLlmError(tHomePage.llmNetworkError); // Usa la traduzione specifica per errori di rete
-      console.error("Errore durante la chiamata all'API Gemini:", error);
-    } finally {
-      setIsLoadingLlm(false);
-    }
-  };
+  // Rimossa la funzione per chiamare l'API Gemini
+  // const generateExplanation = async () => { /* ... */ };
 
   return (
     <main className="flex-1 bg-white p-8 rounded-lg shadow-md">
@@ -639,35 +572,7 @@ const HomePage = ({ language }) => {
         </p>
       </section>
 
-      {/* Nuova sezione per la spiegazione AI */}
-      <section id="ai-explanation" className="mb-8 p-6 bg-blue-50 rounded-lg shadow-inner">
-        <h3 className="text-2xl font-semibold text-blue-700 mb-4">{tHomePage.llmSectionTitle}</h3>
-        <div className="flex flex-col md:flex-row gap-4 mb-4">
-          <input
-            type="text"
-            placeholder={tHomePage.llmInputPlaceholder}
-            className="flex-1 p-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-300 transition duration-300"
-            value={llmTerm}
-            onChange={(e) => setLlmTerm(e.target.value)}
-            onKeyPress={(e) => { if (e.key === 'Enter') generateExplanation(); }}
-          />
-          <button
-            onClick={generateExplanation}
-            className="px-6 py-3 bg-blue-600 text-white font-semibold rounded-md shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-300 transition duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
-            disabled={isLoadingLlm}
-          >
-            {isLoadingLlm ? tHomePage.llmLoading : tHomePage.llmButtonText}
-          </button>
-        </div>
-        {llmError && (
-          <p className="text-red-600 mt-2 text-center">{llmError}</p>
-        )}
-        {llmExplanation && (
-          <div className="mt-4 p-4 bg-white border border-blue-200 rounded-md shadow-sm">
-            <p className="text-gray-800 leading-relaxed">{llmExplanation}</p>
-          </div>
-        )}
-      </section>
+      {/* Rimossa la sezione per la spiegazione AI */}
     </main>
   );
 };
