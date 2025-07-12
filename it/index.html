@@ -1,0 +1,628 @@
+import React, { useState, useEffect } from 'react';
+
+// Oggetto per le traduzioni di tutto il contenuto testuale
+const translations = {
+  it: {
+    common: { // Traduzioni comuni a più pagine o elementi globali
+      title: "Matematica & Crittografia",
+      searchPlaceholder: "Cerca nel sito...",
+      indexTitle: "Indice",
+      footerText: "Matematica & Crittografia. Tutti i diritti riservati.",
+      pageNotFound: "Pagina non trovata",
+      pageNotFoundText: "Siamo spiacenti, la pagina che stai cercando non esiste.",
+    },
+    sidebar: { // Traduzioni per la sidebar, ora con struttura gerarchica
+      items: [
+        { key: 'home', title: "Introduzione al Progetto" },
+        { key: 'matematica', title: "Fondamenti Matematici" },
+        {
+          key: 'crittografia',
+          title: "Principi di Crittografia",
+          children: [
+            {
+              key: 'symmetric',
+              title: "Crittografia Simmetrica",
+              children: [
+                { key: 'caesar', title: "Cifrario di Cesare" },
+                { key: 'vigenere', title: "Cifrario di Vigenère" }
+              ]
+            },
+            { key: 'asymmetric', title: "Crittografia Asimmetrica" }
+          ]
+        },
+        { key: 'algoritmi', title: "Algoritmi Comuni" },
+        { key: 'applicazioni', title: "Applicazioni Pratiche" },
+        { key: 'risorse', title: "Risorse Aggiuntive" },
+      ]
+    },
+    homePage: { // Traduzioni specifiche per la HomePage
+      projectDescription: "Descrizione del Progetto: Matematica e Crittografia",
+      welcomeTitle: "Benvenuti nel Mondo della Sicurezza Digitale",
+      introText1: "Questo progetto è dedicato all'esplorazione dell'affascinante intersezione tra la matematica pura e l'arte della crittografia. La crittografia, la scienza di proteggere le comunicazioni, si basa profondamente su concetti matematici complessi, dalla teoria dei numeri all'algebra astratta. Il nostro obiettivo è demistificare questi argomenti, rendendoli accessibili a studenti, appassionati e professionisti.",
+      introText2: "Attraverso articoli chiari, esempi pratici e illustrazioni intuitive, vi guideremo attraverso i principi fondamentali che rendono sicure le nostre interazioni digitali quotidiane, dalle transazioni bancarie online alla messaggistica istantanea.",
+      imageAlt: "Immagine concettuale di crittografia e matematica",
+      objectivesTitle: "I Nostri Obiettivi",
+      objective1: "Spiegare i concetti matematici alla base della crittografia moderna.",
+      objective2: "Analizzare i principali algoritmi crittografici (RSA, AES, Elliptic Curve Cryptography).",
+      objective3: "Illustrare le applicazioni pratiche della crittografia nella vita di tutti i giorni.",
+      objective4: "Promuovere la comprensione dell'importanza della sicurezza informatica.",
+      objective5: "Fornire risorse e strumenti per approfondire gli studi.",
+      audienceTitle: "A Chi è Rivolto?",
+      audienceText: "Questo sito è pensato per chiunque sia curioso di capire come funziona la sicurezza digitale. Che tu sia uno studente di informatica o matematica, un professionista della sicurezza, o semplicemente una persona interessata a proteggere la propria privacy online, troverai contenuti utili e stimolanti. Non sono richieste conoscenze pregresse avanzate, solo una mente aperta e la voglia di imparare!",
+      contactTitle: "Contattaci",
+      contactText: "Per domande, suggerimenti o collaborazioni, non esitate a contattarci all'indirizzo",
+      llmSectionTitle: "Spiegazione Semplificata con AI ✨",
+      llmInputPlaceholder: "Inserisci un termine (es. RSA, Cifra di Cesare, Funzione Hash)",
+      llmButtonText: "Spiega con AI",
+      llmLoading: "Generazione spiegazione...",
+      llmError: "Errore nella generazione della spiegazione. Riprova più tardi.",
+      llmNoInput: "Per favor, inserisci un termine da spiegare.",
+    },
+    matematicaPage: { // Traduzioni specifiche per la pagina Fondamenti Matematici
+      title: "Fondamenti Matematici",
+      content: "Qui troverai articoli e risorse sui fondamenti matematici che sono alla base della crittografia, come la teoria dei numeri, l'algebra astratta e la complessità computazionale."
+    },
+    crittografiaPage: { // Traduzioni specifiche per la pagina Crittografia
+      title: "Principi di Crittografia", // Titolo generale della pagina
+      introText: "La crittografia è la pratica e lo studio delle tecniche per una comunicazione sicura in presenza di terzi (avversari). Più in generale, si occupa di costruire e analizzare protocolli che impediscono a terzi o al pubblico di leggere messaggi privati.",
+      symmetricCrypto: "Crittografia Simmetrica",
+      symmetricIntro: "Nella crittografia simmetrica, la stessa chiave segreta viene utilizzata sia per la cifratura che per la decifratura. È efficiente e veloce, ideale per grandi quantità di dati.",
+      asymmetricCrypto: "Crittografia Asimmetrica",
+      asymmetricIntro: "La crittografia asimmetrica, o crittografia a chiave pubblica, utilizza una coppia di chiavi: una pubblica e una privata. La chiave pubblica può essere condivisa liberamente, mentre la chiave privata deve rimanere segreta. È fondamentale per la sicurezza delle comunicazioni moderne e le firme digitali.",
+      caesarCipher: "Cifrario di Cesare",
+      caesarIntro: "Il Cifrario di Cesare è uno dei più antichi e semplici cifrari di sostituzione. È un tipo di cifrario a sostituzione monoalfabetica in cui ogni lettera nel testo in chiaro viene sostituita da una lettera che si trova un certo numero di posizioni più avanti o più indietro nell'alfabeto.",
+      vigenereCipher: "Cifrario di Vigenère",
+      vigenereIntro: "Il Cifrario di Vigenère è un metodo di cifratura polialfabetico che utilizza una serie di cifrari di Cesare diversi in sequenza, basati sulle lettere di una parola chiave. È stato considerato un cifrario molto robusto per secoli.",
+    },
+    algoritmiPage: { // Traduzioni specifiche per la pagina Algoritmi Comuni
+      title: "Algoritmi Comuni",
+      content: "Questa sezione esplora gli algoritmi crittografici più diffusi e le loro applicazioni, come RSA, AES, e le curve ellittiche."
+    },
+    applicazioniPage: { // Traduzioni specifiche per la pagina Applicazioni Pratiche
+      title: "Applicazioni Pratiche",
+      content: "Scopri come la crittografia viene utilizzata nella vita di tutti i giorni, dalla sicurezza delle transazioni online alle VPN e alle blockchain."
+    },
+    risorsePage: { // Traduzioni specifiche per la pagina Risorse Aggiuntive
+      title: "Risorse Aggiuntive",
+      content: "Una raccolta di libri, articoli, corsi online e strumenti per approfondire la matematica e la crittografia."
+    },
+  },
+  en: {
+    common: {
+      title: "Mathematics & Cryptography",
+      searchPlaceholder: "Search the site...",
+      indexTitle: "Index",
+      footerText: "Mathematics & Cryptography. All rights reserved.",
+      pageNotFound: "Page Not Found",
+      pageNotFoundText: "Sorry, the page you are looking for does not exist.",
+    },
+    sidebar: {
+      items: [
+        { key: 'home', title: "Introduction to the Project" },
+        { key: 'matematica', title: "Mathematical Foundations" },
+        {
+          key: 'crittografia',
+          title: "Principles of Cryptography",
+          children: [
+            {
+              key: 'symmetric',
+              title: "Symmetric Cryptography",
+              children: [
+                { key: 'caesar', title: "Caesar Cipher" },
+                { key: 'vigenere', title: "Vigenere Cipher" }
+              ]
+            },
+            { key: 'asymmetric', title: "Asymmetric Cryptography" }
+          ]
+        },
+        { key: 'algoritmi', title: "Common Algorithms" },
+        { key: 'applicazioni', title: "Practical Applications" },
+        { key: 'risorse', title: "Additional Resources" },
+      ]
+    },
+    homePage: {
+      projectDescription: "Project Description: Mathematics and Cryptography",
+      welcomeTitle: "Welcome to the World of Digital Security",
+      introText1: "This project is dedicated to exploring the fascinating intersection between pure mathematics and the art of cryptography. Cryptography, the science of securing communications, relies deeply on complex mathematical concepts, from number theory to abstract algebra. Our goal is to demystify these topics, making them accessible to students, enthusiasts, and professionals.",
+      introText2: "Through clear articles, practical examples, and intuitive illustrations, we will guide you through the fundamental principles that secure our daily digital interactions, from online banking transactions to instant messaging.",
+      imageAlt: "Conceptual image of cryptography and mathematics",
+      objectivesTitle: "Our Objectives",
+      objective1: "Explain the mathematical concepts underlying modern cryptography.",
+      objective2: "Analyze key cryptographic algorithms (RSA, AES, Elliptic Curve Cryptography).",
+      objective3: "Illustrate practical applications of cryptography in everyday life.",
+      objective4: "Promote understanding of the importance of cybersecurity.",
+      objective5: "Provide additional resources and tools for further study.",
+      audienceTitle: "Who is it For?",
+      audienceText: "This site is designed for anyone curious about how digital security works. Whether you are a computer science or mathematics student, a security professional, or simply someone interested in protecting your online privacy, you will find useful and stimulating content. No advanced prior knowledge is required, just an open mind and a desire to learn!",
+      contactTitle: "Contact Us",
+      contactText: "For questions, suggestions, or collaborations, do not hesitate to contact us at",
+      llmSectionTitle: "AI Simplified Explanation ✨",
+      llmInputPlaceholder: "Enter a term (e.g., RSA, Caesar Cipher, Hash Function)",
+      llmButtonText: "Explain with AI",
+      llmLoading: "Generating explanation...",
+      llmError: "Error generating explanation. Please try again later.",
+      llmNoInput: "Please enter a term to explain.",
+    },
+    matematicaPage: {
+      title: "Mathematical Foundations",
+      content: "Here you will find articles and resources on the mathematical foundations underlying cryptography, such as number theory, abstract algebra, and computational complexity."
+    },
+    crittografiaPage: {
+      title: "Principles of Cryptography",
+      introText: "Cryptography is the practice and study of techniques for secure communication in the presence of third parties (adversaries). More generally, it is about constructing and analyzing protocols that prevent third parties or the public from reading private messages.",
+      symmetricCrypto: "Symmetric Cryptography",
+      symmetricIntro: "In symmetric-key cryptography, the same secret key is used for both encryption and decryption. It is efficient and fast, ideal for large amounts of data.",
+      asymmetricCrypto: "Asymmetric Cryptography",
+      asymmetricIntro: "Asymmetric-key cryptography, or public-key cryptography, uses a pair of keys: a public key and a private key. The public key can be freely shared, while the private key must remain secret. It is fundamental for modern secure communications and digital signatures.",
+      caesarCipher: "Caesar Cipher",
+      caesarIntro: "The Caesar Cipher is one of the oldest and simplest substitution ciphers. It is a type of monoalphabetic substitution cipher in which each letter in the plaintext is replaced by a letter some fixed number of positions down or up the alphabet.",
+      vigenereCipher: "Vigenere Cipher",
+      vigenereIntro: "The Vigenere Cipher is a method of polyalphabetic encryption that uses a series of different Caesar ciphers in sequence, based on the letters of a keyword. It was considered a very robust cipher for centuries.",
+    },
+    algoritmiPage: {
+      title: "Common Algorithms",
+      content: "This section explores the most common cryptographic algorithms and their applications, such as RSA, AES, and elliptic curves."
+    },
+    applicazioniPage: {
+      title: "Practical Applications",
+      content: "Discover how cryptography is used in everyday life, from securing online transactions to VPNs and blockchains."
+    },
+    risorsePage: {
+      title: "Additional Resources",
+      content: "A collection of books, articles, online courses, and tools to deepen your understanding of mathematics and cryptography."
+    },
+  },
+};
+
+// Helper function outside SidebarItem to prevent closure issues with `item`
+// This function checks if the current page is the item itself or any of its descendants
+const isItemActive = (item, currentPage) => {
+  if (currentPage === item.key) {
+    return true;
+  }
+  if (item.children) {
+    // Recursively check if any child is active
+    return item.children.some(child => isItemActive(child, currentPage));
+  }
+  return false;
+};
+
+// Componente per la pagina principale (Descrizione del Progetto)
+const HomePage = ({ language }) => {
+  // Accede alle traduzioni specifiche per la HomePage e quelle comuni
+  const tCommon = translations[language].common;
+  const tHomePage = translations[language].homePage;
+
+  const [llmTerm, setLlmTerm] = useState('');
+  const [llmExplanation, setLlmExplanation] = useState('');
+  const [isLoadingLlm, setIsLoadingLlm] = useState(false);
+  const [llmError, setLlmError] = useState('');
+
+  // Funzione per chiamare l'API Gemini e ottenere una spiegazione
+  const generateExplanation = async () => {
+    if (!llmTerm.trim()) {
+      setLlmError(tHomePage.llmNoInput); // Usa la traduzione specifica
+      setLlmExplanation('');
+      return;
+    }
+
+    setIsLoadingLlm(true);
+    setLlmError('');
+    setLlmExplanation('');
+
+    try {
+      const prompt = `Spiega il concetto di "${llmTerm}" in termini semplici e concisi, adatti a un pubblico non esperto, in ${language === 'it' ? 'italiano' : 'inglese'}. Concentrati sugli aspetti fondamentali legati alla matematica o alla crittografia, se applicabile. La risposta deve essere di massimo 100 parole.`;
+      let chatHistory = [];
+      chatHistory.push({ role: "user", parts: [{ text: prompt }] });
+
+      const payload = { contents: chatHistory };
+      const apiKey = ""; // L'API key verrà fornita dall'ambiente Canvas
+      const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+
+      const response = await fetch(apiUrl, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+
+      const result = await response.json();
+
+      if (result.candidates && result.candidates.length > 0 &&
+          result.candidates[0].content && result.candidates[0].content.parts &&
+          result.candidates[0].content.parts.length > 0) {
+        const text = result.candidates[0].content.parts[0].text;
+        setLlmExplanation(text);
+      } else {
+        setLlmError(tHomePage.llmError); // Usa la traduzione specifica
+        console.error("Struttura della risposta LLM inattesa:", result);
+      }
+    } catch (error) {
+      setLlmError(tHomePage.llmError); // Usa la traduzione specifica
+      console.error("Errore durante la chiamata all'API Gemini:", error);
+    } finally {
+      setIsLoadingLlm(false);
+    }
+  };
+
+  return (
+    <main className="flex-1 bg-white p-8 rounded-lg shadow-md">
+      <h2 className="text-3xl font-bold text-blue-800 mb-6 border-b-2 pb-3 border-blue-200">{tHomePage.projectDescription}</h2>
+
+      <section id="introduzione" className="mb-8">
+        <h3 className="text-2xl font-semibold text-blue-700 mb-4">{tHomePage.welcomeTitle}</h3>
+        <p className="mb-4 leading-relaxed text-lg">
+          {tHomePage.introText1}
+        </p>
+        <p className="leading-relaxed text-lg">
+          {tHomePage.introText2}
+        </p>
+        <img
+          src="https://placehold.co/600x300/ADD8E6/000000?text=Crittografia+e+Matematica"
+          alt={tHomePage.imageAlt}
+          className="mt-6 rounded-lg shadow-lg w-full h-auto object-cover"
+          onError={(e) => { e.target.onerror = null; e.target.src="https://placehold.co/600x300/ADD8E6/000000?text=Immagine+non+disponibile"; }}
+        />
+      </section>
+
+      <section id="obiettivi" className="mb-8">
+        <h3 className="text-2xl font-semibold text-blue-700 mb-4">{tHomePage.objectivesTitle}</h3>
+        <ul className="list-disc list-inside space-y-2 text-lg">
+          <li>{tHomePage.objective1}</li>
+          <li>{tHomePage.objective2}</li>
+          <li>{tHomePage.objective3}</li>
+          <li>{tHomePage.objective4}</li>
+          <li>{tHomePage.objective5}</li>
+        </ul>
+      </section>
+
+      <section id="pubblico" className="mb-8">
+        <h3 className="text-2xl font-semibold text-blue-700 mb-4">{tHomePage.audienceTitle}</h3>
+        <p className="leading-relaxed text-lg">
+          {tHomePage.audienceText}
+        </p>
+      </section>
+
+      {/* Nuova sezione per la spiegazione AI */}
+      <section id="ai-explanation" className="mb-8 p-6 bg-blue-50 rounded-lg shadow-inner">
+        <h3 className="text-2xl font-semibold text-blue-700 mb-4">{tHomePage.llmSectionTitle}</h3>
+        <div className="flex flex-col md:flex-row gap-4 mb-4">
+          <input
+            type="text"
+            placeholder={tHomePage.llmInputPlaceholder}
+            className="flex-1 p-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-300 transition duration-300"
+            value={llmTerm}
+            onChange={(e) => setLlmTerm(e.target.value)}
+            onKeyPress={(e) => { if (e.key === 'Enter') generateExplanation(); }}
+          />
+          <button
+            onClick={generateExplanation}
+            className="px-6 py-3 bg-blue-600 text-white font-semibold rounded-md shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-300 transition duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+            disabled={isLoadingLlm}
+          >
+            {isLoadingLlm ? tHomePage.llmLoading : tHomePage.llmButtonText}
+          </button>
+        </div>
+        {llmError && (
+          <p className="text-red-600 mt-2 text-center">{llmError}</p>
+        )}
+        {llmExplanation && (
+          <div className="mt-4 p-4 bg-white border border-blue-200 rounded-md shadow-sm">
+            <p className="text-gray-800 leading-relaxed">{llmExplanation}</p>
+          </div>
+        )}
+      </section>
+
+      <section id="contatti">
+        <h3 className="text-2xl font-semibold text-blue-700 mb-4">{tHomePage.contactTitle}</h3>
+        <p className="leading-relaxed text-lg">
+          {tHomePage.contactText}
+          <a href="mailto:info@matematicaecrittografia.it" className="text-blue-600 hover:underline ml-1">info@matematicaecrittografia.it</a>.
+          Siamo sempre felici di ricevere feedback e di connetterci con la nostra comunità.
+        </p>
+      </section>
+    </main>
+  );
+};
+
+// Componente per la pagina Crittografia con sottosezioni
+const CrittografiaPage = ({ language, currentSection }) => {
+  const tCommon = translations[language].common;
+  const tCryptoPage = translations[language].crittografiaPage;
+
+  const renderContent = () => {
+    switch (currentSection) {
+      case 'crittografia': // Default view when 'Crittografia' is clicked
+      case 'intro':
+        return (
+          <>
+            <p className="mb-4 leading-relaxed text-lg">{tCryptoPage.introText}</p>
+            <img
+              src="https://placehold.co/600x300/ADD8E6/000000?text=Crittografia"
+              alt="Immagine concettuale di crittografia"
+              className="mt-6 rounded-lg shadow-lg w-full h-auto object-cover"
+              onError={(e) => { e.target.onerror = null; e.target.src="https://placehold.co/600x300/ADD8E6/000000?text=Immagine+non+disponibile"; }}
+            />
+          </>
+        );
+      case 'symmetric':
+        return (
+          <>
+            <h3 className="text-2xl font-semibold text-blue-700 mb-4">{tCryptoPage.symmetricCrypto}</h3>
+            <p className="mb-4 leading-relaxed text-lg">{tCryptoPage.symmetricIntro}</p>
+            <img
+              src="https://placehold.co/600x300/ADD8E6/000000?text=Crittografia+Simmetrica"
+              alt="Immagine concettuale di crittografia simmetrica"
+              className="mt-6 rounded-lg shadow-lg w-full h-auto object-cover"
+              onError={(e) => { e.target.onerror = null; e.target.src="https://placehold.co/600x300/ADD8E6/000000?text=Immagine+non+disponibile"; }}
+            />
+          </>
+        );
+      case 'asymmetric':
+        return (
+          <>
+            <h3 className="text-2xl font-semibold text-blue-700 mb-4">{tCryptoPage.asymmetricCrypto}</h3>
+            <p className="mb-4 leading-relaxed text-lg">{tCryptoPage.asymmetricIntro}</p>
+            <img
+              src="https://placehold.co/600x300/ADD8E6/000000?text=Crittografia+Asimmetrica"
+              alt="Immagine concettuale di crittografia asimmetrica"
+              className="mt-6 rounded-lg shadow-lg w-full h-auto object-cover"
+              onError={(e) => { e.target.onerror = null; e.target.src="https://placehold.co/600x300/ADD8E6/000000?text=Immagine+non+disponibile"; }}
+            />
+          </>
+        );
+      case 'caesar':
+        return (
+          <>
+            <h3 className="text-2xl font-semibold text-blue-700 mb-4">{tCryptoPage.caesarCipher}</h3>
+            <p className="mb-4 leading-relaxed text-lg">{tCryptoPage.caesarIntro}</p>
+            <img
+              src="https://placehold.co/600x300/ADD8E6/000000?text=Cifrario+di+Cesare"
+              alt="Immagine concettuale del cifrario di Cesare"
+              className="mt-6 rounded-lg shadow-lg w-full h-auto object-cover"
+              onError={(e) => { e.target.onerror = null; e.target.src="https://placehold.co/600x300/ADD8E6/000000?text=Immagine+non+disponibile"; }}
+            />
+          </>
+        );
+      case 'vigenere':
+        return (
+          <>
+            <h3 className="text-2xl font-semibold text-blue-700 mb-4">{tCryptoPage.vigenereCipher}</h3>
+            <p className="mb-4 leading-relaxed text-lg">{tCryptoPage.vigenereIntro}</p>
+            <img
+              src="https://placehold.co/600x300/ADD8E6/000000?text=Cifrario+di+Vigenere"
+              alt="Immagine concettuale del cifrario di Vigenere"
+              className="mt-6 rounded-lg shadow-lg w-full h-auto object-cover"
+              onError={(e) => { e.target.onerror = null; e.target.src="https://placehold.co/600x300/ADD8E6/000000?text=Immagine+non+disponibile"; }}
+            />
+          </>
+        );
+      default:
+        return <p>{tCommon.pageNotFoundText}</p>;
+    }
+  };
+
+  return (
+    <main className="flex-1 bg-white p-8 rounded-lg shadow-md">
+      <h2 className="text-3xl font-bold text-blue-800 mb-6 border-b-2 pb-3 border-blue-200">{tCryptoPage.title}</h2>
+      {renderContent()}
+    </main>
+  );
+};
+
+
+// Componenti placeholder per le altre pagine
+const PlaceholderPage = ({ pageKey, language }) => {
+  const tCommon = translations[language].common;
+  const tPage = translations[language][`${pageKey}Page`];
+
+  const title = tPage && tPage.title ? tPage.title : tCommon.pageNotFound;
+  const content = tPage && tPage.content ? tPage.content : tCommon.pageNotFoundText;
+
+  return (
+    <main className="flex-1 bg-white p-8 rounded-lg shadow-md">
+      <h2 className="text-3xl font-bold text-blue-800 mb-6 border-b-2 pb-3 border-blue-200">{title}</h2>
+      <p className="leading-relaxed text-lg">
+        {content}
+      </p>
+      {pageKey === 'notFound' && (
+        <p className="leading-relaxed text-lg mt-4">
+          {tCommon.pageNotFoundText}
+        </p>
+      )}
+    </main>
+  );
+};
+
+// Componente ricorsivo per gli elementi della sidebar
+const SidebarItem = ({ item, currentPage, onPageChange, language, level = 0 }) => {
+  // Initialize isOpen based on whether the current page is a descendant of this item
+  const [isOpen, setIsOpen] = useState(() => item.children && isItemActive(item, currentPage));
+
+  // Use useEffect to update isOpen if currentPage changes (e.g., direct navigation)
+  useEffect(() => {
+    if (item.children) {
+      setIsOpen(isItemActive(item, currentPage));
+    }
+  }, [currentPage, item.children]); // Dependencies: currentPage and item.children (to re-evaluate if children structure changes)
+
+  const handleItemClick = (e) => {
+    e.preventDefault();
+    if (item.children) {
+      setIsOpen(!isOpen); // Toggle open state
+      // If clicking on a parent item, also navigate to its default/intro page
+      // This handles cases where you click the parent to expand AND navigate
+      if (!isItemActive(item, currentPage)) { // Only navigate if not already active
+        onPageChange(item.key);
+      }
+    } else {
+      // If no children, navigate to the specific page
+      onPageChange(item.key);
+    }
+  };
+
+  const isExactlyActive = currentPage === item.key;
+  const isParentOfActive = !isExactlyActive && isItemActive(item, currentPage);
+
+  const paddingLeft = `${1 + level * 1.5}rem`; // Aumenta il padding per i livelli annidati
+
+  let itemClasses = `flex items-center p-2 rounded-md transition duration-200 `;
+
+  if (isExactlyActive) {
+    itemClasses += 'bg-blue-600 text-white shadow-sm'; // Stile per l'elemento ESATTAMENTE attivo (il più profondo)
+  } else if (isParentOfActive) {
+    itemClasses += 'bg-blue-200 text-blue-900 font-medium'; // Stile per i genitori dell'elemento attivo
+  } else {
+    itemClasses += 'text-gray-700 hover:bg-blue-100 hover:text-blue-800'; // Stile default e hover
+  }
+
+  return (
+    <li className="mb-2">
+      <a
+        href="#"
+        onClick={handleItemClick}
+        style={{ paddingLeft }}
+        className={itemClasses}
+      >
+        {item.children && (
+          <svg
+            className={`w-4 h-4 mr-2 transform transition-transform duration-200 ${isOpen ? 'rotate-90' : ''}`}
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path>
+          </svg>
+        )}
+        {item.title}
+      </a>
+      {item.children && isOpen && (
+        <ul className="mt-1">
+          {item.children.map(child => (
+            <SidebarItem
+              key={child.key}
+              item={child}
+              currentPage={currentPage}
+              onPageChange={onPageChange}
+              language={language}
+              level={level + 1}
+            />
+          ))}
+        </ul>
+      )}
+    </li>
+  );
+};
+
+
+// Componente principale dell'applicazione
+const App = () => {
+  const [searchTerm, setSearchTerm] = useState('');
+  const [language, setLanguage] = useState('it'); // Lingua predefinita è Italiano
+  const [currentPage, setCurrentPage] = useState('home'); // Nuovo stato per la pagina corrente
+
+  const tCommon = translations[language].common; // Ottieni le traduzioni comuni
+  const tSidebarItems = translations[language].sidebar.items; // Ottieni gli elementi della sidebar
+
+  const handleSearchChange = (event) => {
+    setSearchTerm(event.target.value);
+    // In un'applicazione reale, attiveresti una ricerca qui
+    console.log("Cerca:", event.target.value);
+  };
+
+  const handleLanguageChange = (event) => {
+    setLanguage(event.target.value);
+  };
+
+  // Funzione per gestire il cambio pagina
+  const handlePageChange = (pageKey) => {
+    setCurrentPage(pageKey);
+  };
+
+  // Determina quale componente della pagina mostrare in base a currentPage
+  const renderPage = () => {
+    switch (currentPage) {
+      case 'home':
+        return <HomePage language={language} />;
+      case 'matematica':
+        return <PlaceholderPage pageKey="matematica" language={language} />;
+      case 'crittografia': // Pagina principale di crittografia (intro)
+      case 'symmetric': // Sottosezione simmetrica
+      case 'asymmetric': // Sottosezione asimmetrica
+      case 'caesar': // Sottosezione Cesare
+      case 'vigenere': // Sottosezione Vigenère
+        return <CrittografiaPage language={language} currentSection={currentPage} />;
+      case 'algoritmi':
+        return <PlaceholderPage pageKey="algoritmi" language={language} />;
+      case 'applicazioni':
+        return <PlaceholderPage pageKey="applicazioni" language={language} />;
+      case 'risorse':
+        return <PlaceholderPage pageKey="risorse" language={language} />;
+      default:
+        return <PlaceholderPage pageKey="notFound" language={language} />;
+    }
+  };
+
+  return (
+    <div className="min-h-screen flex flex-col bg-blue-50 font-sans text-gray-800">
+      {/* Header */}
+      <header className="bg-blue-600 text-white p-4 shadow-lg flex items-center justify-between rounded-b-lg">
+        <h1 className="text-3xl font-bold tracking-wide">{tCommon.title}</h1>
+        <div className="flex items-center space-x-4"> {/* Contenitore per ricerca e lingua */}
+          <div className="relative">
+            <input
+              type="text"
+              placeholder={tCommon.searchPlaceholder}
+              className="p-2 pl-10 rounded-full bg-blue-700 text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-blue-300 transition duration-300 w-48 md:w-64"
+              value={searchTerm}
+              onChange={handleSearchChange}
+            />
+            <svg className="absolute left-3 top-1/2 transform -translate-y-1/2 text-blue-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="20" height="20">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+            </svg>
+          </div>
+          {/* Selettore Lingua */}
+          <select
+            className="p-2 rounded-full bg-white text-gray-700 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-300 focus:bg-blue-100 focus:text-blue-800 hover:bg-blue-100 hover:text-blue-800 transition duration-300 cursor-pointer"
+            value={language}
+            onChange={handleLanguageChange}
+          >
+            <option value="it">Italiano</option>
+            <option value="en">English</option>
+          </select>
+        </div>
+      </header>
+
+      {/* Area contenuto principale */}
+      <div className="flex flex-1 mt-4 p-4">
+        {/* Sidebar */}
+        <aside className="w-64 bg-white p-6 rounded-lg shadow-md mr-6 flex-shrink-0">
+          <h2 className="text-xl font-semibold text-blue-700 mb-4 border-b pb-2 border-blue-200">{tCommon.indexTitle}</h2>
+          <nav>
+            <ul>
+              {tSidebarItems.map(item => (
+                <SidebarItem
+                  key={item.key}
+                  item={item}
+                  currentPage={currentPage}
+                  onPageChange={handlePageChange}
+                  language={language}
+                />
+              ))}
+            </ul>
+          </nav>
+        </aside>
+
+        {/* Area di rendering delle pagine - ora gestita da renderPage() */}
+        {renderPage()}
+      </div>
+
+      {/* Footer */}
+      <footer className="bg-blue-600 text-white p-4 mt-4 text-center text-sm rounded-t-lg shadow-inner">
+        &copy; {new Date().getFullYear()} {tCommon.footerText}
+      </footer>
+    </div>
+  );
+};
+
+export default App;
