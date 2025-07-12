@@ -320,90 +320,6 @@ const pageTextContent = {
   },
 };
 
-// Oggetto che contiene tutto il contenuto testuale ricercabile, organizzato per lingua e chiave
-const pageTextContent = {
-  it: {
-    home: translations.it.homePage.projectDescription + " " +
-          translations.it.homePage.welcomeTitle + " " +
-          translations.it.homePage.introText1 + " " +
-          translations.it.homePage.introText2 + " " +
-          translations.it.homePage.objectivesTitle + " " +
-          translations.it.homePage.objective1 + " " +
-          translations.it.homePage.objective2 + " " +
-          translations.it.homePage.objective3 + " " +
-          translations.it.homePage.objective4 + " " +
-          translations.it.homePage.objective5 + " " +
-          translations.it.homePage.audienceTitle + " " +
-          translations.it.homePage.audienceText + " " +
-          translations.it.homePage.contactTitle + " " +
-          translations.it.homePage.contactText,
-    matematica: translations.it.matematicaPage.title + " " + translations.it.matematicaPage.content,
-    crittografia: translations.it.crittografiaPage.title + " " +
-                  translations.it.crittografiaPage.introText + " " +
-                  translations.it.crittografiaPage.symmetricCrypto + " " +
-                  translations.it.crittografiaPage.symmetricIntro + " " +
-                  translations.it.crittografiaPage.asymmetricCrypto + " " +
-                  translations.it.crittografiaPage.asymmetricIntro + " " +
-                  translations.it.crittografiaPage.caesarCipher + " " +
-                  translations.it.crittografiaPage.caesarIntro + " " +
-                  translations.it.crittografiaPage.vigenereCipher + " " +
-                  translations.it.crittografiaPage.vigenereIntro,
-    symmetric: translations.it.crittografiaPage.symmetricCrypto + " + " + translations.it.crittografiaPage.symmetricIntro,
-    asymmetric: translations.it.crittografiaPage.asymmetricCrypto + " + " + translations.it.crittografiaPage.asymmetricIntro,
-    caesar: translations.it.crittografiaPage.caesarCipher + " + " + translations.it.crittografiaPage.caesarIntro,
-    vigenere: translations.it.crittografiaPage.vigenereCipher + " + " + translations.it.crittografiaPage.vigenereIntro,
-    algoritmi: translations.it.algoritmiPage.title + " " + translations.it.algoritmiPage.content,
-    applicazioni: translations.it.applicazioniPage.title + " " + translations.it.applicazioniPage.content,
-    risorse: translations.it.risorsePage.title + " " + translations.it.risorsePage.content,
-    rsa: translations.it.rsaPage.title + " " + translations.it.rsaPage.intro + " " +
-         translations.it.rsaPage.keyGenerationTitle + " " + translations.it.rsaPage.keyGenerationSteps.join(" ") + " " +
-         translations.it.rsaPage.encryptionTitle + " " + translations.it.rsaPage.encryptionFormula + " " + translations.it.rsaPage.encryptionDescription + " " +
-         translations.it.rsaPage.decryptionTitle + " " + translations.it.rsaPage.decryptionFormula + " " + translations.it.rsaPage.decryptionDescription,
-    contatti: translations.it.contactPage.title + " " + translations.it.contactPage.intro + " " + translations.it.contactPage.emailAddress,
-    notFound: translations.it.common.pageNotFound + " " + translations.it.common.pageNotFoundText,
-  },
-  en: {
-    home: translations.en.homePage.projectDescription + " " +
-          translations.en.homePage.welcomeTitle + " " +
-          translations.en.homePage.introText1 + " " +
-          translations.en.homePage.introText2 + " " +
-          translations.en.homePage.objectivesTitle + " " +
-          translations.en.homePage.objective1 + " " +
-          translations.en.homePage.objective2 + " " +
-          translations.en.homePage.objective3 + " " +
-          translations.en.homePage.objective4 + " " +
-          translations.en.homePage.objective5 + " " +
-          translations.en.homePage.audienceTitle + " " +
-          translations.en.homePage.audienceText + " " +
-          translations.en.homePage.contactTitle + " " +
-          translations.en.homePage.contactText,
-    matematica: translations.en.matematicaPage.title + " " + translations.en.matematicaPage.content,
-    crittografia: translations.en.crittografiaPage.title + " " +
-                  translations.en.crittografiaPage.introText + " " +
-                  translations.en.crittografiaPage.symmetricCrypto + " " +
-                  translations.en.crittografiaPage.symmetricIntro + " " +
-                  translations.en.crittografiaPage.asymmetricCrypto + " " +
-                  translations.en.crittografiaPage.asymmetricIntro + " " +
-                  translations.en.crittografiaPage.caesarCipher + " " +
-                  translations.en.crittografiaPage.caesarIntro + " " +
-                  translations.en.crittografiaPage.vigenereCipher + " " +
-                  translations.en.crittografiaPage.vigenereIntro,
-    symmetric: translations.en.crittografiaPage.symmetricCrypto + " + " + translations.en.crittografiaPage.symmetricIntro,
-    asymmetric: translations.en.crittografiaPage.asymmetricCrypto + " + " + translations.en.crittografiaPage.asymmetricIntro,
-    caesar: translations.en.crittografiaPage.caesarCipher + " + " + translations.en.crittografiaPage.caesarIntro,
-    vigenere: translations.en.crittografiaPage.vigenereCipher + " + " + translations.en.crittografiaPage.vigenereIntro,
-    algoritmi: translations.en.algoritmiPage.title + " " + translations.en.algoritmiPage.content,
-    applicazioni: translations.en.applicazioniPage.title + " " + translations.en.applicazioniPage.content,
-    risorse: translations.en.risorsePage.title + " " + translations.en.risorsePage.content,
-    rsa: translations.en.rsaPage.title + " " + translations.en.rsaPage.intro + " " +
-         translations.en.rsaPage.keyGenerationTitle + " " + translations.en.rsaPage.keyGenerationSteps.join(" ") + " " +
-         translations.en.rsaPage.encryptionTitle + " " + translations.en.rsaPage.encryptionFormula + " " + translations.en.rsaPage.encryptionDescription + " " +
-         translations.en.rsaPage.decryptionTitle + " " + translations.en.rsaPage.decryptionFormula + " " + translations.en.rsaPage.decryptionDescription,
-    contatti: translations.en.contactPage.title + " " + translations.en.contactPage.intro + " " + translations.en.contactPage.emailAddress,
-    notFound: translations.en.common.pageNotFound + " " + translations.en.common.pageNotFoundText,
-  },
-};
-
 // Helper function to check if an item or its descendants are active
 const isItemActive = (item, currentPage) => {
   if (currentPage === item.key) {
@@ -525,15 +441,6 @@ const HomePage = ({ language }) => {
   const tCommon = translations[language].common;
   const tHomePage = translations[language].homePage;
 
-  // Rimossi gli stati relativi alla chiamata AI
-  // const [llmTerm, setLlmTerm] = useState('');
-  // const [llmExplanation, setLlmExplanation] = useState('');
-  // const [isLoadingLlm, setIsLoadingLlm] = useState(false);
-  // const [llmError, setLlmError] = useState('');
-
-  // Rimossa la funzione per chiamare l'API Gemini
-  // const generateExplanation = async () => { /* ... */ };
-
   return (
     <main className="flex-1 bg-white p-8 rounded-lg shadow-md">
       <h2 className="text-3xl font-bold text-blue-800 mb-6 border-b-2 pb-3 border-blue-200">{tHomePage.projectDescription}</h2>
@@ -571,8 +478,6 @@ const HomePage = ({ language }) => {
           {tHomePage.audienceText}
         </p>
       </section>
-
-      {/* Rimossa la sezione per la spiegazione AI */}
     </main>
   );
 };
