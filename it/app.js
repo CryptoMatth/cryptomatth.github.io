@@ -67,6 +67,8 @@ const translations = {
       llmLoading: "Generazione spiegazione...",
       llmError: "Errore nella generazione della spiegazione. Riprova più tardi.",
       llmNoInput: "Per favor, inserisci un termine da spiegare.",
+      llmApiError: "Errore API: ", // Nuovo messaggio di errore più specifico
+      llmNetworkError: "Errore di rete. Controlla la tua connessione e riprova.", // Nuovo messaggio di errore di rete
     },
     matematicaPage: { // Traduzioni specifiche per la pagina Fondamenti Matematici
       title: "Fondamenti Matematici",
@@ -189,6 +191,8 @@ const translations = {
       llmLoading: "Generating explanation...",
       llmError: "Error generating explanation. Please try again later.",
       llmNoInput: "Please enter a term to explain.",
+      llmApiError: "API Error: ", // New specific error message
+      llmNetworkError: "Network error. Check your connection and try again.", // New network error message
     },
     matematicaPage: {
       title: "Mathematical Foundations",
@@ -485,6 +489,14 @@ const HomePage = ({ language }) => {
         body: JSON.stringify(payload)
       });
 
+      // Controlla se la risposta HTTP è ok (status 200-299)
+      if (!response.ok) {
+        const errorData = await response.json();
+        setLlmError(`${tHomePage.llmApiError} ${response.status} - ${errorData.error?.message || 'Errore sconosciuto'}`);
+        console.error("Errore API Gemini:", response.status, errorData);
+        return;
+      }
+
       const result = await response.json();
 
       if (result.candidates && result.candidates.length > 0 &&
@@ -497,7 +509,8 @@ const HomePage = ({ language }) => {
         console.error("Struttura della risposta LLM inattesa:", result);
       }
     } catch (error) {
-      setLlmError(tHomePage.llmError); // Usa la traduzione specifica
+      // Gestione degli errori di rete o altri errori durante il fetch
+      setLlmError(tHomePage.llmNetworkError); // Usa la traduzione specifica per errori di rete
       console.error("Errore durante la chiamata all'API Gemini:", error);
     } finally {
       setIsLoadingLlm(false);
