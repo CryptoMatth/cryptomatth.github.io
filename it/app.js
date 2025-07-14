@@ -41,8 +41,8 @@ const translations = {
         },
         { key: 'algoritmi', title: "Algoritmi Comuni" },
         { key: 'applicazioni', title: "Applicazioni Pratiche" },
-        { key: 'risorse', title: "Risorse Aggiuntive" },
         { key: 'contatti', title: "Contatti" }, // Voce per la pagina Contatti
+        { key: 'risorse', title: "Risorse Aggiuntive" },
       ]
     },
     homePage: { // Traduzioni specifiche per la HomePage
@@ -223,15 +223,15 @@ const translations = {
       encryptionDescription: "Where $M$ is the plaintext message (an integer $0 \\le M < n$), $e$ is the public exponent, and $n$ is the modulus.",
       decryptionTitle: "Decryption",
       decryptionFormula: "$M = C^d \\pmod{n}$",
-      decryptionDescription: "Where $C$ è il testo cifrato, $d$ è l'esponente privato e $n$ è il modulo.",
+      decryptionDescription: "Where $C$ is the ciphertext, $d$ is the private exponent, and $n$ is the modulus.",
       imageAlt: "Diagramma concettuale dell'algoritmo RSA",
       note: "Nota: Le formule sono visualizzate usando HTML e CSS per la massima compatibilità."
     },
     contactPage: { // Nuove traduzioni per la pagina Contatti (semplificata)
-      title: "Contact Us",
-      intro: "For questions, suggestions, or collaborations, do not hesitate to contact us. We are always happy to receive feedback and to connect with our community.",
+      title: "Contattaci",
+      intro: "Per domande, suggerimenti o collaborazioni, non esitare a contattarci. Siamo sempre felici di ricevere feedback e di connetterci con la nostra comunità.",
       emailAddress: "info@matematicaecrittografia.it",
-      emailPrompt: "Send us an email",
+      emailPrompt: "Inviaci una email",
     }
   },
 };
@@ -690,7 +690,8 @@ const SidebarItem = ({ item, currentPage, onPageChange, language, level = 0 }) =
   // It will NOT automatically open if a child is active.
   const [isOpen, setIsOpen] = useState(false); // Initialize to false (collapsed)
 
-  // REMOVED: useEffect to set isOpen based on currentPage and isItemActive
+  // Log per debug: verifica cosa viene passato come onPageChange
+  console.log(`SidebarItem for ${item.key}: onPageChange prop received:`, onPageChange);
 
   const handleArrowClick = (e) => {
     e.preventDefault();
@@ -700,7 +701,12 @@ const SidebarItem = ({ item, currentPage, onPageChange, language, level = 0 }) =
 
   const handleTextClick = (e) => {
     e.preventDefault();
-    onPageChange(item.key);
+    // Aggiungi un controllo per assicurarti che onPageChange sia una funzione
+    if (typeof onPageChange === 'function') {
+      onPageChange(item.key);
+    } else {
+      console.error('onPageChange prop is not a function in SidebarItem for', item.key, onPageChange);
+    }
     // No change to isOpen here. It's strictly for navigation.
   };
 
@@ -765,7 +771,7 @@ const SidebarItem = ({ item, currentPage, onPageChange, language, level = 0 }) =
               key={child.key}
               item={child}
               currentPage={currentPage}
-              onPageChange={handlePageChange}
+              onPageChange={onPageChange} // Pass the received onPageChange prop
               language={language}
               level={level + 1}
             />
@@ -843,20 +849,11 @@ const App = () => {
     }
   };
 
-  // Helper to find an item in the nested sidebar structure by its key
-  const findItemByKey = (items, key) => {
-    for (const item of items) {
-      if (item.key === key) {
-        return item;
-      }
-      if (item.children) {
-        const foundChild = findItemByKey(item.children, key);
-        if (foundChild) {
-          return foundChild;
-        }
-      }
-    }
-    return null;
+  // Funzione per gestire il cambio pagina (ora solo cambia la pagina, non resetta la ricerca)
+  const handlePageChange = (pageKey) => {
+    setCurrentPage(pageKey);
+    // Non resetta più la ricerca qui. Il reset avviene solo se l'utente svuota la barra
+    // o clicca "Torna alla Home" dalla pagina dei risultati.
   };
 
   const handleLanguageChange = (newLang) => {
@@ -875,13 +872,6 @@ const App = () => {
     } else {
       setCurrentPage('home');
     }
-  };
-
-  // Funzione per gestire il cambio pagina (ora solo cambia la pagina, non resetta la ricerca)
-  const handlePageChange = (pageKey) => {
-    setCurrentPage(pageKey);
-    // Non resetta più la ricerca qui. Il reset avviene solo se l'utente svuota la barra
-    // o clicca "Torna alla Home" dalla pagina dei risultati.
   };
 
   // Determina quale componente della pagina mostrare in base a currentPage
