@@ -17,11 +17,12 @@ const translations = {
     sidebar: { // Traduzioni per la sidebar, ora con struttura gerarchica
       items: [
         { key: 'home', title: "Introduzione al Progetto" },
-        { key: 'matematica', title: "Fondamenti Matematici" },
         {
           key: 'crittografia',
           title: "Principi di Crittografia",
           children: [
+            // Spostato 'matematica' qui sotto 'crittografia'
+            { key: 'matematica', title: "Fondamenti Matematici" },
             {
               key: 'symmetric',
               title: "Crittografia Simmetrica",
@@ -39,10 +40,8 @@ const translations = {
             }
           ]
         },
-        { key: 'algoritmi', title: "Algoritmi Comuni" },
-        { key: 'applicazioni', title: "Applicazioni Pratiche" },
+        // Rimosse: Algoritmi Comuni, Applicazioni Pratiche, Risorse Aggiuntive
         { key: 'contatti', title: "Contatti" }, // Voce per la pagina Contatti
-        { key: 'risorse', title: "Risorse Aggiuntive" },
       ]
     },
     homePage: { // Traduzioni specifiche per la HomePage
@@ -78,15 +77,15 @@ const translations = {
       vigenereCipher: "Cifrario di Vigenère",
       vigenereIntro: "Il Cifrario di Vigenère è un metodo di cifratura polialfabetico che utilizza una serie di cifrari di Cesare diversi in sequenza, basati sulle lettere di una parola chiave. È stato considerato un cifrario molto robusto per secoli.",
     },
-    algoritmiPage: { // Traduzioni specifiche per la pagina Algoritmi Comuni
+    algoritmiPage: { // Traduzioni specifiche per la pagina Algoritmi Comuni (mantenute per il contenuto, anche se la voce sidebar è rimossa)
       title: "Algoritmi Comuni",
       content: "Questa sezione esplora gli algoritmi crittografici più diffusi e le loro applicazioni, come RSA, AES, e le curve ellittiche. L'algoritmo RSA, ad esempio, fa ampio uso di concetti di algebra modulare."
     },
-    applicazioniPage: { // Traduzioni specifiche per la pagina Applicazioni Pratiche
+    applicazioniPage: { // Traduzioni specifiche per la pagina Applicazioni Pratiche (mantenute per il contenuto, anche se la voce sidebar è rimossa)
       title: "Applicazioni Pratiche",
       content: "Scopri come la crittografia viene utilizzata nella vita di tutti i giorni, dalla sicurezza delle transazioni online alle VPN e alle blockchain."
     },
-    risorsePage: { // Traduzioni specifiche per la pagina Risorse Aggiuntive
+    risorsePage: { // Traduzioni specifiche per la pagina Risorse Aggiuntive (mantenute per il contenuto, anche se la voce sidebar è rimossa)
       title: "Risorse Aggiuntive",
       content: "Una raccolta di libri, articoli, corsi online e strumenti per approfondire la matematica e la crittografia."
     },
@@ -133,11 +132,12 @@ const translations = {
     sidebar: {
       items: [
         { key: 'home', title: "Introduction to the Project" },
-        { key: 'matematica', title: "Mathematical Foundations" },
         {
           key: 'crittografia',
           title: "Principles of Cryptography",
           children: [
+            // Moved 'matematica' here under 'crittografia'
+            { key: 'matematica', title: "Mathematical Foundations" },
             {
               key: 'symmetric',
               title: "Symmetric Cryptography",
@@ -155,9 +155,7 @@ const translations = {
             }
           ]
         },
-        { key: 'algoritmi', title: "Common Algorithms" },
-        { key: 'applicazioni', title: "Practical Applications" },
-        { key: 'risorse', title: "Additional Resources" },
+        // Removed: Common Algorithms, Practical Applications, Additional Resources
         { key: 'contatti', title: "Contact Us" }, // New entry for Contact page
       ]
     },
