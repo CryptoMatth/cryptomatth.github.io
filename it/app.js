@@ -234,6 +234,206 @@ const translations = {
       emailPrompt: "Inviaci una email",
     }
   },
+  en: {
+    common: {
+      title: "Mathematics & Cryptography",
+      searchPlaceholder: "Search the site...",
+      indexTitle: "Index",
+      footerText: "Mathematics & Cryptography. All rights reserved.",
+      pageNotFound: "Page Not Found",
+      pageNotFoundText: "Sorry, the page you are looking for does not exist.",
+      searchResultsTitle: "Search Results for:",
+      noSearchResults: "No results found for your search.",
+      backToHome: "Back to Home",
+    },
+    sidebar: {
+      items: [
+        { key: 'home', title: "Introduction to the Project" },
+        { key: 'matematica', title: "Mathematical Foundations" },
+        {
+          key: 'crittografia',
+          title: "Principles of Cryptography",
+          children: [
+            {
+              key: 'symmetric',
+              title: "Symmetric Cryptography",
+              children: [
+                { key: 'caesar', title: "Caesar Cipher" },
+                { key: 'vigenere', title: "Vigenere Cipher" }
+              ]
+            },
+            {
+              key: 'asymmetric',
+              title: "Asymmetric Cryptography",
+              children: [
+                { key: 'rsa', title: "RSA Algorithm" }
+              ]
+            }
+          ]
+        },
+        { key: 'algoritmi', title: "Common Algorithms" },
+        { key: 'applicazioni', title: "Practical Applications" },
+        { key: 'risorse', title: "Additional Resources" },
+        { key: 'contatti', title: "Contact Us" }, // New entry for Contact page
+      ]
+    },
+    homePage: {
+      projectDescription: "Project Description: Mathematics and Cryptography",
+      welcomeTitle: "Welcome to the World of Digital Security",
+      introText1: "This project is dedicated to exploring the fascinating intersection between pure mathematics and the art of cryptography. Cryptography, the science of securing communications, relies deeply on complex mathematical concepts, from number theory to abstract algebra. Our goal is to demystify these topics, making them accessible to students, enthusiasts, and professionals.",
+      introText2: "Through clear articles, practical examples, and intuitive illustrations, we will guide you through the fundamental principles that secure our daily digital interactions, from online banking transactions to instant messaging.",
+      imageAlt: "Conceptual image of cryptography and mathematics",
+      objectivesTitle: "Our Objectives",
+      objective1: "Explain the mathematical concepts underlying modern cryptography.",
+      objective2: "Analyze key cryptographic algorithms (RSA, AES, Elliptic Curve Cryptography).",
+      objective3: "Illustrate practical applications of cryptography in everyday life.",
+      objective4: "Promote understanding of the importance of cybersecurity.",
+      objective5: "Provide additional resources and tools for further study.",
+      audienceTitle: "Who is it For?",
+      audienceText: "This site is designed for anyone curious about how digital security works. Whether you are a computer science or mathematics student, a security professional, or simply someone interested in protecting your online privacy, you will find useful and stimulating content. No advanced prior knowledge is required, just an open mind and a desire to learn!",
+      contactTitle: "Contact Us", // This title is for the section in home, now not used
+      contactText: "For questions, suggestions, or collaborations, do not hesitate to contact us at", // This text is for the section in home, now not used
+    },
+    matematicaPage: {
+      title: "Mathematical Foundations",
+      content: "Here you will find articles and resources on the mathematical foundations underlying cryptography, such as number theory, abstract algebra, and computational complexity. Modular algebra is a key concept in many cryptographic algorithms."
+    },
+    crittografiaPage: {
+      title: "Principles of Cryptography",
+      introText: "Cryptography is the practice and study of techniques for secure communication in the presence of third parties (adversaries). More generally, it is about constructing and analyzing protocols that prevent third parties or the public from reading private messages.",
+      symmetricCrypto: "Symmetric Cryptography",
+      symmetricIntro: "In symmetric-key cryptography, the same secret key is used for both encryption and decryption. It is efficient and fast, ideal for large amounts of data.",
+      asymmetricCrypto: "Asymmetric Cryptography",
+      asymmetricIntro: "Asymmetric-key cryptography, or public-key cryptography, uses a pair of keys: a public key and a private key. The public key can be freely shared, while the private key must remain secret. It is fundamental for modern secure communications and digital signatures. An example is the RSA algorithm, which relies on modular algebra problems.",
+      caesarCipher: "Caesar Cipher",
+      caesarIntro: "The Caesar Cipher is one of the oldest and simplest substitution ciphers. It is a type of monoalphabetic substitution cipher in which each letter in the plaintext is replaced by a letter some fixed number of positions down or up the alphabet.",
+      vigenereCipher: "Vigenere Cipher",
+      vigenereIntro: "The Vigenere Cipher is a method of polyalphabetic encryption that uses a series of different Caesar ciphers in sequence, based on the letters of a keyword. It was considered a very robust cipher for centuries.",
+    },
+    algoritmiPage: {
+      title: "Common Algorithms",
+      content: "This section explores the most common cryptographic algorithms and their applications, such as RSA, AES, and elliptic curves. The RSA algorithm, for example, makes extensive use of modular algebra concepts."
+    },
+    applicazioniPage: {
+      title: "Practical Applications",
+      content: "Discover how cryptography is used in everyday life, from securing online transactions to VPNs and blockchains."
+    },
+    risorsePage: {
+      title: "Additional Resources",
+      content: "A collection of books, articles, online courses, and tools to deepen your understanding of mathematics and cryptography."
+    },
+    rsaPage: { // New translations for RSA page
+      title: "RSA Algorithm",
+      intro: "RSA (Rivest–Shamir–Adleman) is one of the first public-key cryptosystems and is widely used for secure data transmission. It relies on the computational difficulty of factoring large integers, that is, finding the two large prime numbers that multiply to the original number.",
+      keyGenerationTitle: "Key Generation",
+      keyGenerationSteps: [
+        "Choose two large and distinct prime numbers, $p$ and $q$.",
+        "Calculate $n = pq$. This is the modulus for both the public and private keys.",
+        "Calculate Euler's totient function: $\\phi(n) = (p-1)(q-1)$.",
+        "Scegli un intero $e$ (public exponent) tale che $1 < e < \\phi(n)$ e $\\gcd(e, \\phi(n)) = 1$.",
+        "Calculate $d$ (private exponent) such that $d \\cdot e \\equiv 1 \\pmod{\\phi(n)}$.",
+        "The public key is $(e, n)$. The private key is $(d, n)$.",
+      ],
+      encryptionTitle: "Cifratura",
+      encryptionFormula: "$C = M^e \\pmod{n}$",
+      encryptionDescription: "Where $M$ is the plaintext message (an integer $0 \\le M < n$), $e$ is the public exponent, and $n$ is the modulus.",
+      decryptionTitle: "Decifratura",
+      decryptionFormula: "$M = C^d \\pmod{n}$",
+      decryptionDescription: "Where $C$ is the ciphertext, $d$ is the private exponent, and $n$ is the modulus.",
+      imageAlt: "Diagramma concettuale dell'algoritmo RSA",
+      note: "Nota: Le formule sono visualizzate usando HTML e CSS per la massima compatibilità."
+    },
+    contactPage: { // Nuove traduzioni per la pagina Contatti (semplificata)
+      title: "Contattaci",
+      intro: "Per domande, suggerimenti o collaborazioni, non esitare a contattarci. Siamo sempre felici di ricevere feedback e di connetterci con la nostra comunità.",
+      emailAddress: "info@matematicaecrittografia.it",
+      emailPrompt: "Inviaci una email",
+    }
+  },
+};
+
+// Oggetto che contiene tutto il contenuto testuale ricercabile, organizzato per lingua e chiave
+const pageTextContent = {
+  it: {
+    home: translations.it.homePage.projectDescription + " " +
+          translations.it.homePage.welcomeTitle + " " +
+          translations.it.homePage.introText1 + " " +
+          translations.it.homePage.introText2 + " " +
+          translations.it.homePage.objectivesTitle + " " +
+          translations.it.homePage.objective1 + " " +
+          translations.it.homePage.objective2 + " " +
+          translations.it.homePage.objective3 + " " +
+          translations.it.homePage.objective4 + " " +
+          translations.it.homePage.objective5 + " " +
+          translations.it.homePage.audienceTitle + " " +
+          translations.it.homePage.audienceText + " " +
+          translations.it.homePage.contactTitle + " " +
+          translations.it.homePage.contactText,
+    matematica: translations.it.matematicaPage.title + " " + translations.it.matematicaPage.content,
+    crittografia: translations.it.crittografiaPage.title + " " +
+                  translations.it.crittografiaPage.introText + " " +
+                  translations.it.crittografiaPage.symmetricCrypto + " " +
+                  translations.it.crittografiaPage.symmetricIntro + " " +
+                  translations.it.crittografiaPage.asymmetricCrypto + " " +
+                  translations.it.crittografiaPage.asymmetricIntro + " " +
+                  translations.it.crittografiaPage.caesarCipher + " " +
+                  translations.it.crittografiaPage.caesarIntro + " " +
+                  translations.it.crittografiaPage.vigenereCipher + " " +
+                  translations.it.crittografiaPage.vigenereIntro,
+    symmetric: translations.it.crittografiaPage.symmetricCrypto + " + " + translations.it.crittografiaPage.symmetricIntro,
+    asymmetric: translations.it.crittografiaPage.asymmetricCrypto + " + " + translations.it.crittografiaPage.asymmetricIntro,
+    caesar: translations.it.crittografiaPage.caesarCipher + " + " + translations.it.crittografiaPage.caesarIntro,
+    vigenere: translations.it.crittografiaPage.vigenereCipher + " + " + translations.it.crittografiaPage.vigenereIntro,
+    algoritmi: translations.it.algoritmiPage.title + " " + translations.it.algoritmiPage.content,
+    applicazioni: translations.it.applicazioniPage.title + " " + translations.it.applicazioniPage.content,
+    risorse: translations.it.risorsePage.title + " " + translations.it.risorsePage.content,
+    rsa: translations.it.rsaPage.title + " " + translations.it.rsaPage.intro + " " +
+         translations.it.rsaPage.keyGenerationTitle + " " + translations.it.rsaPage.keyGenerationSteps.join(" ") + " " +
+         translations.it.rsaPage.encryptionTitle + " " + translations.it.rsaPage.encryptionFormula + " " + translations.it.rsaPage.encryptionDescription + " " +
+         translations.it.rsaPage.decryptionTitle + " " + translations.it.rsaPage.decryptionFormula + " " + translations.it.rsaPage.decryptionDescription,
+    contatti: translations.it.contactPage.title + " " + translations.it.contactPage.intro + " " + translations.it.contactPage.emailAddress,
+    notFound: translations.it.common.pageNotFound + " " + translations.it.common.pageNotFoundText,
+  },
+  en: {
+    home: translations.en.homePage.projectDescription + " " +
+          translations.en.homePage.welcomeTitle + " " +
+          translations.en.homePage.introText1 + " " +
+          translations.en.homePage.introText2 + " " +
+          translations.en.homePage.objectivesTitle + " " +
+          translations.en.homePage.objective1 + " " +
+          translations.en.homePage.objective2 + " " +
+          translations.en.homePage.objective3 + " " +
+          translations.en.homePage.objective4 + " " +
+          translations.en.homePage.objective5 + " " +
+          translations.en.homePage.audienceTitle + " " +
+          translations.en.homePage.audienceText + " " +
+          translations.en.homePage.contactTitle + " " +
+          translations.en.homePage.contactText,
+    matematica: translations.en.matematicaPage.title + " " + translations.en.matematicaPage.content,
+    crittografia: translations.en.crittografiaPage.title + " " +
+                  translations.en.crittografiaPage.introText + " " +
+                  translations.en.crittografiaPage.symmetricCrypto + " " +
+                  translations.en.crittografiaPage.symmetricIntro + " " +
+                  translations.en.crittografiaPage.asymmetricCrypto + " " +
+                  translations.en.crittografiaPage.asymmetricIntro + " " +
+                  translations.en.crittografiaPage.caesarCipher + " " +
+                  translations.en.crittografiaPage.caesarIntro + " " +
+                  translations.en.crittografiaPage.vigenereCipher + " " +
+                  translations.en.crittografiaPage.vigenereIntro,
+    symmetric: translations.en.crittografiaPage.symmetricCrypto + " + " + translations.en.crittografiaPage.symmetricIntro,
+    asymmetric: translations.en.crittografiaPage.asymmetricCrypto + " + " + translations.en.crittografiaPage.asymmetricIntro,
+    caesar: translations.en.crittografiaPage.caesarCipher + " + " + translations.en.crittografiaPage.caesarIntro,
+    vigenere: translations.en.crittografiaPage.vigenereCipher + " + " + translations.en.crittografiaPage.vigenereIntro,
+    algoritmi: translations.en.algoritmiPage.title + " " + translations.en.algoritmiPage.content,
+    applicazioni: translations.en.applicazioniPage.title + " " + translations.en.applicazioniPage.content,
+    risorse: translations.en.risorsePage.title + " " + translations.en.risorsePage.content,
+    rsa: translations.en.rsaPage.title + " " + translations.en.rsaPage.intro + " " +
+         translations.en.rsaPage.keyGenerationTitle + " " + translations.en.rsaPage.keyGenerationSteps.join(" ") + " " +
+         translations.en.rsaPage.encryptionTitle + " " + translations.en.rsaPage.encryptionFormula + " " + translations.en.rsaPage.encryptionDescription + " " +
+         translations.en.rsaPage.decryptionTitle + " " + translations.en.rsaPage.decryptionFormula + " " + translations.en.rsaPage.decryptionDescription,
+    contatti: translations.en.contactPage.title + " " + translations.en.contactPage.intro + " " + translations.en.contactPage.emailAddress,
+    notFound: translations.en.common.pageNotFound + " " + translations.en.common.pageNotFoundText,
+  },
 };
 
 // Oggetto che contiene tutto il contenuto testuale ricercabile, organizzato per lingua e chiave
@@ -790,6 +990,7 @@ const App = () => {
   const [currentPage, setCurrentPage] = useState('home'); // Nuovo stato per la pagina corrente
   const [searchMode, setSearchMode] = useState(false); // Nuovo stato per la modalità ricerca
   const [currentSearchResults, setCurrentSearchResults] = useState([]); // Nuovo stato per i risultati della ricerca
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false); // Nuovo stato per la visibilità della sidebar su mobile
 
   const tCommon = translations[language].common; // Ottieni le traduzioni comuni
   const tSidebarItems = translations[language].sidebar.items; // Ottieni gli elementi della sidebar
@@ -830,6 +1031,7 @@ const App = () => {
     setCurrentSearchResults(results);
     setSearchMode(true); // Attiva la modalità ricerca
     setCurrentPage('searchResults'); // Imposta la pagina per mostrare i risultati
+    setIsSidebarOpen(false); // Chiudi la sidebar dopo la ricerca su mobile
   };
 
 
@@ -852,6 +1054,7 @@ const App = () => {
   // Funzione per gestire il cambio pagina (ora solo cambia la pagina, non resetta la ricerca)
   const handlePageChange = (pageKey) => {
     setCurrentPage(pageKey);
+    setIsSidebarOpen(false); // Chiudi la sidebar quando si cambia pagina su mobile
     // Non resetta più la ricerca qui. Il reset avviene solo se l'utente svuota la barra
     // o clicca "Torna alla Home" dalla pagina dei risultati.
   };
@@ -863,6 +1066,7 @@ const App = () => {
     setSearchTerm('');
     setSearchMode(false);
     setCurrentSearchResults([]);
+    setIsSidebarOpen(false); // Chiudi la sidebar quando si cambia lingua
 
     const newLangSidebarItems = translations[newLang].sidebar.items;
     const foundInNewLang = findItemByKey(newLangSidebarItems, oldPageKey);
@@ -906,6 +1110,7 @@ const App = () => {
               setSearchTerm('');
               setCurrentSearchResults([]);
               setCurrentPage('home');
+              setIsSidebarOpen(false); // Chiudi la sidebar quando si torna alla home dalla ricerca
             }}
             className="mt-8 px-6 py-3 bg-blue-600 text-white font-semibold rounded-md shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-300 transition duration-300"
           >
@@ -944,14 +1149,31 @@ const App = () => {
   return (
     <div className="min-h-screen flex flex-col bg-blue-50 font-sans text-gray-800">
       {/* Header */}
-      <header className="bg-blue-600 text-white p-2 md:p-4 shadow-lg flex flex-col md:flex-row items-center justify-between rounded-b-lg">
-        <h1 className="text-3xl font-bold tracking-wide mb-2 md:mb-0">{tCommon.title}</h1> {/* Added mb-2 for mobile spacing */}
-        <div className="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-4 w-full md:w-auto"> {/* Adjusted for responsiveness */}
-          <div className="relative w-full md:w-auto"> {/* Ensure search input takes full width on small screens */}
+      <header className="bg-blue-600 text-white p-2 md:p-4 shadow-lg flex items-center justify-between rounded-b-lg">
+        {/* Burger menu button - visible only on small screens */}
+        <button
+          className="md:hidden p-2 text-white focus:outline-none focus:ring-2 focus:ring-blue-300 rounded-md"
+          onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+          aria-label="Apri menu"
+        >
+          <svg
+            className="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+
+        <h1 className="text-xl md:text-3xl font-bold tracking-wide flex-grow text-center md:text-left">{tCommon.title}</h1> {/* Centered on mobile */}
+        <div className="flex items-center space-x-2 md:space-x-4"> {/* Contenitore per ricerca e lingua */}
+          <div className="relative">
             <input
               type="text"
               placeholder={tCommon.searchPlaceholder}
-              className="p-2 pl-10 rounded-full bg-blue-700 text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-blue-300 transition duration-300 w-full md:w-48 lg:w-64" // Adjusted width for mobile and desktop
+              className="p-2 pl-10 rounded-full bg-blue-700 text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-blue-300 transition duration-300 w-32 sm:w-48 md:w-48 lg:w-64" // Adjusted width for mobile and desktop
               value={searchTerm}
               onChange={handleSearchChange}
               onKeyPress={(e) => { if (e.key === 'Enter') executeSearch(); }}
@@ -961,29 +1183,42 @@ const App = () => {
             </svg>
           </div>
           {/* Selettore Lingua - Ora con pulsanti */}
-          <div className="flex space-x-2 w-full md:w-auto justify-center"> {/* Added w-full and justify-center for mobile buttons */}
+          <div className="flex space-x-2">
             <button
               onClick={() => handleLanguageChange('it')}
-              className={`px-4 py-2 rounded-full font-semibold transition duration-300
+              className={`px-3 py-1 md:px-4 md:py-2 rounded-full font-semibold transition duration-300 text-sm md:text-base
                 ${language === 'it' ? 'bg-white text-blue-800 shadow-md' : 'bg-blue-700 text-blue-200 hover:bg-blue-800 hover:text-white'}`}
             >
-              Italiano
+              IT
             </button>
             <button
               onClick={() => handleLanguageChange('en')}
-              className={`px-4 py-2 rounded-full font-semibold transition duration-300
+              className={`px-3 py-1 md:px-4 md:py-2 rounded-full font-semibold transition duration-300 text-sm md:text-base
                 ${language === 'en' ? 'bg-white text-blue-800 shadow-md' : 'bg-blue-700 text-blue-200 hover:bg-blue-800 hover:text-white'}`}
             >
-              English
+              EN
             </button>
           </div>
         </div>
       </header>
 
+      {/* Overlay per la sidebar su mobile */}
+      {isSidebarOpen && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-50 z-30 md:hidden"
+          onClick={() => setIsSidebarOpen(false)}
+        ></div>
+      )}
+
       {/* Area contenuto principale */}
-      <div className="flex flex-col md:flex-row flex-1 mt-4 p-4"> {/* Changed to flex-col for mobile, md:flex-row for desktop */}
+      <div className="flex flex-1 mt-4 p-4">
         {/* Sidebar */}
-        <aside className="w-full md:w-64 bg-white p-6 rounded-lg shadow-md md:mr-6 mb-4 md:mb-0 flex-shrink-0"> {/* Adjusted width and margin for responsiveness */}
+        <aside
+          className={`fixed inset-y-0 left-0 z-40 w-64 bg-white p-6 rounded-lg shadow-md
+                     transform transition-transform duration-300 ease-in-out
+                     ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'}
+                     md:relative md:translate-x-0 md:w-64 md:mr-6 md:flex-shrink-0`}
+        >
           <h2 className="text-xl font-semibold text-blue-700 mb-4 border-b pb-2 border-blue-200">{tCommon.indexTitle}</h2>
           <nav>
             <ul>
@@ -1001,7 +1236,9 @@ const App = () => {
         </aside>
 
         {/* Area di rendering delle pagine - ora gestita da renderPage() */}
-        {renderPage()}
+        <div className="flex-1">
+          {renderPage()}
+        </div>
       </div>
 
       {/* Footer */}
