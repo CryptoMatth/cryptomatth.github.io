@@ -1,4 +1,4 @@
-const { useState, useEffect } = React;
+const { useState, useEffect, useMemo } = React;
 
 // Oggetto per le traduzioni di tutto il contenuto testuale
 const translations = {
@@ -705,10 +705,97 @@ const App = () => {
   const [currentSearchResults, setCurrentSearchResults] = useState([]); // Nuovo stato per i risultati della ricerca
   const [isSidebarOpen, setIsSidebarOpen] = useState(false); // Nuovo stato per la visibilità della sidebar su mobile
 
+  // Sposta la definizione di pageTextContent all'interno del componente App
+  // e usa useMemo per garantirne la stabilità e l'inizializzazione corretta.
+  const pageTextContent = useMemo(() => ({
+    it: {
+      home: translations.it.homePage.projectDescription + " " +
+            translations.it.homePage.welcomeTitle + " " +
+            translations.it.homePage.introText1 + " " +
+            translations.it.homePage.introText2 + " " +
+            translations.it.homePage.objectivesTitle + " " +
+            translations.it.homePage.objective1 + " " +
+            translations.it.homePage.objective2 + " " +
+            translations.it.homePage.objective3 + " " +
+            translations.it.homePage.objective4 + " " +
+            translations.it.homePage.objective5 + " " +
+            translations.it.homePage.audienceTitle + " " +
+            translations.it.homePage.audienceText + " " +
+            translations.it.homePage.contactTitle + " " +
+            translations.it.homePage.contactText,
+      matematica: translations.it.matematicaPage.title + " " + translations.it.matematicaPage.content,
+      crittografia: translations.it.crittografiaPage.title + " " +
+                    translations.it.crittografiaPage.introText + " " +
+                    translations.it.crittografiaPage.symmetricCrypto + " " +
+                    translations.it.crittografiaPage.symmetricIntro + " " +
+                    translations.it.crittografiaPage.asymmetricCrypto + " " +
+                    translations.it.crittografiaPage.asymmetricIntro + " " +
+                    translations.it.crittografiaPage.caesarCipher + " " +
+                    translations.it.crittografiaPage.caesarIntro + " " +
+                    translations.it.crittografiaPage.vigenereCipher + " " +
+                    translations.it.crittografiaPage.vigenereIntro,
+      symmetric: translations.it.crittografiaPage.symmetricCrypto + " + " + translations.it.crittografiaPage.symmetricIntro,
+      asymmetric: translations.it.crittografiaPage.asymmetricCrypto + " + " + translations.it.crittografiaPage.asymmetricIntro,
+      caesar: translations.it.crittografiaPage.caesarCipher + " + " + translations.it.crittografiaPage.caesarIntro,
+      vigenere: translations.it.crittografiaPage.vigenereCipher + " + " + translations.it.crittografiaPage.vigenereIntro,
+      algoritmi: translations.it.algoritmiPage.title + " " + translations.it.algoritmiPage.content,
+      applicazioni: translations.it.applicazioniPage.title + " " + translations.it.applicazioniPage.content,
+      risorse: translations.it.risorsePage.title + " " + translations.it.risorsePage.content,
+      rsa: translations.it.rsaPage.title + " " + translations.it.rsaPage.intro + " " +
+           translations.it.rsaPage.keyGenerationTitle + " " + translations.it.rsaPage.keyGenerationSteps.join(" ") + " " +
+           translations.it.rsaPage.encryptionTitle + " " + translations.it.rsaPage.encryptionFormula + " " + translations.it.rsaPage.encryptionDescription + " " +
+           translations.it.rsaPage.decryptionTitle + " " + translations.it.rsaPage.decryptionFormula + " " + translations.it.rsaPage.decryptionDescription,
+      contatti: translations.it.contactPage.title + " " + translations.it.contactPage.intro + " " + translations.it.contactPage.emailAddress,
+      notFound: translations.it.common.pageNotFound + " " + translations.it.common.pageNotFoundText,
+    },
+    en: {
+      home: translations.en.homePage.projectDescription + " " +
+            translations.en.homePage.welcomeTitle + " " +
+            translations.en.homePage.introText1 + " " +
+            translations.en.homePage.introText2 + " " +
+            translations.en.homePage.objectivesTitle + " " +
+            translations.en.homePage.objective1 + " " +
+            translations.en.homePage.objective2 + " " +
+            translations.en.homePage.objective3 + " " +
+            translations.en.homePage.objective4 + " " +
+            translations.en.homePage.objective5 + " " +
+            translations.en.homePage.audienceTitle + " " +
+            translations.en.homePage.audienceText + " " +
+            translations.en.homePage.contactTitle + " " +
+            translations.en.homePage.contactText,
+      matematica: translations.en.matematicaPage.title + " " + translations.en.matematicaPage.content,
+      crittografia: translations.en.crittografiaPage.title + " " +
+                    translations.en.crittografiaPage.introText + " " +
+                    translations.en.crittografiaPage.symmetricCrypto + " " +
+                    translations.en.crittografiaPage.symmetricIntro + " " +
+                    translations.en.crittografiaPage.asymmetricCrypto + " " +
+                    translations.en.crittografiaPage.asymmetricIntro + " " +
+                    translations.en.crittografiaPage.caesarCipher + " " +
+                    translations.en.crittografiaPage.caesarIntro + " " +
+                    translations.en.crittografiaPage.vigenereCipher + " " +
+                    translations.en.crittografiaPage.vigenereIntro,
+      symmetric: translations.en.crittografiaPage.symmetricCrypto + " + " + translations.en.crittografiaPage.symmetricIntro,
+      asymmetric: translations.en.crittografiaPage.asymmetricCrypto + " + " + translations.en.crittografiaPage.asymmetricIntro,
+      caesar: translations.en.crittografiaPage.caesarCipher + " + " + translations.en.crittografiaPage.caesarIntro,
+      vigenere: translations.en.crittografiaPage.vigenereCipher + " + " + translations.en.crittografiaPage.vigenereIntro,
+      algoritmi: translations.en.algoritmiPage.title + " " + translations.en.algoritmiPage.content,
+      applicazioni: translations.en.applicazioniPage.title + " " + translations.en.applicazioniPage.content,
+      risorse: translations.en.risorsePage.title + " " + translations.en.risorsePage.content,
+      rsa: translations.en.rsaPage.title + " " + translations.en.rsaPage.intro + " " +
+           translations.en.rsaPage.keyGenerationTitle + " " + translations.en.rsaPage.keyGenerationSteps.join(" ") + " " +
+           translations.en.rsaPage.encryptionTitle + " " + translations.en.rsaPage.encryptionFormula + " " + translations.en.rsaPage.encryptionDescription + " " +
+           translations.en.rsaPage.decryptionTitle + " " + translations.en.rsaPage.decryptionFormula + " " + translations.en.rsaPage.decryptionDescription,
+      contatti: translations.en.contactPage.title + " " + translations.en.contactPage.intro + " " + translations.en.contactPage.emailAddress,
+      notFound: translations.en.common.pageNotFound + " " + translations.en.common.pageNotFoundText,
+    },
+  }), [translations]); // Dipendenza da translations per rigenerare solo se le traduzioni cambiano
+
+
   const tCommon = translations[language].common; // Ottieni le traduzioni comuni
   const tSidebarItems = translations[language].sidebar.items; // Ottieni gli elementi della sidebar
 
   // Filtra gli elementi della sidebar in base al termine di ricerca
+  // Ora passiamo pageTextContent come argomento
   const displayedSidebarItems = getFilteredSidebarItems(tSidebarItems, searchTerm, language, pageTextContent);
 
   // useEffect per gestire lo scroll del body quando la sidebar è aperta su mobile
