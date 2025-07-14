@@ -205,23 +205,253 @@ const translations = {
       content: "A collection of books, articles, online courses, and tools to deepen your understanding of mathematics and cryptography."
     },
     rsaPage: { // New translations for RSA page
-      title: "RSA Algorithm",
+      title: "Algoritmo RSA",
       intro: "RSA (Rivest–Shamir–Adleman) is one of the first public-key cryptosystems and is widely used for secure data transmission. It relies on the computational difficulty of factoring large integers, that is, finding the two large prime numbers that multiply to the original number.",
-      keyGenerationTitle: "Key Generation",
+      keyGenerationTitle: "Generazione delle Chiavi",
       keyGenerationSteps: [
-        "Choose two large and distinct prime numbers, $p$ and $q$.",
-        "Calculate $n = pq$. This is the modulus for both the public and private keys.",
-        "Calculate Euler's totient function: $\\phi(n) = (p-1)(q-1)$.",
-        "Scegli un intero $e$ (public exponent) tale che $1 < e < \\phi(n)$ e $\\gcd(e, \\phi(n)) = 1$.",
-        "Calculate $d$ (private exponent) such that $d \\cdot e \\equiv 1 \\pmod{\\phi(n)}$.",
-        "The public key is $(e, n)$. The private key is $(d, n)$.",
+        "Scegli due numeri primi grandi e distinti, $p$ e $q$.",
+        "Calcola $n = pq$. Questo è il modulo per le chiavi pubblica e privata.",
+        "Calcola la funzione totiente di Eulero: $\\phi(n) = (p-1)(q-1)$.",
+        "Scegli un intero $e$ (esponente pubblico) tale che $1 < e < \\phi(n)$ e $\\gcd(e, \\phi(n)) = 1$.",
+        "Calcola $d$ (esponente privato) tale che $d \\cdot e \\equiv 1 \\pmod{\\phi(n)}$.",
+        "La chiave pubblica è $(e, n)$. La chiave privata è $(d, n)$.",
       ],
       encryptionTitle: "Cifratura",
       encryptionFormula: "$C = M^e \\pmod{n}$",
-      encryptionDescription: "Where $M$ is the plaintext message (an integer $0 \\le M < n$), $e$ is the public exponent, and $n$ is the modulus.",
+      encryptionDescription: "Dove $M$ è il messaggio in chiaro (un numero intero $0 \\le M < n$), $e$ è l'esponente pubblico e $n$ è il modulo.",
       decryptionTitle: "Decifratura",
       decryptionFormula: "$M = C^d \\pmod{n}$",
-      decryptionDescription: "Where $C$ è il testo cifrato, $d$ è l'esponente privato e $n$ è il modulo.",
+      decryptionDescription: "Dove $C$ è il testo cifrato, $d$ è l'esponente privato e $n$ è il modulo.",
+      imageAlt: "Diagramma concettuale dell'algoritmo RSA",
+      note: "Nota: Le formule sono visualizzate usando HTML e CSS per la massima compatibilità."
+    },
+    contactPage: { // Nuove traduzioni per la pagina Contatti (semplificata)
+      title: "Contattaci",
+      intro: "Per domande, suggerimenti o collaborazioni, non esitare a contattarci. Siamo sempre felici di ricevere feedback e di connetterci con la nostra comunità.",
+      emailAddress: "info@matematicaecrittografia.it",
+      emailPrompt: "Inviaci una email",
+    }
+  },
+  en: {
+    common: {
+      title: "Mathematics & Cryptography",
+      searchPlaceholder: "Search the site...",
+      indexTitle: "Index",
+      footerText: "Mathematics & Cryptography. All rights reserved.",
+      pageNotFound: "Page Not Found",
+      pageNotFoundText: "Sorry, the page you are looking for does not exist.",
+      searchResultsTitle: "Search Results for:",
+      noSearchResults: "No results found for your search.",
+      backToHome: "Back to Home",
+    },
+    sidebar: {
+      items: [
+        { key: 'home', title: "Introduction to the Project" },
+        {
+          key: 'crittografia',
+          title: "Principles of Cryptography",
+          children: [
+            // Moved 'matematica' here under 'crittografia'
+            { key: 'matematica', title: "Mathematical Foundations" },
+            {
+              key: 'symmetric',
+              title: "Symmetric Cryptography",
+              children: [
+                { key: 'caesar', title: "Caesar Cipher" },
+                { key: 'vigenere', title: "Vigenere Cipher" }
+              ]
+            },
+            {
+              key: 'asymmetric',
+              title: "Asymmetric Cryptography",
+              children: [
+                { key: 'rsa', title: "RSA Algorithm" }
+              ]
+            }
+          ]
+        },
+        // Removed: Common Algorithms, Practical Applications, Additional Resources
+        { key: 'contatti', title: "Contact Us" }, // New entry for Contact page
+      ]
+    },
+    homePage: {
+      projectDescription: "Project Description: Mathematics and Cryptography",
+      welcomeTitle: "Welcome to the World of Digital Security",
+      introText1: "This project is dedicated to exploring the fascinating intersection between pure mathematics and the art of cryptography. Cryptography, the science of securing communications, relies deeply on complex mathematical concepts, from number theory to abstract algebra. Our goal is to demystify these topics, making them accessible to students, enthusiasts, and professionals.",
+      introText2: "Through clear articles, practical examples, and intuitive illustrations, we will guide you through the fundamental principles that secure our daily digital interactions, from online banking transactions to instant messaging.",
+      imageAlt: "Conceptual image of cryptography and mathematics",
+      objectivesTitle: "Our Objectives",
+      objective1: "Explain the mathematical concepts underlying modern cryptography.",
+      objective2: "Analyze key cryptographic algorithms (RSA, AES, Elliptic Curve Cryptography).",
+      objective3: "Illustrate practical applications of cryptography in everyday life.",
+      objective4: "Promote understanding of the importance of cybersecurity.",
+      objective5: "Provide additional resources and tools for further study.",
+      audienceTitle: "Who is it For?",
+      audienceText: "This site is designed for anyone curious about how digital security works. Whether you are a computer science or mathematics student, a security professional, or simply someone interested in protecting your online privacy, you will find useful and stimulating content. No advanced prior knowledge is required, just an open mind and a desire to learn!",
+      contactTitle: "Contact Us", // This title is for the section in home, now not used
+      contactText: "For questions, suggestions, or collaborations, do not hesitate to contact us at", // This text is for the section in home, now not used
+    },
+    matematicaPage: {
+      title: "Mathematical Foundations",
+      content: "Here you will find articles and resources on the mathematical foundations underlying cryptography, such as number theory, abstract algebra, and computational complexity. Modular algebra is a key concept in many cryptographic algorithms."
+    },
+    crittografiaPage: {
+      title: "Principles of Cryptography",
+      introText: "Cryptography is the practice and study of techniques for secure communication in the presence of third parties (adversaries). More generally, it is about constructing and analyzing protocols that prevent third parties or the public from reading private messages.",
+      symmetricCrypto: "Symmetric Cryptography",
+      symmetricIntro: "In symmetric-key cryptography, the same secret key is used for both encryption and decryption. It is efficient and fast, ideal for large amounts of data.",
+      asymmetricCrypto: "Asymmetric Cryptography",
+      asymmetricIntro: "Asymmetric-key cryptography, or public-key cryptography, uses a pair of keys: a public key and a private key. The public key can be freely shared, while the private key must remain secret. It is fundamental for modern secure communications and digital signatures. An example is the RSA algorithm, which relies on modular algebra problems.",
+      caesarCipher: "Caesar Cipher",
+      caesarIntro: "The Caesar Cipher is one of the oldest and simplest substitution ciphers. It is a type of monoalphabetic substitution cipher in which each letter in the plaintext is replaced by a letter some fixed number of positions down or up the alphabet.",
+      vigenereCipher: "Vigenere Cipher",
+      vigenereIntro: "The Vigenere Cipher is a method of polyalphabetic encryption that uses a series of different Caesar ciphers in sequence, based on the letters of a keyword. It was considered a very robust cipher for centuries.",
+    },
+    algoritmiPage: {
+      title: "Common Algorithms",
+      content: "This section explores the most common cryptographic algorithms and their applications, such as RSA, AES, and elliptic curves. The RSA algorithm, for example, makes extensive use of modular algebra concepts."
+    },
+    applicazioniPage: {
+      title: "Practical Applications",
+      content: "Discover how cryptography is used in everyday life, from securing online transactions to VPNs and blockchains."
+    },
+    risorsePage: {
+      title: "Additional Resources",
+      content: "A collection of books, articles, online courses, and tools to deepen your understanding of mathematics and cryptography."
+    },
+    rsaPage: { // New translations for RSA page
+      title: "Algoritmo RSA",
+      intro: "RSA (Rivest–Shamir–Adleman) is one of the first public-key cryptosystems and is widely used for secure data transmission. It relies on the computational difficulty of factoring large integers, that is, finding the two large prime numbers that multiply to the original number.",
+      keyGenerationTitle: "Generazione delle Chiavi",
+      keyGenerationSteps: [
+        "Scegli due numeri primi grandi e distinti, $p$ e $q$.",
+        "Calcola $n = pq$. Questo è il modulo per le chiavi pubblica e privata.",
+        "Calcola la funzione totiente di Eulero: $\\phi(n) = (p-1)(q-1)$.",
+        "Scegli un intero $e$ (esponente pubblico) tale che $1 < e < \\phi(n)$ e $\\gcd(e, \\phi(n)) = 1$.",
+        "Calcola $d$ (esponente privato) tale che $d \\cdot e \\equiv 1 \\pmod{\\phi(n)}$.",
+        "La chiave pubblica è $(e, n)$. La chiave privata è $(d, n)$.",
+      ],
+      encryptionTitle: "Cifratura",
+      encryptionFormula: "$C = M^e \\pmod{n}$",
+      encryptionDescription: "Dove $M$ è il messaggio in chiaro (un numero intero $0 \\le M < n$), $e$ è l'esponente pubblico e $n$ è il modulo.",
+      decryptionTitle: "Decifratura",
+      decryptionFormula: "$M = C^d \\pmod{n}$",
+      decryptionDescription: "Dove $C$ è il testo cifrato, $d$ è l'esponente privato e $n$ è il modulo.",
+      imageAlt: "Diagramma concettuale dell'algoritmo RSA",
+      note: "Nota: Le formule sono visualizzate usando HTML e CSS per la massima compatibilità."
+    },
+    contactPage: { // Nuove traduzioni per la pagina Contatti (semplificata)
+      title: "Contattaci",
+      intro: "Per domande, suggerimenti o collaborazioni, non esitare a contattarci. Siamo sempre felici di ricevere feedback e di connetterci con la nostra comunità.",
+      emailAddress: "info@matematicaecrittografia.it",
+      emailPrompt: "Inviaci una email",
+    }
+  },
+  en: {
+    common: {
+      title: "Mathematics & Cryptography",
+      searchPlaceholder: "Search the site...",
+      indexTitle: "Index",
+      footerText: "Mathematics & Cryptography. All rights reserved.",
+      pageNotFound: "Page Not Found",
+      pageNotFoundText: "Sorry, the page you are looking for does not exist.",
+      searchResultsTitle: "Search Results for:",
+      noSearchResults: "No results found for your search.",
+      backToHome: "Back to Home",
+    },
+    sidebar: {
+      items: [
+        { key: 'home', title: "Introduction to the Project" },
+        {
+          key: 'crittografia',
+          title: "Principles of Cryptography",
+          children: [
+            // Moved 'matematica' here under 'crittografia'
+            { key: 'matematica', title: "Mathematical Foundations" },
+            {
+              key: 'symmetric',
+              title: "Symmetric Cryptography",
+              children: [
+                { key: 'caesar', title: "Caesar Cipher" },
+                { key: 'vigenere', title: "Vigenere Cipher" }
+              ]
+            },
+            {
+              key: 'asymmetric',
+              title: "Asymmetric Cryptography",
+              children: [
+                { key: 'rsa', title: "RSA Algorithm" }
+              ]
+            }
+          ]
+        },
+        // Removed: Common Algorithms, Practical Applications, Additional Resources
+        { key: 'contatti', title: "Contact Us" }, // New entry for Contact page
+      ]
+    },
+    homePage: {
+      projectDescription: "Project Description: Mathematics and Cryptography",
+      welcomeTitle: "Welcome to the World of Digital Security",
+      introText1: "This project is dedicated to exploring the fascinating intersection between pure mathematics and the art of cryptography. Cryptography, the science of securing communications, relies deeply on complex mathematical concepts, from number theory to abstract algebra. Our goal is to demystify these topics, making them accessible to students, enthusiasts, and professionals.",
+      introText2: "Through clear articles, practical examples, and intuitive illustrations, we will guide you through the fundamental principles that secure our daily digital interactions, from online banking transactions to instant messaging.",
+      imageAlt: "Conceptual image of cryptography and mathematics",
+      objectivesTitle: "Our Objectives",
+      objective1: "Explain the mathematical concepts underlying modern cryptography.",
+      objective2: "Analyze key cryptographic algorithms (RSA, AES, Elliptic Curve Cryptography).",
+      objective3: "Illustrate practical applications of cryptography in everyday life.",
+      objective4: "Promote understanding of the importance of cybersecurity.",
+      objective5: "Provide additional resources and tools for further study.",
+      audienceTitle: "Who is it For?",
+      audienceText: "This site is designed for anyone curious about how digital security works. Whether you are a computer science or mathematics student, a security professional, or simply someone interested in protecting your online privacy, you will find useful and stimulating content. No advanced prior knowledge is required, just an open mind and a desire to learn!",
+      contactTitle: "Contact Us", // This title is for the section in home, now not used
+      contactText: "For questions, suggestions, or collaborations, do not hesitate to contact us at", // This text is for the section in home, now not used
+    },
+    matematicaPage: {
+      title: "Mathematical Foundations",
+      content: "Here you will find articles and resources on the mathematical foundations underlying cryptography, such as number theory, abstract algebra, and computational complexity. Modular algebra is a key concept in many cryptographic algorithms."
+    },
+    crittografiaPage: {
+      title: "Principles of Cryptography",
+      introText: "Cryptography is the practice and study of techniques for secure communication in the presence of third parties (adversaries). More generally, it is about constructing and analyzing protocols that prevent third parties or the public from reading private messages.",
+      symmetricCrypto: "Symmetric Cryptography",
+      symmetricIntro: "In symmetric-key cryptography, the same secret key is used for both encryption and decryption. It is efficient and fast, ideal for large amounts of data.",
+      asymmetricCrypto: "Asymmetric Cryptography",
+      asymmetricIntro: "Asymmetric-key cryptography, or public-key cryptography, uses a pair of keys: a public key and a private key. The public key can be freely shared, while the private key must remain secret. It is fundamental for modern secure communications and digital signatures. An example is the RSA algorithm, which relies on modular algebra problems.",
+      caesarCipher: "Caesar Cipher",
+      caesarIntro: "The Caesar Cipher is one of the oldest and simplest substitution ciphers. It is a type of monoalphabetic substitution cipher in which each letter in the plaintext is replaced by a letter some fixed number of positions down or up the alphabet.",
+      vigenereCipher: "Vigenere Cipher",
+      vigenereIntro: "The Vigenere Cipher is a method of polyalphabetic encryption that uses a series of different Caesar ciphers in sequence, based on the letters of a keyword. It was considered a very robust cipher for centuries.",
+    },
+    algoritmiPage: {
+      title: "Common Algorithms",
+      content: "This section explores the most common cryptographic algorithms and their applications, such as RSA, AES, and elliptic curves. The RSA algorithm, for example, makes extensive use of modular algebra concepts."
+    },
+    applicazioniPage: {
+      title: "Practical Applications",
+      content: "Discover how cryptography is used in everyday life, from securing online transactions to VPNs and blockchains."
+    },
+    risorsePage: {
+      title: "Additional Resources",
+      content: "A collection of books, articles, online courses, and tools to deepen your understanding of mathematics and cryptography."
+    },
+    rsaPage: { // New translations for RSA page
+      title: "Algoritmo RSA",
+      intro: "RSA (Rivest–Shamir–Adleman) is one of the first public-key cryptosystems and is widely used for secure data transmission. It relies on the computational difficulty of factoring large integers, that is, finding the two large prime numbers that multiply to the original number.",
+      keyGenerationTitle: "Generazione delle Chiavi",
+      keyGenerationSteps: [
+        "Scegli due numeri primi grandi e distinti, $p$ e $q$.",
+        "Calcola $n = pq$. Questo è il modulo per le chiavi pubblica e privata.",
+        "Calcola la funzione totiente di Eulero: $\\phi(n) = (p-1)(q-1)$.",
+        "Scegli un intero $e$ (esponente pubblico) tale che $1 < e < \\phi(n)$ e $\\gcd(e, \\phi(n)) = 1$.",
+        "Calcola $d$ (esponente privato) tale che $d \\cdot e \\equiv 1 \\pmod{\\phi(n)}$.",
+        "La chiave pubblica è $(e, n)$. La chiave privata è $(d, n)$.",
+      ],
+      encryptionTitle: "Cifratura",
+      encryptionFormula: "$C = M^e \\pmod{n}$",
+      encryptionDescription: "Dove $M$ è il messaggio in chiaro (un numero intero $0 \\le M < n$), $e$ è l'esponente pubblico e $n$ è il modulo.",
+      decryptionTitle: "Decifratura",
+      decryptionFormula: "$M = C^d \\pmod{n}$",
+      decryptionDescription: "Dove $C$ è il testo cifrato, $d$ è l'esponente privato e $n$ è il modulo.",
       imageAlt: "Diagramma concettuale dell'algoritmo RSA",
       note: "Nota: Le formule sono visualizzate usando HTML e CSS per la massima compatibilità."
     },
@@ -736,6 +966,7 @@ const App = () => {
       asymmetric: translations.it.crittografiaPage.asymmetricCrypto + " + " + translations.it.crittografiaPage.asymmetricIntro,
       caesar: translations.it.crittografiaPage.caesarCipher + " + " + translations.it.crittografiaPage.caesarIntro,
       vigenere: translations.it.crittografiaPage.vigenereCipher + " + " + translations.it.crittografiaPage.vigenereIntro,
+      // Le pagine seguenti sono state rimosse dalla sidebar, ma il loro contenuto è ancora accessibile tramite ricerca
       algoritmi: translations.it.algoritmiPage.title + " " + translations.it.algoritmiPage.content,
       applicazioni: translations.it.applicazioniPage.title + " " + translations.it.applicazioniPage.content,
       risorse: translations.it.risorsePage.title + " " + translations.it.risorsePage.content,
@@ -776,6 +1007,7 @@ const App = () => {
       asymmetric: translations.en.crittografiaPage.asymmetricCrypto + " + " + translations.en.crittografiaPage.asymmetricIntro,
       caesar: translations.en.crittografiaPage.caesarCipher + " + " + translations.en.crittografiaPage.caesarIntro,
       vigenere: translations.en.crittografiaPage.vigenereCipher + " + " + translations.en.crittografiaPage.vigenereIntro,
+      // Le pagine seguenti sono state rimosse dalla sidebar, ma il loro contenuto è ancora accessibile tramite ricerca
       algoritmi: translations.en.algoritmiPage.title + " " + translations.en.algoritmiPage.content,
       applicazioni: translations.en.applicazioniPage.title + " " + translations.en.applicazioniPage.content,
       risorse: translations.en.risorsePage.title + " " + translations.en.risorsePage.content,
