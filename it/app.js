@@ -944,14 +944,14 @@ const App = () => {
   return (
     <div className="min-h-screen flex flex-col bg-blue-50 font-sans text-gray-800">
       {/* Header */}
-      <header className="bg-blue-600 text-white p-4 shadow-lg flex items-center justify-between rounded-b-lg">
-        <h1 className="text-3xl font-bold tracking-wide">{tCommon.title}</h1>
-        <div className="flex items-center space-x-4"> {/* Contenitore per ricerca e lingua */}
-          <div className="relative">
+      <header className="bg-blue-600 text-white p-2 md:p-4 shadow-lg flex flex-col md:flex-row items-center justify-between rounded-b-lg">
+        <h1 className="text-3xl font-bold tracking-wide mb-2 md:mb-0">{tCommon.title}</h1> {/* Added mb-2 for mobile spacing */}
+        <div className="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-4 w-full md:w-auto"> {/* Adjusted for responsiveness */}
+          <div className="relative w-full md:w-auto"> {/* Ensure search input takes full width on small screens */}
             <input
               type="text"
               placeholder={tCommon.searchPlaceholder}
-              className="p-2 pl-10 rounded-full bg-blue-700 text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-blue-300 transition duration-300 w-48 md:w-64"
+              className="p-2 pl-10 rounded-full bg-blue-700 text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-blue-300 transition duration-300 w-full md:w-48 lg:w-64" // Adjusted width for mobile and desktop
               value={searchTerm}
               onChange={handleSearchChange}
               onKeyPress={(e) => { if (e.key === 'Enter') executeSearch(); }}
@@ -961,7 +961,7 @@ const App = () => {
             </svg>
           </div>
           {/* Selettore Lingua - Ora con pulsanti */}
-          <div className="flex space-x-2">
+          <div className="flex space-x-2 w-full md:w-auto justify-center"> {/* Added w-full and justify-center for mobile buttons */}
             <button
               onClick={() => handleLanguageChange('it')}
               className={`px-4 py-2 rounded-full font-semibold transition duration-300
@@ -981,9 +981,9 @@ const App = () => {
       </header>
 
       {/* Area contenuto principale */}
-      <div className="flex flex-1 mt-4 p-4">
+      <div className="flex flex-col md:flex-row flex-1 mt-4 p-4"> {/* Changed to flex-col for mobile, md:flex-row for desktop */}
         {/* Sidebar */}
-        <aside className="w-64 bg-white p-6 rounded-lg shadow-md mr-6 flex-shrink-0">
+        <aside className="w-full md:w-64 bg-white p-6 rounded-lg shadow-md md:mr-6 mb-4 md:mb-0 flex-shrink-0"> {/* Adjusted width and margin for responsiveness */}
           <h2 className="text-xl font-semibold text-blue-700 mb-4 border-b pb-2 border-blue-200">{tCommon.indexTitle}</h2>
           <nav>
             <ul>
