@@ -45,13 +45,11 @@ const translations = {
     homePage: { // Traduzioni specifiche per la HomePage
       projectDescription: "Matematica e Crittografia: Il Portale di Approfondimento sulla Sicurezza Digitale",
       welcomeTitle: "Benvenuti nel Mondo della Sicurezza Digitale",
-      introText1: `Nel contesto attuale, caratterizzato dalla diffusione delle informazioni digitali e dalla crescente complessità delle minacce cibernetiche, la crittografia è una disciplina essenziale per la salvaguardia della riservatezza, dell'integrità e dell'autenticità dei dati. Questo portale è concepito come una risorsa di approfondimento completa, destinata a un pubblico vasto: da chi desidera comprendere i fondamenti della sicurezza digitale, allo studioso o al professionista che cerca un'analisi più specifica e rigorosa dei suoi meccanismi.
+      introSection1: `Nel contesto attuale, caratterizzato dalla diffusione delle informazioni digitali e dalla crescente complessità delle minacce cibernetiche, la crittografia è una disciplina essenziale per la salvaguardia della riservatezza, dell'integrità e dell'autenticità dei dati. Questo portale è concepito come una risorsa di approfondimento completa, destinata a un pubblico vasto: da chi desidera comprendere i fondamenti della sicurezza digitale, allo studioso o al professionista che cerca un'analisi più specifica e rigorosa dei suoi meccanismi.
 
 La trattazione è strutturata per offrire un'esplorazione sistematica e progressiva della materia. Il percorso inizia dalle sue origini storiche, per poi addentrarsi negli algoritmi complessi che definiscono la crittografia contemporanea, mantenendo una costante attenzione ai principi matematici che ne garantiscono la robustezza.`,
-      introText2: `
-### Ambiti di Approfondimento Dettagliato:
-
-Il portale include un'analisi approfondita delle **radici storiche della crittografia**, delineando l'evoluzione delle metodologie di protezione delle informazioni attraverso le epoche. Saranno esaminati non solo i primi cifrari di sostituzione e trasposizione, come il Cifrario di Cesare e il Cifrario di Vigenère, ma anche il contesto socio-politico e tecnologico che ne ha stimolato lo sviluppo e la progressiva complessità. Questa prospettiva storica è fondamentale per contestualizzare lo sviluppo delle tecniche attuali e per apprezzare la progressione del pensiero crittografico e le sfide alla sicurezza delle comunicazioni. Si evidenzierà come le vulnerabilità dei sistemi storici abbiano spinto l'innovazione verso soluzioni più resilienti.
+      introSection2Heading: "Ambiti di Approfondimento Dettagliato:",
+      introSection2Content: `Il portale include un'analisi approfondita delle **radici storiche della crittografia**, delineando l'evoluzione delle metodologie di protezione delle informazioni attraverso le epoche. Saranno esaminati non solo i primi cifrari di sostituzione e trasposizione, come il Cifrario di Cesare e il Cifrario di Vigenère, ma anche il contesto socio-politico e tecnologico che ne ha stimolato lo sviluppo e la progressiva complessità. Questa prospettiva storica è fondamentale per contestualizzare lo sviluppo delle tecniche attuali e per apprezzare la progressione del pensiero crittografico e le sfide alla sicurezza delle comunicazioni. Si evidenzierà come le vulnerabilità dei sistemi storici abbiano spinto l'innovazione verso soluzioni più resilienti.
 
 La sezione centrale è dedicata agli **algoritmi crittografici moderni**, distinti nelle categorie fondamentali della **crittografia simmetrica** e **asimmetrica**. Per ciascuna, verranno esaminati in dettaglio i principi operativi, le architetture algoritmiche, la loro resistenza agli attacchi noti e le vulnerabilità intrinseche.
 
@@ -73,16 +71,6 @@ Per favorire un apprendimento efficace e applicato, ogni sezione sarà corredata
 Questo portale si propone, quindi, come uno strumento autorevole e accessibile per acquisire una solida padronanza dei principi crittografici e delle loro ampie implicazioni nella sicurezza digitale. Il suo stile, che privilegia la chiarezza e l'analisi approfondita, intende fornire una base solida a chiunque desideri esplorare con consapevolezza il complesso e affascinante mondo della crittografia.
       `,
       imageAlt: "Immagine concettuale di crittografia e matematica",
-      objectivesTitle: "I Nostri Obiettivi", // Questi verranno mantenuti, ma il testo principale sarà quello sopra
-      objective1: "Spiegare i concetti matematici alla base della crittografia moderna.",
-      objective2: "Analizzare i principali algoritmi crittografici (RSA, AES, Elliptic Curve Cryptography).",
-      objective3: "Illustrare le applicazioni pratiche della crittografia nella vita di tutti i giorni.",
-      objective4: "Promuovere la comprensione dell'importanza della sicurezza informatica.",
-      objective5: "Fornire risorse e strumenti per approfondire gli studi.",
-      audienceTitle: "A Chi è Rivolto?",
-      audienceText: "Questo sito è pensato per chiunque sia curioso di capire come funziona la sicurezza digitale. Che tu sia uno studente di informatica o matematica, un professionista della sicurezza, o semplicemente una persona interessata a proteggere la propria privacy online, troverai contenuti utili e stimolanti. Non sono richieste conoscenze pregresse avanzate, solo una mente aperta e la voglia di imparare!",
-      contactTitle: "Contattaci",
-      contactText: "Per domande, suggerimenti o collaborazioni, non esitate a contattarci all'indirizzo",
     },
     matematicaPage: { // Traduzioni specifiche per la pagina Fondamenti Matematici
       title: "Fondamenti Matematici",
@@ -183,13 +171,11 @@ Questo portale si propone, quindi, come uno strumento autorevole e accessibile p
     homePage: {
       projectDescription: "Mathematics & Cryptography: The In-depth Digital Security Portal",
       welcomeTitle: "Welcome to the World of Digital Security",
-      introText1: `In the current context, characterized by the widespread dissemination of digital information and the increasing complexity of cyber threats, cryptography stands as an essential discipline for safeguarding data confidentiality, integrity, and authenticity. This portal is conceived as a comprehensive resource for in-depth study, intended for a broad audience: from those who wish to understand the fundamentals of digital security, to scholars or professionals seeking a more specific and rigorous analysis of its intrinsic mechanisms.
+      introSection1: `In the current context, characterized by the widespread dissemination of digital information and the increasing complexity of cyber threats, cryptography stands as an essential discipline for safeguarding data confidentiality, integrity, and authenticity. This portal is conceived as a comprehensive resource for in-depth study, intended for a broad audience: from those who wish to understand the fundamentals of digital security, to scholars or professionals seeking a more specific and rigorous analysis of its intrinsic mechanisms.
 
 The discussion is structured to offer a systematic and progressive exploration of the subject. The journey begins with its historical origins, then delves into the complex algorithms that define contemporary cryptography, maintaining a constant focus on the mathematical principles that guarantee its robustness.`,
-      introText2: `
-### Detailed Areas of Exploration:
-
-The portal includes an in-depth analysis of the **historical roots of cryptography**, outlining the evolution of information protection methodologies across eras. Not only will early substitution and transposition ciphers, such as the Caesar Cipher and the Vigenère Cipher, be examined, but also the socio-political and technological context that stimulated their development and progressive complexity. This historical perspective is fundamental for contextualizing the development of current techniques and for appreciating the progression of cryptographic thought and the challenges to communication security. It will be highlighted how the vulnerabilities of historical systems drove innovation towards more resilient solutions.
+      introSection2Heading: "Detailed Areas of Exploration:",
+      introSection2Content: `The portal includes an in-depth analysis of the **historical roots of cryptography**, outlining the evolution of information protection methodologies across eras. Not only will early substitution and transposition ciphers, such as the Caesar Cipher and the Vigenère Cipher, be examined, but also the socio-political and technological context that stimulated their development and progressive complexity. This historical perspective is fundamental for contextualizing the development of current techniques and for appreciating the progression of cryptographic thought and the challenges to communication security. It will be highlighted how the vulnerabilities of historical systems drove innovation towards more resilient solutions.
 
 The central section is dedicated to **modern cryptographic algorithms**, distinguished into the fundamental categories of **symmetric** and **asymmetric cryptography**. For each, operational principles, algorithmic architectures, their resistance to known attacks, and intrinsic vulnerabilities will be examined in detail.
 
@@ -211,16 +197,6 @@ To facilitate effective and applied learning, each section will be accompanied b
 This portal, therefore, aims to be an authoritative and accessible tool for acquiring a solid mastery of cryptographic principles and their broad implications in digital security. Its style, which prioritizes clarity and in-depth analysis, is intended to provide a solid foundation for anyone wishing to consciously explore the complex and fascinating world of cryptography.
       `,
       imageAlt: "Conceptual image of cryptography and mathematics",
-      objectivesTitle: "Our Objectives",
-      objective1: "Explain the mathematical concepts underlying modern cryptography.",
-      objective2: "Analyze key cryptographic algorithms (RSA, AES, Elliptic Curve Cryptography).",
-      objective3: "Illustrate practical applications of cryptography in everyday life.",
-      objective4: "Promote understanding of the importance of cybersecurity.",
-      objective5: "Provide additional resources and tools for further study.",
-      audienceTitle: "Who is it For?",
-      audienceText: "This site is designed for anyone curious about how digital security works. Whether you are a computer science or mathematics student, a security professional, or simply someone interested in protecting your online privacy, you will find useful and stimulating content. No advanced prior knowledge is required, just an open mind and a desire to learn!",
-      contactTitle: "Contact Us",
-      contactText: "For questions, suggestions, or collaborations, do not hesitate to contact us at",
     },
     matematicaPage: {
       title: "Mathematical Foundations",
@@ -435,17 +411,14 @@ const HomePage = ({ language }) => {
       <section id="introduzione" className="mb-8">
         <h3 className="text-2xl font-semibold text-blue-700 mb-4">{tHomePage.welcomeTitle}</h3>
         <div className="prose max-w-none text-lg leading-relaxed">
-          {renderMarkdown(tHomePage.introText1)}
+          {renderMarkdown(tHomePage.introSection1)}
         </div>
-        <div className="prose max-w-none text-lg leading-relaxed mt-4">
-          {renderMarkdown(tHomePage.introText2)}
+        {/* Renderizza esplicitamente il titolo per "Ambiti di Approfondimento Dettagliato" */}
+        <h3 className="text-2xl font-semibold text-blue-700 mb-4 mt-8">{tHomePage.introSection2Heading}</h3>
+        <div className="prose max-w-none text-lg leading-relaxed">
+          {renderMarkdown(tHomePage.introSection2Content)}
         </div>
-        <img
-          src="https://placehold.co/600x300/ADD8E6/000000?text=Crittografia+e+Matematica"
-          alt="Immagine concettuale di crittografia e matematica"
-          className="mt-6 rounded-lg shadow-lg w-full h-auto object-cover"
-          onError={(e) => { e.target.onerror = null; e.target.src="https://placehold.co/600x300/ADD8E6/000000?text=Immagine+non+disponibile"; }}
-        />
+        {/* L'immagine è stata rimossa come richiesto */}
       </section>
     </main>
   );
@@ -764,18 +737,10 @@ const App = () => {
     it: {
       home: translations.it.homePage.projectDescription + " " +
             translations.it.homePage.welcomeTitle + " " +
-            translations.it.homePage.introText1 + " " +
-            translations.it.homePage.introText2 + " " + // Aggiunto per la ricerca
-            translations.it.homePage.objectivesTitle + " " +
-            translations.it.homePage.objective1 + " " +
-            translations.it.homePage.objective2 + " " +
-            translations.it.homePage.objective3 + " " +
-            translations.it.homePage.objective4 + " " +
-            translations.it.homePage.objective5 + " " +
-            translations.it.homePage.audienceTitle + " " +
-            translations.it.homePage.audienceText + " " +
-            translations.it.homePage.contactTitle + " " +
-            translations.it.homePage.contactText,
+            translations.it.homePage.introSection1 + " " +
+            translations.it.homePage.introSection2Heading + " " + // Aggiunto per la ricerca
+            translations.it.homePage.introSection2Content + " " + // Aggiunto per la ricerca
+            translations.it.homePage.imageAlt, // L'immagine è stata rimossa, ma il testo alt può ancora essere cercato
       matematica: translations.it.matematicaPage.title + " " + translations.it.matematicaPage.content,
       crittografia: translations.it.crittografiaPage.title + " " +
                     translations.it.crittografiaPage.introText + " " +
@@ -804,18 +769,10 @@ const App = () => {
     en: {
       home: translations.en.homePage.projectDescription + " " +
             translations.en.homePage.welcomeTitle + " " +
-            translations.en.homePage.introText1 + " " +
-            translations.en.homePage.introText2 + " " + // Aggiunto per la ricerca
-            translations.en.homePage.objectivesTitle + " " +
-            translations.en.homePage.objective1 + " " +
-            translations.en.homePage.objective2 + " " +
-            translations.en.homePage.objective3 + " " +
-            translations.en.homePage.objective4 + " " +
-            translations.en.homePage.objective5 + " " +
-            translations.en.homePage.audienceTitle + " " +
-            translations.en.homePage.audienceText + " " +
-            translations.en.homePage.contactTitle + " " +
-            translations.en.homePage.contactText,
+            translations.en.homePage.introSection1 + " " +
+            translations.en.homePage.introSection2Heading + " " + // Added for search
+            translations.en.homePage.introSection2Content + " " + // Added for search
+            translations.en.homePage.imageAlt, // The image has been removed, but the alt text can still be searched
       matematica: translations.en.matematicaPage.title + " " + translations.en.matematicaPage.content,
       crittografia: translations.en.crittografiaPage.title + " " +
                     translations.en.crittografiaPage.introText + " " +
