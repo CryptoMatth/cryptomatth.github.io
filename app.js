@@ -4,10 +4,10 @@ const { useState, useEffect, useMemo } = React;
 const translations = {
   it: {
     common: { // Traduzioni comuni a più pagine o elementi globali
-      title: "Matematica & Crittografia",
+      title: "CryptoMatth", // Nome del progetto aggiornato
       searchPlaceholder: "Cerca nel sito...",
       indexTitle: "Indice",
-      footerText: "Matematica & Crittografia. Tutti i diritti riservati.",
+      footerText: "CryptoMatth. Tutti i diritti riservati.",
       pageNotFound: "Pagina non trovata",
       pageNotFoundText: "Siamo spiacenti, la pagina che stai cercando non esiste.",
       searchResultsTitle: "Risultati della Ricerca per:",
@@ -130,10 +130,10 @@ Questo portale si propone, quindi, come uno strumento autorevole e accessibile p
   },
   en: {
     common: {
-      title: "Mathematics & Cryptography",
+      title: "CryptoMatth", // Updated project name
       searchPlaceholder: "Search the site...",
       indexTitle: "Index",
-      footerText: "Mathematics & Cryptography. All rights reserved.",
+      footerText: "CryptoMatth. All rights reserved.",
       pageNotFound: "Page Not Found",
       pageNotFoundText: "Sorry, the page you are looking for does not exist.",
       searchResultsTitle: "Search Results for:",
@@ -418,7 +418,6 @@ const HomePage = ({ language }) => {
         <div className="prose max-w-none text-lg leading-relaxed">
           {renderMarkdown(tHomePage.introSection2Content)}
         </div>
-        {/* L'immagine è stata rimossa come richiesto */}
       </section>
     </main>
   );
@@ -790,7 +789,7 @@ const App = () => {
       vigenere: translations.en.crittografiaPage.vigenereCipher + " + " + translations.en.crittografiaPage.vigenereIntro,
       algoritmi: translations.en.algoritmiPage.title + " " + translations.en.algoritmiPage.content,
       applicazioni: translations.en.applicazioniPage.title + " " + translations.en.applicazioniPage.content,
-      risorse: translations.en.risorsePage.title + " " + translations.en.risorsePage.content,
+      risorse: translations.en.risorsePage.title + " + " + translations.en.risorsePage.content,
       rsa: translations.en.rsaPage.title + " " + translations.en.rsaPage.intro + " " +
            translations.en.rsaPage.keyGenerationTitle + " " + translations.en.rsaPage.keyGenerationSteps.join(" ") + " " +
            translations.en.rsaPage.encryptionTitle + " " + translations.en.rsaPage.encryptionFormula + " " + translations.en.rsaPage.encryptionDescription + " " +
@@ -993,7 +992,24 @@ const App = () => {
           </svg>
         </button>
 
-        <h1 className="text-xl md:text-3xl font-bold tracking-wide flex-grow text-center md:text-left">{tCommon.title}</h1> {/* Centered on mobile */}
+        {/* Logo e Titolo del Progetto */}
+        <div className="flex items-center flex-grow justify-center md:justify-start">
+          <svg
+            className="w-8 h-8 md:w-10 md:h-10 mr-2 md:mr-3 text-white"
+            fill="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            {/* Elemento Chiave (Crittografia) */}
+            <path d="M12 1C8.69 1 6 3.69 6 7v3H5c-1.1 0-2 .9-2 2v9c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-9c0-1.1-.9-2-2-2h-1V7c0-3.31-2.69-6-6-6zm0 2c2.21 0 4 1.79 4 4v3H8V7c0-2.21 1.79-4 4-4zm-2 10h4v2h-4v-2zm0 4h4v2h-4v-2z"/>
+            {/* Elemento Matematico (Simbolo Pi greco stilizzato o griglia) */}
+            <path fillRule="evenodd" d="M16.5 12.5a.5.5 0 011 0v.5h.5a.5.5 0 010 1h-.5v.5a.5.5 0 01-1 0v-.5h-.5a.5.5 0 010-1h.5v-.5z" clipRule="evenodd"/>
+            <path fillRule="evenodd" d="M12 12.5a.5.5 0 011 0v.5h.5a.5.5 0 010 1h-.5v.5a.5.5 0 01-1 0v-.5h-.5a.5.5 0 010-1h.5v-.5z" clipRule="evenodd"/>
+            <path fillRule="evenodd" d="M7.5 12.5a.5.5 0 011 0v.5h.5a.5.5 0 010 1h-.5v.5a.5.5 0 01-1 0v-.5h-.5a.5.5 0 010-1h.5v-.5z" clipRule="evenodd"/>
+          </svg>
+          <h1 className="text-xl md:text-3xl font-bold tracking-wide">{tCommon.title}</h1>
+        </div>
+
         <div className="flex items-center space-x-2 md:space-x-4"> {/* Contenitore per ricerca e lingua */}
           <div className="relative">
             <input
