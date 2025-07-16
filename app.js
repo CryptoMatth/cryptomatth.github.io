@@ -434,10 +434,10 @@ const HomePage = ({ language }) => {
 
       <section id="introduzione" className="mb-8">
         <h3 className="text-2xl font-semibold text-blue-700 mb-4">{tHomePage.welcomeTitle}</h3>
-        <div className="text-lg leading-relaxed">
+        <div className="prose max-w-none text-lg leading-relaxed">
           {renderMarkdown(tHomePage.introText1)}
         </div>
-        <div className="text-lg leading-relaxed mt-4">
+        <div className="prose max-w-none text-lg leading-relaxed mt-4">
           {renderMarkdown(tHomePage.introText2)}
         </div>
         <img
@@ -447,29 +447,6 @@ const HomePage = ({ language }) => {
           onError={(e) => { e.target.onerror = null; e.target.src="https://placehold.co/600x300/ADD8E6/000000?text=Immagine+non+disponibile"; }}
         />
       </section>
-
-      {/* Questi obiettivi e audience non sono più il focus principale della home page,
-          ma possono essere mantenuti se si vuole un riassunto breve o un link
-          a una pagina più dettagliata. Per ora li lascio commentati o li rimuovo
-          se il testo principale è sufficiente.
-      <section id="obiettivi" className="mb-8">
-        <h3 className="text-2xl font-semibold text-blue-700 mb-4">{tHomePage.objectivesTitle}</h3>
-        <ul className="list-disc list-inside space-y-2 text-lg">
-          <li>{tHomePage.objective1}</li>
-          <li>{tHomePage.objective2}</li>
-          <li>{tHomePage.objective3}</li>
-          <li>{tHomePage.objective4}</li>
-          <li>{tHomePage.objective5}</li>
-        </ul>
-      </section>
-
-      <section id="pubblico" className="mb-8">
-        <h3 className="text-2xl font-semibold text-blue-700 mb-4">{tHomePage.audienceTitle}</h3>
-        <p className="leading-relaxed text-lg">
-          {tHomePage.audienceText}
-        </p>
-      </section>
-      */}
     </main>
   );
 };
