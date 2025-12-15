@@ -229,6 +229,7 @@
 	.back-to-top.show { opacity: 1; visibility: visible; }
 	.back-to-top:hover { box-shadow: var(--shadow-glow); }
 
+/*
 	/* RESPONSIVE TABLET/DESKTOP */
 	@media (min-width: 768px) {
 		.hamburger { display: none; }
@@ -245,6 +246,7 @@
 		}
 		.preview-grid { grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); }
 	}
+*/
 
 	/* DARK MODE HOVER EFFECTS */
 	@media (hover: hover) {
