@@ -3,54 +3,56 @@ const { useState, useEffect, useMemo } = React;
 
 // Oggetto per le traduzioni di tutto il contenuto testuale
 const translations = {
-  it: {
-    common: { // Traduzioni comuni a più pagine o elementi globali
-      title: "CryptoMatth", // Nome del progetto aggiornato
-      searchPlaceholder: "Cerca nel sito...",
-      indexTitle: "Indice",
-      footerText: "CryptoMatth. Tutti i diritti riservati.",
-      pageNotFound: "Pagina non trovata",
-      pageNotFoundText: "Siamo spiacenti, la pagina che stai cercando non esiste.",
-      searchResultsTitle: "Risultati della Ricerca per:",
-      noSearchResults: "Nessun risultato trovato per la tua ricerca.",
-      backToHome: "Torna alla Home",
-    },
-    sidebar: { // Traduzioni per la sidebar, ora con struttura gerarchica
-      items: [
-        { key: 'home', title: "Introduzione al Progetto" },
-        {
-          key: 'crittografia',
-          title: "Principi di Crittografia",
-          children: [
-            {
-              key: 'symmetric',
-              title: "Crittografia Simmetrica",
-              children: [
-                { key: 'caesar', title: "Cifrario di Cesare" },
-                { key: 'vigenere', title: "Cifrario di Vigenère" }
-              ]
-            },
-            {
-              key: 'asymmetric',
-              title: "Crittografia Asimmetrica",
-              children: [
-                { key: 'rsa', title: "Algoritmo RSA" }
-              ]
-            }
-          ]
-        },
-        { key: 'matematica', title: "Fondamenti Matematici" },
-        { key: 'contatti', title: "Contatti" },
-      ]
-    },
-    homePage: { // Traduzioni specifiche per la HomePage
-      projectDescription: "Matematica e Crittografia: Il Portale di Approfondimento sulla Sicurezza Digitale",
-      welcomeTitle: "Benvenuti nel Mondo della Sicurezza Digitale",
-      introSection1: `Nel contesto attuale, caratterizzato dalla diffusione delle informazioni digitali e dalla crescente complessità delle minacce cibernetiche, la crittografia è una disciplina essenziale per la salvaguardia della riservatezza, dell'integrità e dell'autenticità dei dati. Questo portale è concepito come una risorsa di approfondimento completa, destinata a un pubblico vasto: da chi desidera comprendere i fondamenti della sicurezza digitale, allo studioso o al professionista che cerca un'analisi più specifica e rigorosa dei suoi meccanismi.
+	it: {
+		common: { // Traduzioni comuni a più pagine o elementi globali
+			title: "CryptoMatth", // Nome del progetto aggiornato
+			searchPlaceholder: "Cerca nel sito...",
+			indexTitle: "Indice",
+			footerText: "CryptoMatth. Tutti i diritti riservati.",
+			pageNotFound: "Pagina non trovata",
+			pageNotFoundText: "Siamo spiacenti, la pagina che stai cercando non esiste.",
+			searchResultsTitle: "Risultati della Ricerca per:",
+			noSearchResults: "Nessun risultato trovato per la tua ricerca.",
+			backToHome: "Torna alla Home",
+		},
+		
+		sidebar: { // Traduzioni per la sidebar, ora con struttura gerarchica
+			items: [
+				{ key: 'home', title: "Introduzione al Progetto" },
+				{
+					key: 'crittografia',
+					title: "Principi di Crittografia",
+					children: [
+						{
+							key: 'symmetric',
+							title: "Crittografia Simmetrica",
+							children: [
+								{ key: 'caesar', title: "Cifrario di Cesare" },
+								{ key: 'vigenere', title: "Cifrario di Vigenère" }
+							]
+						},
+						{
+							key: 'asymmetric',
+							title: "Crittografia Asimmetrica",
+							children: [
+								{ key: 'rsa', title: "Algoritmo RSA" }
+							]
+						}
+					]
+				},
+				{ key: 'matematica', title: "Fondamenti Matematici" },
+				{ key: 'contatti', title: "Contatti" },
+			]
+		},
+		
+		homePage: { // Traduzioni specifiche per la HomePage
+			projectDescription: "Matematica e Crittografia: Il Portale di Approfondimento sulla Sicurezza Digitale",
+			welcomeTitle: "Benvenuti nel Mondo della Sicurezza Digitale",
+			introSection1: `Nel contesto attuale, caratterizzato dalla diffusione delle informazioni digitali e dalla crescente complessità delle minacce cibernetiche, la crittografia è una disciplina essenziale per la salvaguardia della riservatezza, dell'integrità e dell'autenticità dei dati. Questo portale è concepito come una risorsa di approfondimento completa, destinata a un pubblico vasto: da chi desidera comprendere i fondamenti della sicurezza digitale, allo studioso o al professionista che cerca un'analisi più specifica e rigorosa dei suoi meccanismi.
 
 La trattazione è strutturata per offrire un'esplorazione sistematica e progressiva della materia. Il percorso inizia dalle sue origini storiche, per poi addentrarsi negli algoritmi complessi che definiscono la crittografia contemporanea, mantenendo una costante attenzione ai principi matematici che ne garantiscono la robustezza.`,
-      introSection2Heading: "Ambiti di Approfondimento Dettagliato:",
-      introSection2Content: `Il portale include un'analisi approfondita delle **radici storiche della crittografia**, delineando l'evoluzione delle metodologie di protezione delle informazioni attraverso le epoche. Saranno esaminati non solo i primi cifrari di sostituzione e trasposizione, come il Cifrario di Cesare e il Cifrario di Vigenère, ma anche il contesto socio-politico e tecnologico che ne ha stimolato lo sviluppo e la progressiva complessità. Questa prospettiva storica è fondamentale per contestualizzare lo sviluppo delle tecniche attuali e per apprezzare la progressione del pensiero crittografico e le sfide alla sicurezza delle comunicazioni. Si evidenzierà come le vulnerabilità dei sistemi storici abbiano spinto l'innovazione verso soluzioni più resilienti.
+			introSection2Heading: "Ambiti di Approfondimento Dettagliato:",
+			introSection2Content: `Il portale include un'analisi approfondita delle **radici storiche della crittografia**, delineando l'evoluzione delle metodologie di protezione delle informazioni attraverso le epoche. Saranno esaminati non solo i primi cifrari di sostituzione e trasposizione, come il Cifrario di Cesare e il Cifrario di Vigenère, ma anche il contesto socio-politico e tecnologico che ne ha stimolato lo sviluppo e la progressiva complessità. Questa prospettiva storica è fondamentale per contestualizzare lo sviluppo delle tecniche attuali e per apprezzare la progressione del pensiero crittografico e le sfide alla sicurezza delle comunicazioni. Si evidenzierà come le vulnerabilità dei sistemi storici abbiano spinto l'innovazione verso soluzioni più resilienti.
 
 La sezione centrale è dedicata agli **algoritmi crittografici moderni**, distinti nelle categorie fondamentali della **crittografia simmetrica** e **asimmetrica**. Per ciascuna, verranno esaminati in dettaglio i principi operativi, le architetture algoritmiche, la loro resistenza agli attacchi noti e le vulnerabilità intrinseche.
 
