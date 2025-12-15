@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <!-- STESSA HEAD DI INDEX -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crittografia Simmetrica - CryptoMatth</title>
+    
+    <!-- KATEX CDN -->
+    <link rel="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" integrity="sha384-GvrOXuhMATgEsSwCs4smul74iXGOixntILdUW9XmUC6+HX0sLNAK3q71HotJqlAn" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js" integrity="sha384-cpW21h6RZv/phavutF+5xYMAtuWTdM7Z+vLObv4mbSxPF7ZJ9I8SdfHtlTS0pSTv" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+    
+    <!-- STESSO CSS INLINE (copia esatto da index.html) -->
+    <style>
+        /* [INCOLLA QUI TUTTO IL CSS DA index.html - IDENTICO] */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary: #0A2540;
+            --accent: #007BFF;
+            --accent-glow: #00D4FF;
+            --bg: #F8FAFC;
+            --bg-card: rgba(255,255,255,0.95);
+            --text: #1E293B;
+            --text-light: #64748B;
+            --shadow: 0 10px 30px rgba(10,37,64,0.1);
+            --shadow-glow: 0 0 20px rgba(0,123,255,0.2);
+            --transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+        }
+        /* ... resto CSS identico ... */
+    </style>
+</head>
+<body>
+    <!-- STESSO HEADER E SIDEBAR -->
+    <header role="banner">
+        <!-- COPIA ESATTO DA index.html -->
+    </header>
+
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    <nav class="sidebar" id="sidebar" role="navigation" aria-label="Navigazione principale">
+        <!-- COPIA ESATTO -->
+    </nav>
+
+    <main>
+        <div class="container">
+            <!-- BREADCRUMB -->
+            <nav aria-label="Breadcrumb" style="margin-bottom:2rem;">
+                <a href="index.html" data-it="Home" data-en="Home" style="color:var(--accent);text-decoration:none;">Home</a> 
+                <span> / </span>
+                <span data-it="Crittografia Simmetrica" data-en="Symmetric Cryptography">Crittografia Simmetrica</span>
+            </nav>
+
+            <!-- SEZIONE TEORIA -->
+            <section id="theory" class="crypto-tool">
+                <h2 data-it="Teoria dei Cifrari Simmetrici" data-en="Symmetric Cipher Theory">Teoria dei Cifrari Simmetrici</h2>
+                
+                <div class="card" style="margin:2rem 0;">
+                    <h3 data-it="Concetti Fondamentali" data-en="Fundamental Concepts">Concetti Fondamentali</h3>
+                    <p data-it="I cifrari simmetrici utilizzano la stessa chiave per cifratura e decifratura. Esempi: Cifrario di Cesare \\(C = (P + K) \\mod 26\\), Vigenère." data-en="Symmetric ciphers use the same key for encryption and decryption. Examples: Caesar cipher \\(C = (P + K) \\mod 26\\), Vigenère.">
+                        I cifrari simmetrici utilizzano la stessa chiave per cifratura e decifratura. Esempi: Cifrario di Cesare \(C = (P + K) \mod 26\), Vigenère.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3 data-it="Block vs Stream Ciphers" data-en="Block vs Stream">Block vs Stream Ciphers</h3>
+                    <ul>
+                        <li data-it="Block: AES, DES (128-bit blocks)" data-en="Block: AES, DES (128-bit blocks)">Block: AES, DES (128-bit blocks)</li>
+                        <li data-it="Stream: RC4, Salsa20 (bit-per-bit)" data-en="Stream: RC4, Salsa20 (bit-per-bit)">Stream: RC4, Salsa20 (bit-per-bit)</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- TOOL INTERATTIVO -->
+            <section id="algorithms" class="crypto-tool">
+                <h2 data-it="🛠️ Cifrari Interattivi" data-en="🛠️ Interactive Ciphers">🛠️ Cifrari Interattivi</h2>
+                
+                <div class="tool-controls">
+                    <div class="tool-group">
+                        <label data-it="Algoritmo:" data-en="Algorithm:">Algoritmo:</label>
+                        <select id="cipherType">
+                            <option value="caesar">Cesare</option>
+                            <option value="vigenere">Vigenère</option>
+                        </select>
+                    </div>
+                    
+                    <div class="tool-group">
+                        <label data-it="Chiave:" data-en="Key:">Chiave:</label>
+                        <input type="text" id="cipherKey" placeholder="3 (Cesare) o PAROLA (Vigenère)" maxlength="50">
+                    </div>
+                    
+                    <div class="tool-group" style="justify-self:start;">
+                        <button class="btn" id="encryptBtn" data-it="Cifra" data-en="Encrypt">Cifra</button>
+                        <button class="btn" id="decryptBtn" data-it="Decifra" data-en="Decrypt">Decifra</button>
+                        <button class="btn" id="clearBtn" data-it="Pulisci" data-en="Clear">Pulisci</button>
+                    </div>
+                </div>
+
+                <div class="tool-group">
+                    <label data-it="Testo:" data-en="Text:">Testo:</label>
+                    <textarea id="inputText" placeholder="Inserisci il testo da cifrare/decifrare..." aria-label="Testo input"></textarea>
+                </div>
+
+                <div class="tool-group">
+                    <label data-it="Risultato:" data-en="Result:">Risultato:</label>
+                    <textarea id="outputText" readonly placeholder="Il risultato apparirà qui..." aria-label="Risultato output"></textarea>
+                </div>
+            </section>
+
+            <!-- MATEMATICA AVANZATA -->
+            <section class="crypto-tool">
+                <h2 data-it="🧮 Fondamenti Matematici" data-en="🧮 Mathematical Foundations">🧮 Fondamenti Matematici</h2>
+                
+                <div class="card">
+                    <h3 data-it="Cifrario di Cesare" data-en="Caesar Cipher">Cifrario di Cesare</h3>
+                    <p data-it="\\(C_i = (P_i + K) \\mod 26\\) dove \\(P_i\\) è la i-esima lettera, \\(K\\) chiave." data-en="\\(C_i = (P_i + K) \\mod 26\\) where \\(P_i\\) is the i-th letter, \\(K\\) key.">
+                        \(C_i = (P_i + K) \mod 26\) dove \(P_i\) è la i-esima lettera, \(K\) chiave.
+                    </p>
+                    <p data-it="Decifratura: \\(P_i = (C_i - K) \\mod 26\\)" data-en="Decryption: \\(P_i = (C_i - K) \\mod 26\\)">
+                        Decifratura: \(P_i = (C_i - K) \mod 26\)
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3 data-it="Vigenère (Polialfabetico)" data-en="Vigenère (Polyalphabetic)">Vigenère (Polialfabetico)</h3>
+                    <p data-it="Matice \\(27\\times27\\) con alfabeto esteso. Chiave ripetuta ciclicamente." data-en="\\(27\\times27\\) matrix with extended alphabet. Cyclic key repetition.">
+                        Matice \(27\times27\) con alfabeto esteso. Chiave ripetuta ciclicamente.
+                    </p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- STESSO FOOTER -->
+    <footer><!-- COPIA --></footer>
+
+    <!-- STESSO BACK TO TOP -->
+    <button class="back-to-top" id="backToTop"><!-- COPIA --></button>
+
+    <script>
+        // JAVASCRIPT ESTESO PER symmetric.html
+        // [COPIA TUTTO LO SCRIPT DA index.html]
+        
+        // + FUNZIONALITÀ TOOL CRITTOGRAFICO
+        const cipherType = document.getElementById('cipherType');
+        const cipherKey = document.getElementById('cipherKey');
+        const inputText = document.getElementById('inputText');
+        const outputText = document.getElementById('outputText');
+        const encryptBtn = document.getElementById('encryptBtn');
+        const decryptBtn = document.getElementById('decryptBtn');
+        const clearBtn = document.getElementById('clearBtn');
+
+        // FUNZIONI CRITTOGRAFIA
+        function caesarCipher(text, key, encrypt = true) {
+            key = parseInt(key) % 26;
+            if (!encrypt) key = (26 - key) % 26;
+            
+            return text.toUpperCase().split('').map(char => {
+                if (char.match(/[A-Z]/)) {
+                    return String.fromCharCode(((char.charCodeAt(0) - 65 + key) % 26) + 65);
+                }
+                return char;
+            }).join('');
+        }
+
+        function vigenereCipher(text, key, encrypt = true) {
+            key = key.toUpperCase().replace(/[^A-Z]/g, '');
+            if (!key) return text;
+            
+            text = text.toUpperCase();
+            let result = '';
+            let j = 0;
+            
+            for (let i = 0; i < text.length; i++) {
+                if (text[i].match(/[A-Z]/)) {
+                    const p = text.charCodeAt(i) - 65;
+                    const k = key.charCodeAt(j % key.length) - 65;
+                    
+                    if (encrypt) {
+                        result += String.fromCharCode(((p + k) % 26) + 65);
+                    } else {
+                        result += String.fromCharCode(((p - k + 26) % 26) + 65);
+                    }
+                    j++;
+                } else {
+                    result += text[i];
+                }
+            }
+            return result;
+        }
+
+        // EVENT LISTENER TOOL
+        function processCipher(encrypt) {
+            const type = cipherType.value;
+            const key = cipherKey.value.trim();
+            const text = inputText.value;
+            
+            if (!text || !key) {
+                outputText.value = '⚠️ Inserisci testo e chiave!';
+                return;
+            }
+
+            let result;
+            if (type === 'caesar') {
+                result = caesarCipher(text, key, encrypt);
+            } else {
+                result = vigenereCipher(text, key, encrypt);
+            }
+            
+            outputText.value = result;
+        }
+
+        encryptBtn.addEventListener('click', () => processCipher(true));
+        decryptBtn.addEventListener('click', () => processCipher(false));
+        clearBtn.addEventListener('click', () => {
+            inputText.value = '';
+            outputText.value = '';
+            cipherKey.value = '';
+        });
+
+        // COPIA/INCOLLA RISULTATO
+        outputText.addEventListener('focus', () => {
+            outputText.select();
+            document.execCommand('copy');
+        });
+
+        // INPUT LIVE PREVIEW (solo Cesare semplice)
+        cipherKey.addEventListener('input', () => {
+            if (cipherType.value === 'caesar' && inputText.value) {
+                const preview = caesarCipher(inputText.value, cipherKey.value, true);
+                outputText.value = `🔍 Live Preview: ${preview}`;
+            }
+        });
+
+        // UPDATE BUTTON TEXT CON LINGUA
+        function updateToolButtons() {
+            encryptBtn.textContent = currentLang === 'it' ? 'Cifra' : 'Encrypt';
+            decryptBtn.textContent = currentLang === 'it' ? 'Decifra' : 'Decrypt';
+            clearBtn.textContent = currentLang === 'it' ? 'Pulisci' : 'Clear';
+        }
+
+        // AGGIUNGI TRADUZIONI TOOL
+        translations.it.tools = {
+            algorithm: "Algoritmo:",
+            key: "Chiave:",
+            text: "Testo:",
+            result: "Risultato:",
+            encrypt: "Cifra",
+            decrypt: "Decifra",
+            clear: "Pulisci"
+        };
+        translations.en.tools = {
+            algorithm: "Algorithm:",
+            key: "Key:",
+            text: "Text:",
+            result: "Result:",
+            encrypt: "Encrypt",
+            decrypt: "Decrypt",
+            clear: "Clear"
+        };
+
+        // TUTTO IL RESTO IDENTICO A index.html
+    </script>
+</body>
+</html>
